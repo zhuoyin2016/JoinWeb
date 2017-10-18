@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.mapper.ManagerMapper">
+
+    <!--增加管理员-->
+    <insert id="addManager">
+        INSERT INTO `t_manager`
+        (`id`, `username`, `password`, `status`)
+        VALUES (#{manager.id}, #{manager.username},
+        #{manager.password}, #{manager.status})
+    </insert>
+
+    <!--删除管理员-->
+    <delete id="deleteManager">
+        DELETE FROM `t_manager`
+        WHERE `id` = #{id}
+    </delete>
+
+    <!--修改管理员-->
+    <update id="updateManager">
+        UPDATE `t_manager`
+        SET `username` = #{manager.username},
+        `password` = #{manager.password},
+        `status` = #{manager.status}
+        WHERE `id` = #{manager.id}
+    </update>
+
+    <!--列出全部管理员-->
+    <select id="listAll" resultMap="pw.Manager">
+        SELECT *
+        FROM `t_manager`
+    </select>
+
+    <!--根据id查找管理员-->
+    <select id="queryManagerById" resultMap="pw.Manager" >
+        SELECT *
+        FROM `t_manager`
+        WHERE `id` = #{id}
+    </select>
+
+    <!--根据姓名查找管理员-->
+    <select id="queryManagerByName" resultMap="pw.Manager">
+        SELECT *
+        FROM `t_manager`
+        WHERE `username`LIKE CONCAT('%',#{username},'%')
+    </select>
+
+</mapper>
