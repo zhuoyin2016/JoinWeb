@@ -30,7 +30,12 @@ public enum  NFException implements IBizExceptionMes {
 
     queryStudentByIdFailed("", 10017),
 
-    ;
+    AddManager("添加管理员失败",20000),
+    DeleteManager("删除管理员失败",20001),
+    UpdateManager("修改管理员失败",20002),
+    ListAllManager("遍历管理员失败",20003),
+    QueryManagerById("查询管理员失败",20004);
+
 
     private String msg;
 
