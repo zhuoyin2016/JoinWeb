@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * student实体    是吗
+ * student实体
  * Created by fujia on 2016/3/27.
  */
 @Table(name = "t_student")
