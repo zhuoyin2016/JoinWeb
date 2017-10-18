@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * 学生信息管理mapper层
+ * 学生信息管理mapper层啦啦啦
  * Created by fujia on 2016/3/28.
  *
  *
