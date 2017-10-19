@@ -10,7 +10,6 @@ import com.pandawork.core.common.exception.IBizExceptionMes;
  */
 public enum  NFException implements IBizExceptionMes {
     SystemException("系统内部异常", 1),
-
     UserNameNotNull("用户名不能为空", 10001),
     PasswordNotNull("密码不能为空", 10002),
     ListStudentAll("获取学生列表失败",10003),
@@ -27,14 +26,19 @@ public enum  NFException implements IBizExceptionMes {
     UpdateStudentFailed("更新学生信息失败",10014),
     UpdateStudentByIdFailed("按照id查询学生信息失败",10016),
     QueryByNameFailed("按照姓名查询学生信息失败",10017 ),
-
     queryStudentByIdFailed("", 10017),
 
     AddManager("添加管理员失败",20000),
     DeleteManager("删除管理员失败",20001),
     UpdateManager("修改管理员失败",20002),
     ListAllManager("遍历管理员失败",20003),
-    QueryManagerById("查询管理员失败",20004);
+    QueryManagerById("查询管理员失败",20004),
+
+    AddJoinerFailed("提交报名表失败",30000),
+    DeleteJoinerFailed("删除报名学生失败",30001),
+    UpdateJoinerFailed("修改学生失败",30002),
+    ListAlljoinerFailed("遍历学生失败",30003),
+    QueryJoinerFailed("查询学生失败",30004);
 
 
     private String msg;
