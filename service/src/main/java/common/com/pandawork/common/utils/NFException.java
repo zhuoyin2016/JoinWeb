@@ -34,8 +34,10 @@ public enum  NFException implements IBizExceptionMes {
     DeleteManager("删除管理员失败",20001),
     UpdateManager("修改管理员失败",20002),
     ListAllManager("遍历管理员失败",20003),
-    QueryManagerById("查询管理员失败",20004);
+    QueryManagerById("查询管理员失败",20004),
 
+    AddImage("添加图片失败",90001),
+    DelImageById("删除图片失败",90002);
 
     private String msg;
 
