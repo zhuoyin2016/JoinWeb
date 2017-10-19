@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by wangh on 2017/10/18.ffff
+ * Created by wangh on 2017/10/18
  */
 public class ManagerServiceTest extends AbstractTestCase {
     @Autowired

@@ -9,12 +9,12 @@
         INSERT INTO `t_joiner`
         (`id`, `joiner_name`, `joiner_photo`, `joiner_sex`,`joiner_grade`,`joiner_ranking`,
         `joiner_birthplace`,`joiner_college`,`joiner_major`,`joiner_number`,`joiner_qq`,
-        `joiner_department`,`joiner_introduction`, `joiner_reason`,`joiner_state`)
+        `joiner_department`,`joiner_introduction`, `joiner_reason`)
         VALUES (#{joiner.id}, #{joiner.joinerName},#{joiner.joinerPhoto},
         #{joiner.joinerSex},#{joiner.joinerGrade},#{joiner.joinerRanking},
         #{joiner.joinerBir},#{joiner.joinerCollege},#{joiner.joinerMajor},
         #{joiner.joinerNum},#{joiner.joinerQQ},#{joiner.joinerDep},
-        #{joiner.joinerIntro}, #{joiner.joinerReason},#{joiner.joinerState})
+        #{joiner.joinerIntro}, #{joiner.joinerReason})
     </insert>
 
     <!--删除报名学生信息-->
@@ -50,31 +50,31 @@
     </select>
 
     <!--根据性别查找学生-->
-    <select id=" queryJoinerBySex" resultMap="pw.Joiner">
+    <select id="queryJoinerBySex" resultMap="pw.Joiner">
         SELECT *
         FROM `t_joiner`
-        WHERE `joiner_sex`LIKE CONCAT('%',#{sex},'%')
+        WHERE `joiner_sex`= #{sex}
     </select>
 
     <!--根据年级查找学生-->
-    <select id=" queryJoinerByGrade" resultMap="pw.Joiner">
+    <select id="queryJoinerByGrade" resultMap="pw.Joiner">
         SELECT *
         FROM `t_joiner`
-        WHERE `joiner_grade`LIKE CONCAT('%',#{grade},'%')
+        WHERE `joiner_grade`LIKE CONCAT('%',#{joinerGrade},'%')
     </select>
 
     <!--根据专业查找学生-->
-    <select id=" queryJoinerByMajor" resultMap="pw.Joiner">
+    <select id="queryJoinerByMajor" resultMap="pw.Joiner">
         SELECT *
         FROM `t_joiner`
         WHERE `joiner_major`LIKE CONCAT('%',#{major},'%')
     </select>
 
     <!--根据状态查找学生-->
-    <select id=" queryJoinerByState" resultMap="pw.Joiner">
+    <select id="queryJoinerByState" resultMap="pw.Joiner">
         SELECT *
         FROM `t_joiner`
-        WHERE `joiner_state`LIKE CONCAT('%',#{state},'%')
+        WHERE `joiner_state`= #{state}
     </select>
 
 </mapper>

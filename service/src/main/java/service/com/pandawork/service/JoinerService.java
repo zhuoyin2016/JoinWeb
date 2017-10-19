@@ -64,11 +64,11 @@ public interface JoinerService {
 
     /**
      * 根据年级查找
-     * @param grade
+     * @param joinerGrade
      * @return
      * @throws SSException
      */
-    public List<Joiner> queryJoinerByGrade(String grade)throws SSException;
+    public List<Joiner> queryJoinerByGrade(String joinerGrade)throws SSException;
 
     /**
      * 根据状态查找
@@ -76,5 +76,5 @@ public interface JoinerService {
      * @return
      * @throws SSException
      */
-    public List<Joiner> queryJoinerByState(String state)throws SSException;
+    public List<Joiner> queryJoinerByState(int state)throws SSException;
 }
