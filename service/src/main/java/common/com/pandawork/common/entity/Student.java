@@ -11,6 +11,7 @@ import java.util.Date;
 /**
  * student实体
  * Created by fujia on 2016/3/27.
+ * hello
  */
 @Table(name = "t_student")
 @Entity
