@@ -27,16 +27,15 @@ public enum  NFException implements IBizExceptionMes {
     UpdateStudentFailed("更新学生信息失败",10014),
     UpdateStudentByIdFailed("按照id查询学生信息失败",10016),
     QueryByNameFailed("按照姓名查询学生信息失败",10017 ),
-
-    queryStudentByIdFailed("", 10017),
-
-    AddManager("添加管理员失败",20000),
-    DeleteManager("删除管理员失败",20001),
-    UpdateManager("修改管理员失败",20002),
-    ListAllManager("遍历管理员失败",20003),
-    QueryManagerById("查询管理员失败",20004);
-
-
+    AddMember("增加成员失败",10000),
+    DeleteMember("删除成员失败",11000),
+    UpdateMember("更新成员失败",11001),
+    QueryMemberById("根据id查找成员失败",11002),
+    ListAllMember("便利成员失败",11003),
+    QueryMemberByDepartment("根据部门查找成员失败",11004),
+    QueryMemberByPosition("根据职位查找成员失败",11005),
+    QueryMemberByGrade("根据年级查找成员失败",11006)
+    ;
     private String msg;
 
     private Integer code;

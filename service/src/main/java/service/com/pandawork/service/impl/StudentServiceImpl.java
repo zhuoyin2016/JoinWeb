@@ -113,7 +113,7 @@ public class StudentServiceImpl implements StudentService {
            return studentMapper.queryById(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.queryStudentByIdFailed, e);
+            throw SSException.get(NFException.DelStudentNull, e);
         }
 
     }
