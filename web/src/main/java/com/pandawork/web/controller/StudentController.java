@@ -20,8 +20,6 @@ import java.util.List;
  * StudentController
  * @author: fujia
  * @time: 2015/8/26 16:57
- * 试一试
- * 再
  */
 @Controller
 @RequestMapping("/student")
