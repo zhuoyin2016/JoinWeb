@@ -41,7 +41,7 @@ public class JoinerServiceImpl implements JoinerService {
             joinerMapper.addJoiner(joiner);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.AddJoinerFailed, e);
+            throw SSException.get(NFException.QueryMemberByGrade, e);
         }
 
     }
@@ -61,7 +61,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.delJoiner(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.DeleteJoinerFailed, e);
+            throw SSException.get(NFException.QueryMemberByGrade, e);
         }
     }
 
@@ -79,7 +79,7 @@ public class JoinerServiceImpl implements JoinerService {
             joinerMapper.updateJoiner(joiner);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.UpdateJoinerFailed, e);
+            throw SSException.get(NFException.QueryMemberByGrade, e);
         }
 
     }
@@ -97,7 +97,7 @@ public class JoinerServiceImpl implements JoinerService {
             joinerList = joinerMapper.listAllJoiner();
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.ListAlljoinerFailed,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
         return joinerList;
     }
@@ -117,7 +117,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerById(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
     }
 
@@ -136,7 +136,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerBySex(sex);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
     }
 
@@ -155,7 +155,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerByMajor(major);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
     }
 
@@ -174,7 +174,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerByGrade(grade);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
     }
 
@@ -193,7 +193,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerByState(state);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
     }
 

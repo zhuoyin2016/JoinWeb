@@ -42,7 +42,7 @@ public class ManagerServiceImpl implements ManagerService {
             managerMapper.addManager(manager);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.AddManager, e);
+            throw SSException.get(NFException.QueryMemberByGrade, e);
         }
 
     }
@@ -62,7 +62,7 @@ public class ManagerServiceImpl implements ManagerService {
             return managerMapper.deleteManager(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.DeleteManager, e);
+            throw SSException.get(NFException.QueryMemberByGrade, e);
         }
     }
 
@@ -80,7 +80,7 @@ public class ManagerServiceImpl implements ManagerService {
             managerMapper.updateManager(manager);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.UpdateManager, e);
+            throw SSException.get(NFException.QueryMemberByGrade, e);
         }
 
     }
@@ -99,7 +99,7 @@ public class ManagerServiceImpl implements ManagerService {
             userList = managerMapper.listAll();
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.ListAllManager,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
         return userList;
     }
@@ -120,7 +120,7 @@ public class ManagerServiceImpl implements ManagerService {
             return managerMapper.queryManagerById(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryManagerById,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
     }
 
@@ -140,7 +140,7 @@ public class ManagerServiceImpl implements ManagerService {
             return managerMapper.queryManagerByName(username);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.ListAllManager,e);
+            throw SSException.get(NFException.QueryMemberByGrade,e);
         }
     }
 }
