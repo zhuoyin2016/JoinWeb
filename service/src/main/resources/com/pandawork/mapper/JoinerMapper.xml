@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.mapper.JoinerMapper">
+
+    <!--增加报名学生-->
+    <insert id="addJoiner">
+        INSERT INTO `t_joiner`
+        (`id`, `joiner_name`, `joiner_photo`, `joiner_sex`,`joiner_grade`,`joiner_ranking`,
+        `joiner_birthplace`,`joiner_college`,`joiner_major`,`joiner_number`,`joiner_qq`,
+        `joiner_department`,`joiner_introduction`, `joiner_reason`,`joiner_state`)
+        VALUES (#{joiner.id}, #{joiner.joinerName},#{joiner.joinerPhoto},
+        #{joiner.joinerSex},#{joiner.joinerGrade},#{joiner.joinerRanking},
+        #{joiner.joinerBir},#{joiner.joinerCollege},#{joiner.joinerMajor},
+        #{joiner.joinerNum},#{joiner.joinerQQ},#{joiner.joinerDep},
+        #{joiner.joinerIntro}, #{joiner.joinerReason},#{joiner.joinerState})
+    </insert>
+
+    <!--删除报名学生信息-->
+    <delete id="delJoiner">
+        DELETE FROM `t_joiner`
+        WHERE `id` = #{id}
+    </delete>
+
+    <!--修改报名学生信息-->
+    <update id="updateJoiner">
+        UPDATE `t_joiner`
+        SET `joiner_name`= #{joiner.joinerName}, `joiner_photo` = #{joiner.joinerPhoto},
+        `joiner_sex` = #{joiner.joinerSex},`joiner_grade` = #{joiner.joinerGrade},
+        `joiner_ranking`= #{joiner.joinerRanking},`joiner_birthplace` = #{joiner.joinerBir},
+        `joiner_college` = #{joiner.joinerCollege},`joiner_major`= #{joiner.joinerMajor},
+        `joiner_number` =  #{joiner.joinerNum},`joiner_qq` = #{joiner.joinerQQ},
+        `joiner_department`= #{joiner.joinerDep},`joiner_introduction`=  #{joiner.joinerIntro},
+        `joiner_reason` = #{joiner.joinerReason},`joiner_state`= #{joiner.joinerState}
+        WHERE `id` = #{joiner.id}
+    </update>
+
+    <!--列出全部报名学生-->
+    <select id="listAllJoiner" resultMap="pw.Joiner">
+        SELECT *
+        FROM `t_joiner`
+    </select>
+
+    <!--根据id查找报名学生-->
+    <select id="queryJoinerById" resultMap="pw.Joiner" >
+        SELECT *
+        FROM `t_joiner`
+        WHERE `id` = #{id}
+    </select>
+
+    <!--根据性别查找学生-->
+    <select id=" queryJoinerBySex" resultMap="pw.Joiner">
+        SELECT *
+        FROM `t_joiner`
+        WHERE `joiner_sex`LIKE CONCAT('%',#{sex},'%')
+    </select>
+
+    <!--根据年级查找学生-->
+    <select id=" queryJoinerByGrade" resultMap="pw.Joiner">
+        SELECT *
+        FROM `t_joiner`
+        WHERE `joiner_grade`LIKE CONCAT('%',#{grade},'%')
+    </select>
+
+    <!--根据专业查找学生-->
+    <select id=" queryJoinerByMajor" resultMap="pw.Joiner">
+        SELECT *
+        FROM `t_joiner`
+        WHERE `joiner_major`LIKE CONCAT('%',#{major},'%')
+    </select>
+
+    <!--根据状态查找学生-->
+    <select id=" queryJoinerByState" resultMap="pw.Joiner">
+        SELECT *
+        FROM `t_joiner`
+        WHERE `joiner_state`LIKE CONCAT('%',#{state},'%')
+    </select>
+
+</mapper>
