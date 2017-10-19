@@ -47,6 +47,6 @@ public interface ImageMapper {
      * @return 返回
      * @throws Exception 异常
      */
-    public List<Image> imageListAll() throws Exception;
+    public List<Image> listAll() throws Exception;
 }
 

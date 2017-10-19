@@ -37,9 +37,9 @@ public interface ImageService {
      * 根据id查询图片
      * @param id id
      * @return 返回
-     * @throws Exception 异常
+     * @throws SSException 异常
      */
-    public Student queryImageById(int id) throws SSException;
+    public Image queryImageById(int id) throws SSException;
 
     /**
      *查询图片列表

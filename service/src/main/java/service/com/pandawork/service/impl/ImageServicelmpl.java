@@ -44,7 +44,7 @@ public class ImageServicelmpl implements ImageService {
             imageMapper.addImage(image);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.AddImage, e);
+            throw SSException.get(NFException.AddImageFailed, e);
         }
     }
 
@@ -62,7 +62,7 @@ public class ImageServicelmpl implements ImageService {
             return imageMapper.delImageById(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.DelImageById, e);
+            throw SSException.get(NFException.DelImageByIdFailed, e);
         }
     }
 
@@ -71,19 +71,34 @@ public class ImageServicelmpl implements ImageService {
      * @throws SSException 异常
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public void updateImage(Image image) throws SSException{
-
+        if (Assert.isNotNull(image))
+            return;
+        try {
+            imageMapper.updateImage(image);
+        } catch (Exception e) {
+            LogClerk.errLog.error(e);
+            throw SSException.get(NFException.UpdateImageFailed, e);
+        }
     }
 
     /**
      * 根据id查询图片
      * @param id id
      * @return 返回
-     * @throws Exception 异常
+     * @throws SSException 异常
      */
     @Override
-    public Student queryImageById(int id) throws SSException{
-
+    public Image queryImageById(int id) throws SSException {
+        if(Assert.lessOrEqualZero(id)){
+            return null;
+        }try{
+            return imageMapper.queryImageById(id);
+        } catch (Exception e) {
+            LogClerk.errLog.error(e);
+            throw SSException.get(NFException.queryImageByIdFailed,e);
+        }
     }
 
     /**
@@ -92,8 +107,16 @@ public class ImageServicelmpl implements ImageService {
      * @throws SSException 异常
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public List<Image> listAll() throws SSException{
-
+        List<Image> imageList = Collections.emptyList();
+        try {
+            imageList = imageMapper.listAll();
+        } catch (Exception e) {
+            LogClerk.errLog.error(e);
+            throw SSException.get(NFException.ListImageAllFailed, e);
+        }
+        return imageList;
     }
 
 }

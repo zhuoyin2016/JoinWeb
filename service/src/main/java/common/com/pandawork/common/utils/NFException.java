@@ -34,8 +34,13 @@ public enum  NFException implements IBizExceptionMes {
     ListAllMember("便利成员失败",11003),
     QueryMemberByDepartment("根据部门查找成员失败",11004),
     QueryMemberByPosition("根据职位查找成员失败",11005),
-    QueryMemberByGrade("根据年级查找成员失败",11006)
-    ;
+    QueryMemberByGrade("根据年级查找成员失败",11006),
+    AddImageFailed("添加图片失败",90001),
+    DelImageByIdFailed("删除图片失败",90002),
+    UpdateImageFailed("更新图片失败",90003),
+    queryImageByIdFailed("根据id查询图片失败",90004),
+    ListImageAllFailed("查询图片列表失败",90005);
+
     private String msg;
 
     private Integer code;
