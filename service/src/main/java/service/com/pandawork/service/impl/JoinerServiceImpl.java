@@ -41,7 +41,7 @@ public class JoinerServiceImpl implements JoinerService {
             joinerMapper.addJoiner(joiner);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade, e);
+            throw SSException.get(NFException.AddJoinerFailed, e);
         }
 
     }
@@ -61,7 +61,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.delJoiner(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade, e);
+            throw SSException.get(NFException.DeleteJoinerFailed, e);
         }
     }
 
@@ -79,7 +79,7 @@ public class JoinerServiceImpl implements JoinerService {
             joinerMapper.updateJoiner(joiner);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade, e);
+            throw SSException.get(NFException.UpdateJoinerFailed, e);
         }
 
     }
@@ -97,7 +97,7 @@ public class JoinerServiceImpl implements JoinerService {
             joinerList = joinerMapper.listAllJoiner();
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade,e);
+            throw SSException.get(NFException.ListAllJoinerFailed,e);
         }
         return joinerList;
     }
@@ -117,7 +117,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerById(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade,e);
+            throw SSException.get(NFException.QueryJoinerFailed,e);
         }
     }
 
@@ -136,7 +136,7 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerBySex(sex);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade,e);
+            throw SSException.get(NFException.QueryJoinerFailed,e);
         }
     }
 
@@ -155,26 +155,26 @@ public class JoinerServiceImpl implements JoinerService {
             return joinerMapper.queryJoinerByMajor(major);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade,e);
+            throw SSException.get(NFException.QueryJoinerFailed,e);
         }
     }
 
     /**
      * 根据年级查找报名学生
-     * @param grade
+     * @param joinerGrade
      * @return
      * @throws SSException
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
-    public List<Joiner>  queryJoinerByGrade(String grade) throws SSException {
-        if(Assert.isNull(grade)){
+    public List<Joiner>  queryJoinerByGrade(String joinerGrade) throws SSException {
+        if(Assert.isNull(joinerGrade)){
             return null;
         }try{
-            return joinerMapper.queryJoinerByGrade(grade);
+            return joinerMapper.queryJoinerByGrade(joinerGrade);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade,e);
+            throw SSException.get(NFException.QueryJoinerFailed,e);
         }
     }
 
@@ -186,14 +186,14 @@ public class JoinerServiceImpl implements JoinerService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
-    public List<Joiner> queryJoinerByState(String state) throws SSException {
+    public List<Joiner> queryJoinerByState(int state) throws SSException {
         if(Assert.isNull(state)){
             return null;
         }try{
             return joinerMapper.queryJoinerByState(state);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryMemberByGrade,e);
+            throw SSException.get(NFException.QueryJoinerFailed,e);
         }
     }
 

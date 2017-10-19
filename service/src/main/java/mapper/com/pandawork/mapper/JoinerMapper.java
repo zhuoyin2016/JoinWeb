@@ -65,11 +65,11 @@ public interface JoinerMapper {
 
     /**
      * 通过年级查找
-     * @param grade
+     * @param joinerGrade
      * @return
      * @throws Exception
      */
-    public List<Joiner> queryJoinerByGrade(@Param("grade") String grade)throws Exception;
+    public List<Joiner> queryJoinerByGrade(@Param("joinerGrade") String joinerGrade)throws Exception;
 
     /**
      * 通过状态查找
@@ -77,5 +77,5 @@ public interface JoinerMapper {
      * @return
      * @throws Exception
      */
-    public List<Joiner> queryJoinerByState(@Param("state") String state)throws Exception;
+    public List<Joiner> queryJoinerByState(@Param("state") int state)throws Exception;
 }
