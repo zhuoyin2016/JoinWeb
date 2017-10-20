@@ -27,8 +27,6 @@ public class ImageServicelmpl implements ImageService {
     @Autowired
     ImageMapper imageMapper;
 
-    @Autowired
-    protected CommonDao commonDao;
 
     /**
      * 增加图片
@@ -47,6 +45,7 @@ public class ImageServicelmpl implements ImageService {
             throw SSException.get(NFException.AddImageFailed, e);
         }
     }
+
 
     /**
      * 根据id删除图片
@@ -73,7 +72,7 @@ public class ImageServicelmpl implements ImageService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public void updateImage(Image image) throws SSException{
-        if (Assert.isNotNull(image))
+        if (Assert.isNull(image))
             return;
         try {
             imageMapper.updateImage(image);
@@ -108,15 +107,16 @@ public class ImageServicelmpl implements ImageService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
-    public List<Image> listAll() throws SSException{
-        List<Image> imageList = Collections.emptyList();
-        try {
-            imageList = imageMapper.listAll();
-        } catch (Exception e) {
-            LogClerk.errLog.error(e);
-            throw SSException.get(NFException.ListImageAllFailed, e);
-        }
-        return imageList;
+    public List<Image> listImageAll() throws SSException {
+            List<Image> imageList = Collections.emptyList();
+            try {
+                imageList = imageMapper.listImageAll();
+            } catch (Exception e) {
+                LogClerk.errLog.error(e);
+                throw SSException.get(NFException.ListImageAllFailed, e);
+            }
+            return imageList;
     }
+
 
 }

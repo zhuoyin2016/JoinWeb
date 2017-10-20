@@ -46,5 +46,5 @@ public interface ImageService {
      * @return 返回
      * @throws SSException 异常
      */
-    public List<Image> listAll() throws SSException;
+    public List<Image> listImageAll() throws SSException;
 }
