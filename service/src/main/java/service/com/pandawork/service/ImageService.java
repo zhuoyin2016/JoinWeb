@@ -1,7 +1,6 @@
 package com.pandawork.service;
 
 import com.pandawork.common.entity.Image;
-import com.pandawork.common.entity.Student;
 import com.pandawork.core.common.exception.SSException;
 
 import java.util.List;

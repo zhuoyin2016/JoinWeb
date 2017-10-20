@@ -1,12 +1,10 @@
 package com.pandawork.service.impl;
 
 import com.pandawork.common.entity.Image;
-import com.pandawork.common.entity.Student;
 import com.pandawork.common.utils.NFException;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
-import com.pandawork.core.framework.dao.CommonDao;
 import com.pandawork.mapper.ImageMapper;
 import com.pandawork.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +43,6 @@ public class ImageServicelmpl implements ImageService {
             throw SSException.get(NFException.AddImageFailed, e);
         }
     }
-
 
     /**
      * 根据id删除图片

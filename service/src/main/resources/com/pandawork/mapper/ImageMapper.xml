@@ -38,6 +38,4 @@
         FROM `t_images`
     </select>
 
-
-
 </mapper>

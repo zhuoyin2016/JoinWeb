@@ -28,8 +28,8 @@ public class Image extends AbstractEntity {
     @Column(name = "upload_img_time")
     private String uploadImgTime;
 
-    @Column(name = "select")
     //图片是否被选中
+    @Column(name = "select")
     private Integer select;
 
     public Integer getId() {
