@@ -19,9 +19,9 @@ public class ManagerServiceTest extends AbstractTestCase {
     @Test
     public void addManagerTest() throws SSException {
         Manager manager = new Manager();
-        manager.setUsername("吴晓阳");
+        manager.setUsername("张航");
         manager.setPassword("admin");
-        manager.setStatus(1);
+        manager.setStatus(0);
         managerService.addManager(manager);
         System.out.println("添加成功");
     }

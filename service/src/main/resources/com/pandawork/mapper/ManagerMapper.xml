@@ -44,7 +44,7 @@
     <select id="queryManagerByName" resultMap="pw.Manager">
         SELECT *
         FROM `t_manager`
-        WHERE `username`LIKE CONCAT('%',#{username},'%')
+        WHERE `username` = #{username}
     </select>
 
 </mapper>

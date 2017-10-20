@@ -2,6 +2,7 @@ package com.pandawork.common.entity;
 
 import com.pandawork.core.common.entity.AbstractEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -24,6 +25,7 @@ public class Manager extends AbstractEntity {
     private String password;
 
     //管理员等级  0-普通管理员；1-高级管理员；2-超级管理员
+    @Column(name = "status")
     private Integer status;
 
 

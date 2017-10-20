@@ -133,7 +133,7 @@ public class ManagerServiceImpl implements ManagerService {
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
-    public List<Manager> queryManagerByName(String username) throws SSException {
+    public Manager queryManagerByName(String username) throws SSException {
         if(Assert.isNull(username)){
             return null;
         }try{

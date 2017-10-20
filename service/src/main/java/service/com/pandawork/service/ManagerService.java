@@ -64,6 +64,6 @@ public interface ManagerService {
      * @return
      * @throws Exception
      */
-    public List<Manager> queryManagerByName(String username) throws SSException;
+    public Manager queryManagerByName(String username) throws SSException;
 
 }

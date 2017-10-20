@@ -1,19 +1,18 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- **********************************************************************************
-*Description: 登录页
-*author:      mayuan
-*date:        2015.8.25
-************************************************************************************************* -->
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: wangh
+  Date: 2017/10/18
+  Time: 21:18
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>跳转页面</title>
+    <title>跳转</title>
 </head>
 <body>
 <%
-   response.sendRedirect("/member/join");
+response.sendRedirect("/man/login");
 %>
 </body>
 </html>

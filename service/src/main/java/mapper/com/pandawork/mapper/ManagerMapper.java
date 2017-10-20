@@ -58,7 +58,7 @@ public interface ManagerMapper {
      * @return
      * @throws Exception
      */
-    public List<Manager> queryManagerByName(@Param("username") String username)throws Exception;
+    public Manager queryManagerByName(@Param("username") String username)throws Exception;
 
 
 }
