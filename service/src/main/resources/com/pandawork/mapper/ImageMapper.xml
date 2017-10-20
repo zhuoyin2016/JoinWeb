@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.mapper.ImageMapper">
+
+    <!--增加图片-->
+    <insert id="addImage">
+        INSERT INTO `t_images`
+        (`id`, `img_name`, `upload_img_time`, `select`)
+        VALUES (#{image.id}, #{image.img_name},
+        #{image.upload_img_time}, #{image.select})
+    </insert>
+
+    <!--据id删除图片-->
+    <delete id="delImageById">
+        DELETE FROM `t_images`
+        WHERE `id` = #{id}
+    </delete>
+
+    <!--修改图片-->
+    <update id="updateImage">
+        UPDATE `t_images`
+        SET `img_name` = #{image.img_name},
+        `upload_img_time` = #{image.upload_img_time},
+        `select` = #{image.select}
+        WHERE `id` = #{image.id}
+    </update>
+
+    <!--查询所有图片列表-->
+    <select id="listAll" resultMap="pw.Image">
+        SELECT *
+        FROM `t_images`
+    </select>
+
+    <!--根据id查找图片-->
+    <select id="queryImageById" resultMap="pw.Image" >
+        SELECT *
+        FROM `t_images`
+        WHERE `id` = #{id}
+    </select>
+
+</mapper>

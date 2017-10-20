@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 图片管理系统
  * imageService层
- * Created by houst,liuz on 2016/3/28.
+ * Created by houst,liuz on 2017/10/19.
  * 增加图片，根据id删除图片，更新图片，根据id查询图片
  *
  */

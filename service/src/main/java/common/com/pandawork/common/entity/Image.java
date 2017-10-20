@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * images实体
- * Created by houst，liuz on 2016/3/27.
+ * Created by houst，liuz on 2017/10/19.
  *
  */
 @Table(name = "t_images")

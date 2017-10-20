@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * ImageService的实现
- * Created by houst,liuz on 2016/3/28.
+ * Created by houst,liuz on 2016/10/19.
  */
 @Service("ImageService")
 public class ImageServicelmpl implements ImageService {
