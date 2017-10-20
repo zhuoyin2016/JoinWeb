@@ -21,7 +21,7 @@ import java.util.List;
  * ImageService的实现
  * Created by houst,liuz on 2016/10/19.
  */
-@Service("ImageService")
+@Service("imageService")
 public class ImageServicelmpl implements ImageService {
 
     @Autowired

@@ -8,8 +8,8 @@
     <insert id="addImage">
         INSERT INTO `t_images`
         (`id`, `img_name`, `upload_img_time`, `select`)
-        VALUES (#{image.id}, #{image.img_name},
-        #{image.upload_img_time}, #{image.select})
+        VALUES (#{image.id}, #{image.imgName},
+        #{image.uploadImgTime}, #{image.select})
     </insert>
 
     <!--据id删除图片-->
