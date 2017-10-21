@@ -13,6 +13,8 @@
 </head>
 <body>
 <center style="margin-top: 100px">
+    欢迎您，${currentManager.currentUsername}!
+    <a href="${website}man/single">修改个人资料</a>
     <h2>管理员</h2>
 <%--<%--%>
    <%--HttpSession s = request.getSession();--%>
