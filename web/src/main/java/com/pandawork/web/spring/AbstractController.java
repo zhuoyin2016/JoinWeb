@@ -1,6 +1,5 @@
 package com.pandawork.web.spring;
 
-import com.pandawork.common.entity.Manager;
 import com.pandawork.common.enums.CookieNameEnums;
 import com.pandawork.common.utils.CookieUtil;
 import com.pandawork.common.utils.WebConstants;
@@ -8,7 +7,9 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.util.Assert;
 import com.pandawork.core.framework.bean.StaticAutoWire;
 import com.pandawork.core.framework.web.spring.controller.Base;
+import com.pandawork.service.JoinerService;
 import com.pandawork.service.ManagerService;
+import com.pandawork.service.MemberService;
 import com.pandawork.service.StudentService;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
@@ -178,8 +179,15 @@ public class AbstractController extends Base {
     protected static StudentService studentService ;
 
     @StaticAutoWire
-    @Qualifier("managerService")
-    protected static ManagerService managerService ;
+    @Qualifier("memberService")
+    protected static MemberService memberService ;
 
+    @StaticAutoWire
+    @Qualifier("managerService")
+    protected static ManagerService managerService;
+
+    @StaticAutoWire
+    @Qualifier("joinerService")
+    protected static JoinerService joinerService;
 
 }

@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by 芋头 on 2017/10/19.
  */
-@Service("JoinerService")
+@Service("joinerService")
 public class JoinerServiceImpl implements JoinerService {
     @Autowired
     JoinerMapper joinerMapper;
