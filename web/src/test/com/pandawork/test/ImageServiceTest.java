@@ -7,10 +7,10 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * 学生管理系统
+ * 图片管理系统
  * 测试service页面
- * studentService
- * Created by fujia on 2016/3/26.
+ * imageService
+ * Created by houst,liuz on 2016/3/26.
  */
 public class ImageServiceTest extends AbstractTestCase {
 
