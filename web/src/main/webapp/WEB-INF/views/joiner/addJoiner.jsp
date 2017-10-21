@@ -19,16 +19,16 @@
             <th>东北师范大学卓音工作室2017报名表</th>
             <table border="1" >
                 <tr>
-                    <td>姓名：</td>
+                    <td  align="right">姓名：</td>
                     <td><input type="text" name="joinerName"/></td>
-                    <td>性别：</td>
+                    <td align="right">性别：</td>
                     <td>
                         <select name="joinerSex">
                             <option value="男"/>男</option>
                             <option value="女"/>女</option>
                         </select>
                     </td>
-                    <td>年级：</td>
+                    <td align="right">年级：</td>
                     <td>
                         <select name="joinerGrade">
                             <option value="2017" selected = "selected"/>2017级</option>
@@ -38,14 +38,14 @@
                             <option value="研究生"/>研究生</option>
                         </select>
                     </td>
-                    <td rowspan="3" >
+                    <td rowspan="3" align="center" >
                         照片<br>
                         <br>
-                        <input type="file" name="joinerPhoto" height="5px" width="5px"/>
+                        <input type="file" name="joinerPhoto" style="width: 10px "/>
                     </td>
                 </tr>
                 <tr>
-                    <td>学院：</td>
+                    <td align="right">学院：</td>
                     <td>
                         <select name="joinerCollege">
                             <option value="信息科学与技术学院" selected = "selected"/>信息科学与技术学院</option>
@@ -60,7 +60,7 @@
                             <option value="其他学院"/>其他</option>
                         </select>
                     </td>
-                    <td>专业：</td>
+                    <td align="right">专业：</td>
                     <td>
                         <select name="joinerMajor">
                             <option value="软件工程" />软件工程</option>
@@ -70,11 +70,11 @@
                             <option value="教育技术学"/>教育技术学</option>
                         </select>
                     </td>
-                    <td>年级排名：</td>
+                    <td align="right">年级排名：</td>
                     <td><input type="text" name="joinerRanking"/></td>
                 </tr>
                 <tr>
-                    <td>意向部门：</td>
+                    <td align="right">意向部门：</td>
                     <td>
                         <select name="joinerDep">
                             <option value="前端" />前端</option>
@@ -83,13 +83,13 @@
 
                         </select>
                     </td>
-                    <td>联系电话：</td>
+                    <td align="right">联系电话：</td>
                     <td><input type="text" name="joinerNum"/></td>
-                    <td>QQ：</td>
+                    <td align="right">QQ：</td>
                     <td><input type="text" name="joinerQQ"/></td>
                 </tr>
                 <tr>
-                    <td>籍贯：</td>
+                    <td align="right">籍贯：</td>
                     <td colspan="6"><input type="text" name="joinerBir"/></td>
 
                 </tr>
