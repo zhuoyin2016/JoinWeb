@@ -21,9 +21,9 @@ public class ImageServiceTest extends AbstractTestCase {
     @Test
     public void testAddImage() throws SSException {
         Image image = new Image();
-        image.setId(2);
-        image.setImgName("二哈要哭了");
-        image.setSelect(0);
+        image.setId(5);
+        image.setImgName("刘喆很可爱");
+        image.setSelect(1);
         imageService.addImage(image);
         System.out.println("添加成功");
     }
