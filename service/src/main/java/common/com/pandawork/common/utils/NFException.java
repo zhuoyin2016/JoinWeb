@@ -35,18 +35,24 @@ public enum  NFException implements IBizExceptionMes {
     QueryMemberByDepartment("根据部门查找成员失败",11004),
     QueryMemberByPosition("根据职位查找成员失败",11005),
     QueryMemberByGrade("根据年级查找成员失败",11006),
+
     AddImageFailed("添加图片失败",90001),
     DelImageByIdFailed("删除图片失败",90002),
     UpdateImageFailed("更新图片失败",90003),
     queryImageByIdFailed("据id查询图片失败",90004),
     ListImageAllFailed("查询图片列表失败",90005),
 
-
     AddJoinerFailed("报名失败",30001),
     DeleteJoinerFailed("删除报名学生失败",30002),
     UpdateJoinerFailed("更新报名信息失败",30003),
     ListAllJoinerFailed("遍历报名学生失败",30004),
-    QueryJoinerFailed("查询报名学生失败",30005)
+    QueryJoinerFailed("查询报名学生失败",30005),
+
+    AddActivityFailed("添加活动失败",80001),
+    DelActivityByIdFailed("删除活动失败",80002),
+    UpdateActivityFailed("更新活动失败",80003),
+    queryActivityByIdFailed("据id查询活动失败",80004),
+    ListActivityAllFailed("查询活动列表失败",80005),
 
     ;
     private String msg;

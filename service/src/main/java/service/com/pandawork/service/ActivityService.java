@@ -6,7 +6,6 @@ import com.pandawork.core.common.exception.SSException;
 import java.util.List;
 
 /**
- * 图片管理系统
  * activityService层
  * Created by Zhangx,liuz on 2017/10/21.
  * 增加活动，根据id删除活动，更新活动，根据id查询活动，查询活动列表
