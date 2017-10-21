@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>图片浏览首页</title>
@@ -19,9 +21,13 @@
         <th align="center">删除</th>
         <th align="center">选择</th>
     </tr>
+    <c:forEach items="${imageList}" var="image" varStatus="status">
     <tr>
-        <td></td>
+        <td>${status.index+1}</td>
+        <td width="30px" height="20px"><img src="${image.name}"></td>
+        <td>${image.}</td>
     </tr>
+    </c:forEach>
 
 </table>
 </body>

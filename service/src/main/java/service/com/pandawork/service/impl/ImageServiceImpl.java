@@ -20,7 +20,7 @@ import java.util.List;
  * Created by houst,liuz on 2016/10/19.
  */
 @Service("imageService")
-public class ImageServicelmpl implements ImageService {
+public class ImageServiceImpl implements ImageService {
 
     @Autowired
     ImageMapper imageMapper;
