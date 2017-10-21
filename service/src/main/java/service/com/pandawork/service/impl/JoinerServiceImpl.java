@@ -27,27 +27,29 @@ public class JoinerServiceImpl implements JoinerService {
     protected CommonDao commonDao;
 
     /**
-     *增加报名学生信息
+     * 增加报名学生信息
+     *
      * @param joiner
      * @throws SSException
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public void addJoiner(Joiner joiner) throws SSException {
-        if(Assert.isNull(joiner)){
+        if (Assert.isNull(joiner)) {
             return;
         }
-        try{
+        try {
             joinerMapper.addJoiner(joiner);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.AddJoinerFailed, e);
+//            throw SSException.get(NFException.AddJoinerFailed, e);
         }
 
     }
 
     /**
-     *删除报名学生
+     * 删除报名学生
+     *
      * @param id
      * @return
      * @throws SSException
@@ -55,37 +57,41 @@ public class JoinerServiceImpl implements JoinerService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public boolean delJoiner(int id) throws SSException {
-        if(Assert.lessOrEqualZero(id)){
+        if (Assert.lessOrEqualZero(id)) {
             return false;
-        }try{
+        }
+        try {
             return joinerMapper.delJoiner(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.DeleteJoinerFailed, e);
+            throw SSException.get(NFException.ListStudentAll, e);
         }
     }
 
     /**
-     *修改报名学生
+     * 修改报名学生
+     *
      * @param joiner
      * @throws SSException
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public void updateJoiner(Joiner joiner) throws SSException {
-        if(Assert.isNull(joiner)){
+        if (Assert.isNull(joiner)) {
             return;
-        }try{
+        }
+        try {
             joinerMapper.updateJoiner(joiner);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.UpdateJoinerFailed, e);
+            throw SSException.get(NFException.UpdateStudentFailed, e);
         }
 
     }
 
     /**
-     *遍历所有报名学生
+     * 遍历所有报名学生
+     *
      * @return
      * @throws SSException
      */
@@ -93,17 +99,18 @@ public class JoinerServiceImpl implements JoinerService {
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public List<Joiner> listAllJoiner() throws SSException {
         List<Joiner> joinerList = Collections.emptyList();
-        try{
+        try {
             joinerList = joinerMapper.listAllJoiner();
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.ListAllJoinerFailed,e);
+            throw SSException.get(NFException.DelStudentNull,e);
         }
         return joinerList;
     }
 
     /**
-     *根据id查找报名学生
+     * 根据id查找报名学生
+     *
      * @param id
      * @return
      * @throws SSException
@@ -111,75 +118,83 @@ public class JoinerServiceImpl implements JoinerService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public Joiner queryJoinerById(int id) throws SSException {
-        if(Assert.lessOrEqualZero(id)){
+        if (Assert.lessOrEqualZero(id)) {
             return null;
-        }try{
+        }
+        try {
             return joinerMapper.queryJoinerById(id);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+           throw SSException.get(NFException.AddImageFailed,e);
         }
     }
 
     /**
-     *根据性别查找报名学生
+     * 根据性别查找报名学生
+     *
      * @param sex
      * @return
      * @throws SSException
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
-    public List<Joiner>  queryJoinerBySex(String sex) throws SSException {
-        if(Assert.isNull(sex)){
+    public List<Joiner> queryJoinerBySex(String sex) throws SSException {
+        if (Assert.isNull(sex)) {
             return null;
-        }try{
+        }
+        try {
             return joinerMapper.queryJoinerBySex(sex);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.ListStudentAll,e);
         }
     }
 
     /**
-     *根据专业查找报名学生
+     * 根据专业查找报名学生
+     *
      * @param major
      * @return
      * @throws SSException
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
-    public List<Joiner>  queryJoinerByMajor(String major) throws SSException {
-        if(Assert.isNull(major)){
+    public List<Joiner> queryJoinerByMajor(String major) throws SSException {
+        if (Assert.isNull(major)) {
             return null;
-        }try{
+        }
+        try {
             return joinerMapper.queryJoinerByMajor(major);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.SystemException,e);
         }
     }
 
     /**
      * 根据年级查找报名学生
+     *
      * @param joinerGrade
      * @return
      * @throws SSException
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
-    public List<Joiner>  queryJoinerByGrade(String joinerGrade) throws SSException {
-        if(Assert.isNull(joinerGrade)){
+    public List<Joiner> queryJoinerByGrade(String joinerGrade) throws SSException {
+        if (Assert.isNull(joinerGrade)) {
             return null;
-        }try{
+        }
+        try {
             return joinerMapper.queryJoinerByGrade(joinerGrade);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+           throw SSException.get(NFException.AddMember,e);
         }
     }
 
     /**
      * 根据状态查找报名学生
+     *
      * @param state
      * @return
      * @throws SSException
@@ -187,14 +202,17 @@ public class JoinerServiceImpl implements JoinerService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public List<Joiner> queryJoinerByState(int state) throws SSException {
-        if(Assert.isNull(state)){
+        if (Assert.isNull(state)) {
             return null;
-        }try{
+        }
+        try {
             return joinerMapper.queryJoinerByState(state);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-            throw SSException.get(NFException.QueryJoinerFailed,e);
+            throw SSException.get(NFException.AddMember,e);
         }
     }
+
+
 
 }
