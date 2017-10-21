@@ -14,9 +14,9 @@
 </head>
 <body>
 <div>
-    <center style="margin-top: 140px">
-        <form action="${website}/joineraddJoiner" method="post">
-            <th>东北师范大学卓音工作室2017报名表</th>
+    <center style="margin-top: 50px">
+        <form action="${website}joiner/addJoiner" method="post">
+            <h2>东北师范大学卓音工作室2017报名表</h2>
             <table border="1" >
                 <tr>
                     <td  align="right">姓名：</td>
@@ -41,7 +41,7 @@
                     <td rowspan="3" align="center" >
                         照片<br>
                         <br>
-                        <input type="file" name="joinerPhoto" style="width: 10px "/>
+                        <input type="file" name="joinerPhoto" style="width: 60px "/>
                     </td>
                 </tr>
                 <tr>
@@ -90,26 +90,27 @@
                 </tr>
                 <tr>
                     <td align="right">籍贯：</td>
-                    <td colspan="6"><input type="text" name="joinerBir"/></td>
+                    <td colspan="6"><input type="text" name="joinerBir" size="112"/></td>
 
                 </tr>
                 <tr>
-                    <td>自我介绍</td>
+                    <td align="right">自我介绍</td>
                     <td colspan="6">
-                        <textarea name="joinerIntro" >特长，爱好，技术
+                        <textarea name="joinerIntro" style="width: 690px;height: 200px;">特长，爱好，技术
                         </textarea>
                     </td>
 
                 </tr>
                 <tr>
-                    <td>加入工作室的理由</td>
+                    <td align="right">加入工作<br>
+                        室的理由</td>
                     <td colspan="6">
-                        <textarea name="joinerReason" >
+                        <textarea name="joinerReason" style="width: 690px;height: 150px;" >
                         </textarea>
                     </td>
-
                 </tr>
             </table>
+            <input type="submit" name="submit" value="提交"/>
         </form>
     </center>
 </div>
