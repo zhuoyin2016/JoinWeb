@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * Created by wangh on 2017/10/18.
+ * Created by wangh on 2017/10/18..
  */
 @Controller
 @RequestMapping("/man")
