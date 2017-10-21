@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * 图片管理系统
  * 测试service页面
- * imageService
+ * imageService 。。。
  * Created by houst,liuz on 2016/3/26.
  */
 public class ImageServiceTest extends AbstractTestCase {
