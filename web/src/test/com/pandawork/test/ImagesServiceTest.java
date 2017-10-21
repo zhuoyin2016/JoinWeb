@@ -12,7 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  * imageService 。。。
  * Created by houst,liuz on 2016/3/26.
  */
-public class ImageServiceTest extends AbstractTestCase {
+
+public class ImagesServiceTest extends AbstractTestCase {
 
     @Autowired
     ImageService imageService;
@@ -21,8 +22,8 @@ public class ImageServiceTest extends AbstractTestCase {
     @Test
     public void testAddImage() throws SSException {
         Image image = new Image();
-        image.setId(6);
-        image.setImgName("马玲宝宝也很可爱");
+        image.setId(0);
+        image.setImgName("哇");
         image.setSelect(0);
         imageService.addImage(image);
         System.out.println("添加成功");
