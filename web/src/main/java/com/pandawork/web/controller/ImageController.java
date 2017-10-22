@@ -23,24 +23,33 @@ import java.util.List;
 @RequestMapping("/image")
 public class ImageController extends AbstractController{
 
-//    /**
-//     * 新增图片
-//     * @param image
-//     * @param redirectAttributes
-//     * @return
-//     */
-//    @RequestMapping(value ="/add", method = RequestMethod.POST)
-//    public String addImage(Image image, RedirectAttributes redirectAttributes) {
-//        try {
-//            imageService.addImage(image);
-//            redirectAttributes.addFlashAttribute("message", "添加成功！");
-//            return "redirect:/image/list";
-//        } catch (SSException e){
-//            LogClerk.errLog.error(e);
-//            sendErrMsg(e.getMessage());
-//            return ADMIN_SYS_ERR_PAGE;
-//        }
-//    }
+    /**
+     * 添加图片处理
+     * @param image
+     * @param redirectAttributes
+     * @return
+     */
+    @RequestMapping(value ="/new", method = RequestMethod.POST)
+    public String addImage(Image image, RedirectAttributes redirectAttributes) {
+        try {
+            imageService.addImage(image);
+            redirectAttributes.addFlashAttribute("message", "添加成功！");
+            return "redirect:/image/list";
+        } catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
+    /**
+     * 跳转到添加页面
+     * @return
+     */
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String toAddImage(){
+        return "add";
+    }
 
     /**
      * 根据id删除图片
@@ -51,7 +60,7 @@ public class ImageController extends AbstractController{
     public String delImageById(@PathVariable("id") int id) {
         try {
             imageService.delImageById(id);
-            return "redirect:/image/list";//删除后还需重定向页面才可获取最新列表
+            return "redirect:/image/list";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -80,4 +89,51 @@ public class ImageController extends AbstractController{
         }
     }
 
+    /**
+     * 跳转到更新页面
+     * @param id
+     * @param redirectAttributes
+     * @return
+     */
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
+    public String editImage(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addAttribute("id", id);
+        return "edit";
+    }
+
+    /**
+     * 根据id查询图片
+     * @param id
+     * @return
+     */
+    @RequestMapping(value ="query/{id}",method = RequestMethod.GET)
+    public String queryImageById(@RequestParam("id") int id) {
+        try {
+            imageService.queryImageById(id);
+            return "redirect:/image/list";
+        } catch (SSException e ){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
+    /**
+     * 列出全部图片
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String listImageAll(Model model) {
+        try {
+            List<Image> list = Collections.emptyList();
+            list = imageService.listImageAll();
+            model.addAttribute("studentList", list);
+            return "listImageAll";
+        } catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
 }
