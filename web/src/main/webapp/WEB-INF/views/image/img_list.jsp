@@ -25,7 +25,7 @@
     <tr>
         <td>${status.index+1}</td>
         <td width="30px" height="20px"><img src="${image.name}"></td>
-        <td>${image.}</td>
+        <td>${image}</td>
     </tr>
     </c:forEach>
 

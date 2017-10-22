@@ -12,12 +12,6 @@
         #{activity.activityContent}, #{activity.activityImg1},#{activity.activityImg2},#{activity.activityImg3})
     </insert>
 
-    <!--根据id删除活动-->
-    <delete id="delActivityById">
-        DELETE FROM `t_activity`
-        WHERE `id` = #{id}
-    </delete>
-
     <!--修改活动-->
     <update id="updateActivity">
         UPDATE `t_activity`
@@ -26,6 +20,13 @@
         `activity_image3` = #{activity.activityImg3}
         WHERE `id` = #{activity.id}
     </update>
+
+    <!--根据id删除活动-->
+    <delete id="delActivityById">
+        DELETE FROM `t_activity`
+        WHERE `id` = #{id}
+    </delete>
+
 
     <!--根据id查找活动-->
     <select id="queryActivityById" resultMap="pw.Activity" >
