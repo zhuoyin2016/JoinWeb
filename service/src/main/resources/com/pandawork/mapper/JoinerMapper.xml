@@ -36,6 +36,13 @@
         WHERE `id` = #{joiner.id}
     </update>
 
+    <!--审核-->
+    <update id="updateState">
+        UPDATE `t_joiner`
+        SET `joiner_state`= #{state}
+        WHERE `id` = #{id}
+    </update>
+
     <!--列出全部报名学生-->
     <select id="listAllJoiner" resultMap="pw.Joiner">
         SELECT *

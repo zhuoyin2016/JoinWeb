@@ -6,12 +6,12 @@ import com.pandawork.core.common.log.LogClerk;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import com.pandawork.web.spring.AbstractController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.persistence.SqlResultSetMapping;
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +21,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/joiner")
+@SessionAttributes("Message")
 public class joinerController extends AbstractController {
 
     /**
@@ -28,12 +29,12 @@ public class joinerController extends AbstractController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/listJoiner",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String joinerList(Model model){
         try{
-            List<Joiner> joinerList = Collections.emptyList();
-            joinerList = joinerService.listAllJoiner();
-            model.addAttribute("joinerList",joinerList);
+            List<Joiner> list = Collections.emptyList();
+            list = joinerService.listAllJoiner();
+            model.addAttribute("list",list);
             return "joiner/listAll";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
@@ -61,12 +62,79 @@ public class joinerController extends AbstractController {
     public String addJoiner(Joiner joiner, RedirectAttributes redirectAttributes) {
         try {
             joinerService.addJoiner(joiner);
-            redirectAttributes.addFlashAttribute("message", "添加成功！");
-            return "joiner/addJoiner";
+            String message = "提交成功";
+            return "redirect:/joiner/message/" + message;
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
     }
+
+    /**
+     * 显示报名学生信息
+     * @param id
+     * @param model
+     * @param redirectAttributes
+     * @return
+     */
+    @RequestMapping(value = "/show/{id}", method = RequestMethod.GET)
+    public String showJoiner(@PathVariable("id") int id,Model model,RedirectAttributes redirectAttributes){
+        try{
+            Joiner joiner = joinerService.queryJoinerById(id);
+            model.addAttribute("joiner",joiner);
+            return "joiner/show";
+        }catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;}
+    }
+
+    /**
+     * 消息提醒
+     * @param message
+     * @param redirectAttributes
+     * @return
+     */
+    @RequestMapping(value = "/message/{message}",method = RequestMethod.GET)
+    public String message(@PathVariable("message") String message,RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("message", message);
+        return "joiner/message";
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
+    public String del(@PathVariable("id") int id,Model model){
+        try{
+            joinerService.delJoiner(id);
+            model.addAttribute("Message","删除成功");
+            return "redirect:/joiner/list";
+        }catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;}
+    }
+
+    /**
+     * 审核
+     * @param id
+     * @param state
+     * @return
+     */
+    @RequestMapping(value = "/check/{id}",method = RequestMethod.POST)
+    public String check(@PathVariable("id") int id,@RequestParam("joinerState")int state){
+        try{
+            joinerService.updateState(state,id);
+            return "redirect:/joiner/list";
+        }catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;}
+    }
+
 }
