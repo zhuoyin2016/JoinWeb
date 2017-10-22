@@ -6,11 +6,14 @@ import com.pandawork.core.common.exception.SSException;
 import java.util.List;
 
 /**
- * activityService层
- * Created by Zhangx,liuz on 2017/10/21.
- * 增加活动，根据id删除活动，更新活动，根据id查询活动，查询活动列表
+ * 活动管理系统
+ * ActivityService层
+ * Created by zx on 2017/10/19.
+ * 增加活动，根据id删除活动，更新活动，根据id查询活动，根据标题查询活动
+ *
  */
 public interface ActivityService {
+
     /**
      * 增加活动
      * @throws SSException 异常
@@ -32,13 +35,21 @@ public interface ActivityService {
     /**
      * 根据id查询活动
      * @param id id
-     * @return 返回活动
+     * @return 返回
      * @throws SSException 异常
      */
     public Activity queryActivityById(int id) throws SSException;
 
     /**
-     *查询活动列表
+     * 根据标题查询活动
+     * @param title
+     * @return
+     * @throws SSException
+     */
+    public Activity queryActivity(String title) throws SSException;
+
+    /**
+     *列出全部活动
      * @return 返回
      * @throws SSException 异常
      */

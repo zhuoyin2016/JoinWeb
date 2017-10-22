@@ -6,44 +6,52 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * 活动展示mapper层
- * Created by Zhangx,liuz on 2017/10/21.
- * 增加活动，删除活动，修改活动，根据id查询活动，查询活动列表
+ * 活动mapper层
+ * Created by zx on 2017/10/22.
+ * 增加活动，根据id删除活动，更新活动，根据id查询活动，根据标题查询活动，列出全部活动
  */
 public interface ActivityMapper {
     /**
      * 增加活动
-     * @param activity 活动
-     * @throws Exception 异常
+     * @param activity
+     * @throws Exception
      */
     public void addActivity(@Param("activity") Activity activity) throws Exception;
 
     /**
      *根据id删除活动
-     * @param id id
-     * @throws Exception 异常
+     * @param id
+     * @throws Exception
      */
     public boolean delActivityById(@Param("id") int id) throws Exception;
 
     /**
-     * 修改活动
-     * @param activity 活动
-     * @throws Exception 异常
+     * 更新活动
+     * @param activity
+     * @throws Exception
      */
     public void updateActivity(@Param("activity") Activity activity) throws Exception;
 
     /**
      * 根据id查找活动
-     * @param id id
-     * @return 返回
-     * @throws Exception 异常
+     * @param id
+     * @return
+     * @throws Exception
      */
     public  Activity queryActivityById(@Param("id") int id) throws Exception;
 
     /**
+     * 根据标题查找活动
+     * @param activity_title
+     * @return
+     * @throws Exception
+     */
+    public Activity queryActivityByTitle(@Param("activity_title") String activity_title) throws  Exception;
+
+    /**
      * 查询所有活动列表
-     * @return 返回
-     * @throws Exception 异常
+     * @return
+     * @throws Exception
      */
     public List<Activity> listActivityAll() throws Exception;
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.mapper.ActivityMapper">
+
+    <!--增加活动-->
+    <insert id="addActivity">
+        INSERT INTO `t_activity`
+        (`id`, `activity_title`, `activity_content`, `activity_image1`,`activity_image2`,`activity_image3`)
+        VALUES (#{activity.id}, #{activity.activityTitle},
+        #{activity.activityContent}, #{activity.activityImg1},#{activity.activityImg2},#{activity.activityImg3})
+    </insert>
+
+    <!--根据id删除活动-->
+    <delete id="delActivityById">
+        DELETE FROM `t_activity`
+        WHERE `id` = #{id}
+    </delete>
+
+    <!--修改活动-->
+    <update id="updateActivity">
+        UPDATE `t_activity`
+        SET `activity_title` = #{activity.activityTitle},`activity_content`=#{activity.activityContent},
+        `activity_image1` = #{activity.activityImg1},`activity_image2`=#{activity.activityImg2},
+        `activity_image3` = #{activity.activityImg3}
+        WHERE `id` = #{activity.id}
+    </update>
+
+    <!--根据id查找活动-->
+    <select id="queryActivityById" resultMap="pw.Activity" >
+        SELECT *
+        FROM `t_activity`
+        WHERE `id` = #{id}
+    </select>
+
+    <!--根据标题查找活动-->
+    <select id="queryActivityByTitle" resultMap="pw.Activity">
+        SELECT *
+        FROM `t_activity`
+        WHERE `activity_title`=#{activity_title}
+    </select>>
+
+    <!--列出全部活动-->
+    <select id="listActivityAll" resultMap="pw.Activity">
+        SELECT *
+        FROM `t_activity`
+    </select>
+
+</mapper>

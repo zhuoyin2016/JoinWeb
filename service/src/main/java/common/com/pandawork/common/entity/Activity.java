@@ -1,44 +1,41 @@
 package com.pandawork.common.entity;
-
 import com.pandawork.core.common.entity.AbstractEntity;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
-
 /**
- * activity实体
- * Created by Zhangx,Liuz on 2017/10/21.
- *
+ * Created by zx on 2017/10/19.
  */
 @Table(name = "t_activity")
 @Entity
-public class Activity extends AbstractEntity{
-    //活动ID
+public class Activity extends AbstractEntity {
+
+    //活动id
     @Id
     public Integer id;
 
     //活动标题
     @Column(name = "activity_title")
-    private String  actTitle;
+    private String activityTitle;
 
     //活动内容
     @Column(name = "activity_content")
-    private String actContent;
+    private String activityContent;
 
     //活动图片1
     @Column(name = "activity_image1")
-    private String actImage1;
+    private String activityImg1;
 
     //活动图片2
     @Column(name = "activity_image2")
-    private String actImage2;
+    private String activityImg2;
 
     //活动图片3
     @Column(name = "activity_image3")
-    private String actImage3;
+    private String activityImg3;
 
     public Integer getId() {
         return id;
@@ -49,55 +46,55 @@ public class Activity extends AbstractEntity{
         this.id = id;
     }
 
-    public String getActTitle() {
-        return actTitle;
+    public String getActivityTitle() {
+        return activityTitle;
     }
 
-    public void setActTitle(String actTitle) {
-        this.actTitle = actTitle;
+    public void setActivityTitle(String activityTitle) {
+        this.activityTitle = activityTitle;
     }
 
-    public String getActContent() {
-        return actContent;
+    public String getActivityContent() {
+        return activityContent;
     }
 
-    public void setActContent(String actContent) {
-        this.actContent = actContent;
+    public void setActivityContent(String activityContent) {
+        this.activityContent = activityContent;
     }
 
-    public String getActImage1() {
-        return actImage1;
+    public String getActivityImg1() {
+        return activityImg1;
     }
 
-    public void setActImage1(String actImage1) {
-        this.actImage1 = actImage1;
+    public void setActivityImg1(String activityImg1) {
+        this.activityImg1 = activityImg1;
     }
 
-    public String getActImage2() {
-        return actImage2;
+    public String getActivityImg2() {
+        return activityImg2;
     }
 
-    public void setActImage2(String actImage2) {
-        this.actImage2 = actImage2;
+    public void setActivityImg2(String activityImg2) {
+        this.activityImg2 = activityImg2;
     }
 
-    public String getActImage3() {
-        return actImage3;
+    public String getActivityImg3() {
+        return activityImg3;
     }
 
-    public void setActImage3(String actImage3) {
-        this.actImage3 = actImage3;
+    public void setActivityImg3(String activityImg3) {
+        this.activityImg3 = activityImg3;
     }
 
     @Override
     public String toString() {
         return "Activity{" +
                 "id=" + id +
-                ", actTitle='" + actTitle + '\'' +
-                ", actContent='" + actContent + '\'' +
-                ", actImage1='" + actImage1 + '\'' +
-                ", actImage2='" + actImage2 + '\'' +
-                ", actImage3='" + actImage3 + '\'' +
+                ", activityTitle='" + activityTitle + '\'' +
+                ", activityContent='" + activityContent + '\'' +
+                ", activityImg1='" + activityImg1 + '\'' +
+                ", activityImg2='" + activityImg2 + '\'' +
+                ", activityImg3='" + activityImg3 + '\'' +
                 '}';
     }
 }

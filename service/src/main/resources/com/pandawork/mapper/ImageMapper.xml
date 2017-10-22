@@ -12,7 +12,7 @@
         #{image.uploadImgTime}, #{image.select})
     </insert>
 
-    <!--据id删除图片-->
+    <!--根据id删除图片-->
     <delete id="delImageById">
         DELETE FROM `t_images`
         WHERE `id` = #{id}
