@@ -213,6 +213,23 @@ public class JoinerServiceImpl implements JoinerService {
         }
     }
 
-
+    /**
+     * 审核
+     * @param state
+     * @throws SSException
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
+    public void updateState(int state,int id)throws SSException{
+        if (Assert.isNull(state)) {
+            return;
+        }
+        try {
+            joinerMapper.updateState(state,id);
+        } catch (Exception e) {
+            LogClerk.errLog.error(e);
+            throw SSException.get(NFException.UpdateStudentFailed, e);
+        }
+    }
 
 }

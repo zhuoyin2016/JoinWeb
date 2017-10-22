@@ -109,4 +109,10 @@ public class JoinerServiceTest extends AbstractTestCase {
         System.out.println(joinerService.queryJoinerByState(0));
     }
 
+    //审核
+    @Test
+    public void updateState()throws SSException{
+        joinerService.updateState(1,9);
+        System.out.println("修改成功");
+    }
 }

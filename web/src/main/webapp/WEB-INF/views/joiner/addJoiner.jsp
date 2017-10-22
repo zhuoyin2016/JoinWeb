@@ -16,7 +16,7 @@
 <div>
     <center style="margin-top: 50px">
         <form action="${website}joiner/addJoiner" method="post">
-            <h2>东北师范大学卓音工作室2017报名表</h2>
+            <h2>东北师范大学卓音工作室2018报名表</h2>
             <table border="1" >
                 <tr>
                     <td  align="right">姓名：</td>

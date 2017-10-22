@@ -77,4 +77,11 @@ public interface JoinerService {
      * @throws SSException
      */
     public List<Joiner> queryJoinerByState(int state)throws SSException;
+
+    /**
+     * 审核
+     * @param state
+     * @throws SSException
+     */
+    public void updateState(int state,int id)throws SSException;
 }

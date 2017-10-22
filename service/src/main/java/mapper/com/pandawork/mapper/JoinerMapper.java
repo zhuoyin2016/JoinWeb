@@ -2,6 +2,7 @@ package com.pandawork.mapper;
 
 import  com.pandawork.common.entity.Joiner;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.Id;
 import java.util.List;
@@ -78,4 +79,11 @@ public interface JoinerMapper {
      * @throws Exception
      */
     public List<Joiner> queryJoinerByState(@Param("state") int state)throws Exception;
+
+    /**
+     * 审核
+     * @param state
+     * @throws Exception
+     */
+    public void updateState(@Param("state") int state,@Param("id") int id)throws  Exception;
 }

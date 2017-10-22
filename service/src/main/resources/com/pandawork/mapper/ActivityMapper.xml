@@ -30,22 +30,22 @@
 
     <!--根据id查找活动-->
     <select id="queryActivityById" resultMap="pw.Activity" >
-        SELECT *
-        FROM `t_activity`
-        WHERE `id` = #{id}
+    SELECT *
+    FROM `t_activity`
+    WHERE `id` = #{id}
     </select>
 
     <!--根据标题查找活动-->
     <select id="queryActivityByTitle" resultMap="pw.Activity">
-        SELECT *
-        FROM `t_activity`
-        WHERE `activity_title`=#{activity_title}
-    </select>>
+    SELECT *
+    FROM `t_activity`
+    WHERE `activity_title`=#{activity_title}
+    </select>
 
     <!--列出全部活动-->
     <select id="listActivityAll" resultMap="pw.Activity">
-        SELECT *
-        FROM `t_activity`
+    SELECT *
+    FROM `t_activity`
     </select>
 
 </mapper>
