@@ -3,6 +3,7 @@ package com.pandawork.web.controller;
 import com.pandawork.common.entity.Joiner;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.core.common.util.Assert;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -137,4 +138,44 @@ public class joinerController extends AbstractController {
             return ADMIN_SYS_ERR_PAGE;}
     }
 
-}
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    public String search(@RequestParam("type") String type,@RequestParam("keyWord") String keyWord,Model model) {
+        try {
+            if (!Assert.isNotNull(keyWord)) {
+                String message = "输入不能为空";
+                return "redirect:/joiner/message" + message;
+            }
+            List<Joiner> list = Collections.emptyList();
+            if (type.equals("sex")) {
+                list = joinerService.queryJoinerBySex(keyWord);
+            }
+            if (type.equals("grade")) {
+                list = joinerService.queryJoinerByGrade(keyWord);
+            }
+            if (type.equals("major")) {
+                list = joinerService.queryJoinerByMajor(keyWord);
+            }
+            if (type.equals("state")) {
+                if (keyWord.equals("待审核")) {
+                    list = joinerService.queryJoinerByState(0);
+                }
+                if (keyWord.equals("审核通过")) {
+                    list = joinerService.queryJoinerByState(1);
+                }
+                if (keyWord.equals("审核为通过")) {
+                    list = joinerService.queryJoinerByState(2);
+                }
+            }
+            System.out.println(list);
+            if (list.isEmpty()) {
+                String message = "没有与搜索条件匹配的项";
+                return "redirect:/joiner/message" + message;
+            }
+            model.addAttribute("list", list);
+            return "joiner/search";
+        } catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;}
+        }
+    }
