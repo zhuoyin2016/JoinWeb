@@ -51,8 +51,9 @@ public enum  NFException implements IBizExceptionMes {
     AddActivityFailed("添加活动失败",80001),
     DelActivityByIdFailed("删除活动失败",80002),
     UpdateActivityFailed("更新活动失败",80003),
-    queryActivityByIdFailed("据id查询活动失败",80004),
-    ListActivityAllFailed("查询活动列表失败",80005),
+    QueryActivityByIdFailed("根据id查询活动失败",80004),
+    QueryActivityByTitleFailed("根据标题查询活动失败",8005),
+    ListActivityAllFailed("查询活动列表失败",80006),
 
     ;
     private String msg;
