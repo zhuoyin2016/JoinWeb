@@ -16,7 +16,7 @@
 <div>
     <center style="margin-top: 50px">
             <h2>东北师范大学卓音工作室2017报名表</h2>
-            <table border="1" >
+            <table border="1" style="table-layout: fixed;width: 812px">
                 <tr>
                     <td  align="right">姓名：</td>
                     <td>${joiner.joinerName}</td>
@@ -24,7 +24,7 @@
                     <td>${joiner.joinerSex}</td>
                     <td align="right">年级：</td>
                     <td>${joiner.joinerGrade}</td>
-                    <td rowspan="3" align="center" >
+                    <td rowspan="3" align="center" style="white-space:nowrap;overflow:hidden;text-overflow: ellipsis;">
                         照片
                         ${joiner.joinerPhoto}
                     </td>

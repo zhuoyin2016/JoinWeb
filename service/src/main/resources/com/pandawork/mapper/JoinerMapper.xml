@@ -60,7 +60,7 @@
     <select id="queryJoinerBySex" resultMap="pw.Joiner">
         SELECT *
         FROM `t_joiner`
-        WHERE `joiner_sex`= #{sex}
+        WHERE `joiner_sex`LIKE CONCAT('%',#{sex},'%')
     </select>
 
     <!--根据年级查找学生-->
