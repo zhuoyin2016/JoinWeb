@@ -45,6 +45,14 @@ public class ImagesController extends AbstractController{
     }
 
 
+    /**
+     * 上传图片
+     * @param file file
+     * @param request request
+     * @param model model
+     * @return 返回
+     * @throws SSException 异常
+     */
     @RequestMapping(value = "/add_image", method = RequestMethod.POST)
     public String addImage(@RequestParam("file")CommonsMultipartFile file, HttpServletRequest request,Model model) throws SSException {
 
@@ -98,13 +106,29 @@ public class ImagesController extends AbstractController{
 
     /**
      * 根据id删除图片
-     * @param id
-     * @return
+     * @param id id
+     * @return 返回
      */
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-    public String delImageById(@PathVariable("id") int id) {
+    public String delImageById(@PathVariable("id") int id,HttpServletRequest request) {
         try {
+//            删除文件夹中的图片
+            Image image = imageService.queryImageById(id);
+            String name = image.getImgName();
+            System.out.println(name);
+            String fileName = name.substring(name.lastIndexOf("/") + 1);
+            String newPath = request.getSession().getServletContext().getRealPath("/image/upload_image") +"/" +fileName;
+            System.out.println(newPath);
+            File f = new File(newPath);
+            if(f.exists()){
+                f.delete();
+                System.out.println("文件夹中的图片删除成功");
+            }
+
+            //删除数据库中的图片
             imageService.delImageById(id);
+            System.out.println("数据库删除成功");
+
             return "redirect:/image/list";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
@@ -165,8 +189,8 @@ public class ImagesController extends AbstractController{
 
     /**
      * 列出全部图片
-     * @param model
-     * @return
+     * @param model model
+     * @return 返回
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listImageAll(Model model) {
