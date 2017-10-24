@@ -157,18 +157,21 @@ public class ImagesController extends AbstractController{
      * @return 返回
      */
     @RequestMapping(value = "/select/{id}",method = RequestMethod.GET)
-    public String selectImage(@PathVariable("id")int id){
+    public String selectImage(@PathVariable("id")int id,Model model){
         try{
             Image image = imageService.queryImageById(id);
             int sl = image.getSelect();
+            System.out.println(sl);
             if(sl == 0){
                 image.setSelect(1);
+                model.addAttribute("msg1","已选择");
             }else{
                 image.setSelect(0);
+                model.addAttribute("msg0","X");
             }
             imageService.updateImage(image);
             System.out.println("选择成功！");
-            return "redirect:/image/to_select_img";
+            return "redirect:/image/select_image";
 
         }catch (SSException e){
             LogClerk.errLog.error(e);
