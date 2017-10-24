@@ -13,15 +13,10 @@
 </head>
 <body>
 <center style="margin-top: 100px">
-    欢迎您，${currentManager.currentUsername}!
+    欢迎您，${currentManager.currentUsername}!<br>
     <a href="${website}man/single">修改个人资料</a>
+    <a href="${website}man/logout">退出账号</a>
     <h2>管理员</h2>
-<%--<%--%>
-   <%--HttpSession s = request.getSession();--%>
-<%--%>--%>
-    <%--<%=s.getAttribute("managerStatus")%>--%>
-
-    <%--遍历所有管理员  传参“managerList”--%>
 
     <table border="1">
         <tr bgcolor="#e6e6fa">

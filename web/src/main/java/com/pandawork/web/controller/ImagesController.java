@@ -11,9 +11,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by houst,liuz on 2017/10/20.
@@ -24,31 +33,67 @@ import java.util.List;
 public class ImageController extends AbstractController{
 
     /**
-     * 添加图片处理
-     * @param image
-     * @param redirectAttributes
-     * @return
+     * 上传图片处理
+     * @param num num
+     * @param session session
+     * @return 返回
      */
-    @RequestMapping(value ="/new", method = RequestMethod.POST)
-    public String addImage(Image image, RedirectAttributes redirectAttributes) {
-        try {
-            imageService.addImage(image);
-            redirectAttributes.addFlashAttribute("message", "添加成功！");
-            return "redirect:/image/list";
-        } catch (SSException e){
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
+    @RequestMapping(value ="/to_add_image/{num}", method = RequestMethod.GET)
+    public String toAddImage(@PathVariable("num")int num, HttpSession session) {
+        session.setAttribute("num",num);
+        return "redirect:/image/list";
     }
 
-    /**
-     * 跳转到添加页面
-     * @return
-     */
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String toAddImage(){
-        return "add";
+
+    @RequestMapping(value = "/add_image", method = RequestMethod.POST)
+    public String addImage(@RequestParam("file")CommonsMultipartFile file, HttpServletRequest request,Model model) throws SSException {
+
+        //使用springMVC提供的CommonsMultipartFile类进行读取文件
+        //获取原文件名，并在后台输出
+        String filename = file.getOriginalFilename();
+        System.out.println(filename);
+
+        //UUID.randomUUID()局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的
+        String newFileName = UUID.randomUUID() + filename;
+
+        //获取的的tomcat的路径，部署项目后相当于项目的路径。
+        String path = request.getSession().getServletContext().getRealPath("/image/upload_image") + "/";
+        File f = new File(path);//文件夹也是文件
+        if(!f.exists()){
+            //如果该文件夹不存在，则创建该文件夹
+            f.mkdirs();
+        }
+        if(!file.isEmpty()){
+            try{
+                //创建一个向具有指定名称的文件中写入数据的输出文件流。
+                FileOutputStream fos = new FileOutputStream(path + newFileName);
+                System.out.println(path +newFileName);
+                //截取
+                InputStream in = file.getInputStream();
+                int b = 0;
+                while((b = in.read())!=-1){
+                    //写入
+                    fos.write(b);
+                }
+                //关闭流
+                fos.close();
+                in.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        model.addAttribute("msg","上传成功！");
+
+        //将图片路径保存到数据库中
+        Image image = new Image();
+        String name = "../../image/upload_image/" + newFileName;
+        image.setImgName(name);
+        image.setSelect(0);
+        imageService.addImage(image);
+
+        return "redirect:/image/list";
     }
 
     /**
@@ -126,10 +171,10 @@ public class ImageController extends AbstractController{
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listImageAll(Model model) {
         try {
-            List<Image> list = Collections.emptyList();
-            list = imageService.listImageAll();
-            model.addAttribute("studentList", list);
-            return "listImageAll";
+            List<Image> imageList = Collections.emptyList();
+            imageList = imageService.listImageAll();
+            model.addAttribute("imageList", imageList);
+            return "/image/img_list";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
