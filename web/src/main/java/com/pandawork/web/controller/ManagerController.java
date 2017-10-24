@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -286,5 +287,24 @@ public class ManagerController extends AbstractController {
             return ADMIN_SYS_ERR_PAGE;
         }
     }
+
+
+    /**
+     * 退出账号
+     * @param httpSession
+     * @param sessionStatus
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/logout" ,method = RequestMethod.GET)
+    public String logout(HttpSession httpSession, SessionStatus sessionStatus,Model model){
+        httpSession.removeAttribute("currentManager"); //清除HttpSession的数据
+        System.out.println("退出："+httpSession.getAttribute("currentManager"));
+        sessionStatus.setComplete(); //清除@SessionAttributes的session,不会清除HttpSession的数据
+        model.addAttribute("message","退出成功！！！");
+        return "manager/login";
+
+    }
+
 
 }
