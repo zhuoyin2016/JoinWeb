@@ -138,54 +138,65 @@ public class ImagesController extends AbstractController{
     }
 
     /**
-     * 根据id更新图片
-     * @param image
-     * @param id
-     * @return
+     * 跳转到选择轮播图片的页面
+     * @param model model
+     * @return 返回
+     * @throws SSException 异常
      */
-    @RequestMapping(value = "update/{id}", method = RequestMethod.GET)
-    public String updateImage(Image image, @PathVariable("id") int id) {
-        try {
-            if(!Assert.isNotNull(image)){
-                return null;
+    @RequestMapping(value = "/select_image", method = RequestMethod.GET)
+    public String toSelectImage(Model model) throws SSException {
+        List<Image> imageList = Collections.emptyList();
+        imageList = imageService.listImageAll();
+        model.addAttribute("imageList", imageList);
+        return "/image/select_img_list";
+    }
+
+    /**
+     * 选择图片
+     * @param id id
+     * @return 返回
+     */
+    @RequestMapping(value = "/select/{id}",method = RequestMethod.GET)
+    public String selectImage(@PathVariable("id")int id){
+        try{
+            Image image = imageService.queryImageById(id);
+            int sl = image.getSelect();
+            if(sl == 0){
+                image.setSelect(1);
+            }else{
+                image.setSelect(0);
             }
             imageService.updateImage(image);
-            return "redirect:/image/list";
-        } catch (SSException e){
+            System.out.println("选择成功！");
+            return "redirect:/image/to_select_img";
+
+        }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
+
     }
 
-    /**
-     * 跳转到更新页面
-     * @param id
-     * @param redirectAttributes
-     * @return
-     */
-    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
-    public String editImage(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
-        redirectAttributes.addAttribute("id", id);
-        return "edit";
-    }
 
-    /**
-     * 根据id查询图片
-     * @param id
-     * @return
-     */
-    @RequestMapping(value ="query/{id}",method = RequestMethod.GET)
-    public String queryImageById(@RequestParam("id") int id) {
-        try {
-            imageService.queryImageById(id);
-            return "redirect:/image/list";
-        } catch (SSException e ){
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
-    }
+
+
+//    /**
+//     * 根据id查询图片
+//     * @param id
+//     * @return
+//     */
+//    @RequestMapping(value ="query/{id}",method = RequestMethod.GET)
+//    public String queryImageById(@RequestParam("id") int id) {
+//        try {
+//            imageService.queryImageById(id);
+//            return "redirect:/image/list";
+//        } catch (SSException e ){
+//            LogClerk.errLog.error(e);
+//            sendErrMsg(e.getMessage());
+//            return ADMIN_SYS_ERR_PAGE;
+//        }
+//    }
 
     /**
      * 列出全部图片

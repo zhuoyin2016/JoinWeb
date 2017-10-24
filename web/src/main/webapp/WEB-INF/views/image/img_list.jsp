@@ -15,6 +15,7 @@
     <title>图片浏览首页</title>
 </head>
 <body>
+<h1 align="center">图片管理</h1>
 <table cellspacing="0" border="1" align="center">
     <tr>
         <th align="center">序号</th>
@@ -22,7 +23,6 @@
         <th>图片名字</th>
         <th align="center">上传时间</th>
         <th align="center">删除</th>
-        <th align="center">选择</th>
     </tr>
     <c:forEach items="${imageList}" var="image" varStatus="status">
     <tr>
@@ -31,21 +31,28 @@
         <td>${image.imgName}</td>
         <td>${image.uploadImgTime}</td>
         <td><a href="${website}image/delete/${image.id}">删除</a></td>
-        <td><a href="${website}image/update/${image}"></a></td>
     </tr>
     </c:forEach>
     <%
         int num=0;//标志是否点击了添加图片
     %>
-    <tr><a href="${website}image/to_add_image/${num=1}">添加图片</a></tr></br><!--有点疑问-->
+    <tr>
+        <td colspan="5"><a href="${website}image/to_add_image/${num=1}">添加图片</a>
+        </td>
+    </tr></br><!--有点疑问-->
     <c:if test="${sessionScope.num==1}">
+        <tr>
             <form action="${website}image/add_image" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="imageField">
-                <input type="submit" name="submit" value="添加">
+                <td><input type="file" name="file" id="imageField"></td>
+                <td colspan="4"><input type="submit" name="submit" value="添加"></td>
             </form>
+        </tr>
     </c:if>
     <tr>
-        <td>${msg}</td>
+        <td colspan="5"><a href="${website}/image/select_image">选择需要轮播的图片</a></td>
+    </tr>
+    <tr>
+        <td colspan="5">${msg}</td>
     </tr>
 </table>
 </body>
