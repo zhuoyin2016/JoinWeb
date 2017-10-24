@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-response.sendRedirect("/man/login");
+response.sendRedirect("/image/list");
 %>
 </body>
 </html>

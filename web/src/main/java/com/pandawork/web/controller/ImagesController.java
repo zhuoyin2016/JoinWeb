@@ -30,7 +30,7 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/image")
-public class ImageController extends AbstractController{
+public class ImagesController extends AbstractController{
 
     /**
      * 上传图片处理
