@@ -43,6 +43,13 @@ public interface ImageMapper {
     public  Image queryImageById(@Param("id") int id) throws Exception;
 
     /**
+     * 查询被轮播的图片
+     * @return 返回
+     * @throws Exception 异常
+     */
+    public List<Image> listSlImageAll()throws Exception;
+
+    /**
      * 查询所有图片列表
      * @return 返回
      * @throws Exception 异常

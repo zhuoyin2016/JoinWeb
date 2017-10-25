@@ -32,6 +32,13 @@
         WHERE `id` = #{id}
     </select>
 
+    <!--寻找被选择的轮播图片-->
+    <select id="listSlImageAll" resultMap="pw.Image">
+        SELECT *
+        FROM `t_images`
+        WHERE `select` = 1
+    </select>
+
     <!--查询所有图片列表-->
     <select id="listImageAll" resultMap="pw.Image">
         SELECT *

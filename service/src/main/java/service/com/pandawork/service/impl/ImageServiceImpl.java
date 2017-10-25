@@ -98,6 +98,24 @@ public class ImageServiceImpl implements ImageService {
     }
 
     /**
+     * 查询被轮播图片列表
+     * @return 返回
+     * @throws SSException 异常
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
+    public List<Image> listSlImageAll() throws SSException {
+        List<Image> imageList = Collections.emptyList();
+        try{
+            imageList = imageMapper.listSlImageAll();
+        }catch(Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(NFException.ListSlImageAllFailed,e);
+        }
+        return imageList;
+    }
+
+    /**
      *查询图片列表
      * @return 返回
      * @throws SSException 异常

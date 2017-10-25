@@ -14,7 +14,8 @@
 </head>
 <body>
 <h1 align="center">轮播图片的选择</h1>
-<form action="/image/select_img" method="post"><!--提交到轮播的确定页面，确定以后再返回到这里，到时候在轮播的首页仅显示被选择的页面-->
+<form action="/image/select_ok" method="post">
+    <!--提交到轮播的确定页面，确定以后再返回到这里，到时候在轮播的首页仅显示被选择的页面-->
 <table cellspacing="0" border="1" align="center">
     <tr>
         <th align="center">序号</th>

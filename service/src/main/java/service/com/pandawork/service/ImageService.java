@@ -41,6 +41,13 @@ public interface ImageService {
     public Image queryImageById(int id) throws SSException;
 
     /**
+     * 查询被轮播的图片
+     * @return 返回
+     * @throws SSException 异常
+     */
+    public List<Image> listSlImageAll() throws SSException;
+
+    /**
      *查询图片列表
      * @return 返回
      * @throws SSException 异常

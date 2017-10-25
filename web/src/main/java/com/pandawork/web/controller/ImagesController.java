@@ -152,7 +152,7 @@ public class ImagesController extends AbstractController{
     }
 
     /**
-     * 选择图片
+     * 选择图片的页面
      * @param id id
      * @return 返回
      */
@@ -180,6 +180,21 @@ public class ImagesController extends AbstractController{
         }
 
     }
+
+    @RequestMapping(value = "/select_ok",method = RequestMethod.POST)
+    public String slOkImage(Model model){
+        try{
+            List<Image> imageList = Collections.emptyList();
+            imageList = imageService.listSlImageAll();
+            model.addAttribute("imageList", imageList);
+            return "/image/select_img_list";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
 
 
 

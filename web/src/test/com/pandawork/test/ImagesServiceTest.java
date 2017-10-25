@@ -54,6 +54,12 @@ public class ImagesServiceTest extends AbstractTestCase {
         System.out.println(image.getUploadImgTime());
     }
 
+    //测试查询被轮播图片
+    @Test
+    public void testListSlImageAll() throws SSException{
+        System.out.println(imageService.listSlImageAll());
+    }
+
     //测试查询图片列表
     @Test
     public void testListImageAll() throws SSException{
