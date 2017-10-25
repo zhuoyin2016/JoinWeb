@@ -35,10 +35,10 @@ public class Member extends AbstractEntity{
     //成员专业
     private  String major;
 
-    //成员部门  0代表研究生团队，1代表前端，2代表后端，3代表产品
+    //成员部门  1代表研究生团队，2代表前端，3代表后端，4代表产品
     private  int department;
 
-    //成员级别  0代表负责人，1代表成员
+    //成员级别  级别 主任1，副主任2，前后端负责人3，成员4
     private int position;
 
     //个人介绍

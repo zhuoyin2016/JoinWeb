@@ -24,13 +24,13 @@ public class MemberServiceTest extends AbstractTestCase {
     public void testNewMember() throws Exception {
         Member member = new Member();
         member.setMemberPhoto("2.jpg");
-        member.setMemberName("瑞超");
-        member.setSex("女");
-        member.setGrade(2016);
+        member.setMemberName("单总");
+        member.setSex("男");
+        member.setGrade(2015);
         member.setMajor("软件");
         member.setDepartment(3);
         member.setPosition(1);
-        member.setIntroduce("小仙女");
+        member.setIntroduce("小");
         member.setVisible(1);
         memberService.addMember(member);
         System.out.println("tianjiachenggong ");
@@ -46,11 +46,11 @@ public class MemberServiceTest extends AbstractTestCase {
     public void testUpdateMember() throws Exception{
     Member member = new Member();
     member.setMemberPhoto("2.jpg");
-    member.setMemberName("dddaadscv");
+    member.setMemberName("阿鑫");
     member.setSex("nv");
     member.setGrade(2015);
     member.setMajor("aaaa");
-    member.setDepartment(0);
+    member.setDepartment(3);
     member.setPosition(1);
     member.setIntroduce("fffffffffk");
     member.setVisible(1);

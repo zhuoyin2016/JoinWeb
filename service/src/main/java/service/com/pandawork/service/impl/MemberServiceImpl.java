@@ -127,7 +127,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     /**
-     * 根据部门查找用户
+     * 根据部门查找用户  1代表研究生团队，2代表前端，3代表后端，4代表产品
      * @param department
      * @return
      * @throws Exception

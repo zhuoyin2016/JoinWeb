@@ -8,10 +8,7 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.util.Assert;
 import com.pandawork.core.framework.bean.StaticAutoWire;
 import com.pandawork.core.framework.web.spring.controller.Base;
-import com.pandawork.service.ImageService;
-import com.pandawork.service.JoinerService;
-import com.pandawork.service.ManagerService;
-import com.pandawork.service.StudentService;
+import com.pandawork.service.*;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -192,4 +189,7 @@ public class AbstractController extends Base {
     protected static JoinerService joinerService;
 
 
+    @StaticAutoWire
+    @Qualifier("memberService")
+    protected static MemberService memberService;
 }

@@ -48,7 +48,7 @@
      WHERE `id` = #{id}
     </select>
 
-    <!--&lt;!&ndash;根据部门查找用户 0代表研究生团队，1代表前端，2代表后端，3代表产品-->
+    <!--&lt;!&ndash;根据部门查找用户  1代表研究生团队，2代表前端，3代表后端，4代表产品-->
     <select id="queryMemberByDepartment" resultMap="pw.Member">
         SELECT *
         FROM `t_member`
@@ -63,7 +63,7 @@
         WHERE `position`= #{position}
     </select>
 
-    <!--根据用户级别查找用户-->
+    <!--根据用户nianji查找用户-->
     <select id="queryMemberByGrade" resultMap="pw.Member">
         SELECT *
         FROM `t_member`

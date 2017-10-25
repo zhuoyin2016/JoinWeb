@@ -13,22 +13,22 @@
 <body>
 <div>
     <li>
-        <a href="${website}member/queryByDepartment/${0}">
+        <a href="${website}member/queryByDepartment/${1}">
             研究生团队
         </a>
     </li>
     <li>
-        <a href="${website}member/queryByDepartment/${1}">
+        <a href="${website}member/queryByDepartment/${2}">
             前端
         </a>
     </li>
     <li>
-        <a href="${website}member/queryByDepartment/${2}">
+        <a href="${website}member/queryByDepartment/${3}">
         后端
         </a>
     </li>
     <li>
-        <a href="${website}member/queryByDepartment/${3}">
+        <a href="${website}member/queryByDepartment/${4}">
             产品
         </a>
     </li>
@@ -36,7 +36,12 @@
     <li>
         <a  href="${website}member/addMember">增加成员</a>
     </li>
+    <li>
+        <a  href="${website}member/listAllMember">列出全部</a>
+    </li>
+    <li>
 
+    </li>
 </div>
 </body>
 </html>

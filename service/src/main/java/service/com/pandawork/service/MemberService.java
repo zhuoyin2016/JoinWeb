@@ -47,7 +47,7 @@ public interface MemberService {
     public List<Member> listAll() throws Exception;
 
     /**
-     * 根据部门查找成员  0代表研究生团队，1代表前端，2代表后端，3代表产品
+     * 根据部门查找成员   1代表研究生团队，2代表前端，3代表后端，4代表产品
      * @param department
      * @return
      * @throws Exception
