@@ -105,14 +105,14 @@ public class ImageServiceImpl implements ImageService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public List<Image> listSlImageAll() throws SSException {
-        List<Image> imageList = Collections.emptyList();
+        List<Image> slImageList = Collections.emptyList();
         try{
-            imageList = imageMapper.listSlImageAll();
+            slImageList = imageMapper.listSlImageAll();
         }catch(Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(NFException.ListSlImageAllFailed,e);
         }
-        return imageList;
+        return slImageList;
     }
 
     /**

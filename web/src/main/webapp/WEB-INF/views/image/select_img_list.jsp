@@ -16,7 +16,7 @@
 <h1 align="center">轮播图片的选择</h1>
 <form action="/image/select_ok" method="post">
     <!--提交到轮播的确定页面，确定以后再返回到这里，到时候在轮播的首页仅显示被选择的页面-->
-<table cellspacing="0" border="1" align="center">
+<table cellspacing="0" border="0" align="center">
     <tr>
         <th align="center">序号</th>
         <th align="center">图片</th>
@@ -36,10 +36,12 @@
             </c:if>
         </tr>
     </c:forEach>
-    <tr>
-        <td colspan="4"><input type="submit" value="确定"></td>
-    </tr>
 </table>
+    <hr width="500px" align="center">
+    <c:forEach items="${slImageList}" var="slImage" varStatus="status">
+        <img src="${slImage.imgName}" width="80px" height="60px">
+    </c:forEach>
+    <p align="center"><input type="submit" value="确定"></p>
 </form>
 </body>
 </html>

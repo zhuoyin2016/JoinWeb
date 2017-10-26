@@ -4,6 +4,7 @@ import com.pandawork.common.entity.Image;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.service.ImageService;
 import com.pandawork.web.spring.AbstractController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -137,19 +138,7 @@ public class ImagesController extends AbstractController{
         }
     }
 
-    /**
-     * 跳转到选择轮播图片的页面
-     * @param model model
-     * @return 返回
-     * @throws SSException 异常
-     */
-    @RequestMapping(value = "/select_image", method = RequestMethod.GET)
-    public String toSelectImage(Model model) throws SSException {
-        List<Image> imageList = Collections.emptyList();
-        imageList = imageService.listImageAll();
-        model.addAttribute("imageList", imageList);
-        return "/image/select_img_list";
-    }
+
 
     /**
      * 选择图片的页面
@@ -181,18 +170,21 @@ public class ImagesController extends AbstractController{
 
     }
 
-    @RequestMapping(value = "/select_ok",method = RequestMethod.POST)
-    public String slOkImage(Model model){
-        try{
-            List<Image> imageList = Collections.emptyList();
-            imageList = imageService.listSlImageAll();
-            model.addAttribute("imageList", imageList);
-            return "/image/select_img_list";
-        }catch (SSException e){
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
+    /**
+     * 跳转到选择轮播图片的页面
+     * @param model model
+     * @return 返回
+     * @throws SSException 异常
+     */
+    @RequestMapping(value = "/select_image", method = RequestMethod.GET)
+    public String toSelectImage(Model model) throws SSException {
+        List<Image> imageList = Collections.emptyList();
+        List<Image> slImageList = Collections.emptyList();
+        imageList = imageService.listImageAll();
+        slImageList = imageService.listSlImageAll();
+        model.addAttribute("imageList", imageList);
+        model.addAttribute("slImageList",slImageList);
+        return "/image/select_img_list";
     }
 
 
@@ -200,7 +192,7 @@ public class ImagesController extends AbstractController{
 
 
 //    /**
-//     * 根据id查询图片
+//     * 根据id查询图片(前端可实现点击图片放大浏览图片)
 //     * @param id
 //     * @return
 //     */
@@ -215,6 +207,25 @@ public class ImagesController extends AbstractController{
 //            return ADMIN_SYS_ERR_PAGE;
 //        }
 //    }
+
+    /**
+     * 选择轮播图片列表
+     * @param model model
+     * @return 返回
+     */
+    @RequestMapping(value = "/select_ok",method = RequestMethod.POST)
+    public String slOkImage(Model model){
+        try{
+            List<Image> slImageList = Collections.emptyList();
+            slImageList = imageService.listSlImageAll();
+            model.addAttribute("slImageList", slImageList);
+            return "....";//跳转到卓音主页
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
 
     /**
      * 列出全部图片
