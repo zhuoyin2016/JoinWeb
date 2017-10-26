@@ -3,8 +3,7 @@ package com.pandawork.web.controller;
 import com.pandawork.common.entity.Image;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
-import com.pandawork.core.common.util.Assert;
-import com.pandawork.service.ImageService;
+
 import com.pandawork.web.spring.AbstractController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,6 +25,8 @@ import java.util.UUID;
 
 /**
  * Created by houst,liuz on 2017/10/20.
+ * 上传图片处理，上传图片，根据id删除图片，列出全部图片，
+ * 跳转到选择轮播图片的页面，选择图片的页面，选择轮播图片成功并放到卓音主页
  */
 
 @Controller
@@ -138,7 +138,41 @@ public class ImagesController extends AbstractController{
         }
     }
 
+    /**
+     * 列出全部图片
+     * @param model model
+     * @return 返回
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String listImageAll(Model model) {
+        try {
+            List<Image> imageList = Collections.emptyList();
+            imageList = imageService.listImageAll();
+            model.addAttribute("imageList", imageList);
+            return "/image/img_list";
+        } catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
 
+    /**
+     * 跳转到选择轮播图片的页面
+     * @param model model
+     * @return 返回
+     * @throws SSException 异常
+     */
+    @RequestMapping(value = "/select_image", method = RequestMethod.GET)
+    public String toSelectImage(Model model) throws SSException {
+        List<Image> imageList = Collections.emptyList();
+        List<Image> slImageList = Collections.emptyList();
+        imageList = imageService.listImageAll();
+        slImageList = imageService.listSlImageAll();
+        model.addAttribute("imageList", imageList);
+        model.addAttribute("slImageList",slImageList);
+        return "/image/select_img_list";
+    }
 
     /**
      * 选择图片的页面
@@ -170,46 +204,9 @@ public class ImagesController extends AbstractController{
 
     }
 
-    /**
-     * 跳转到选择轮播图片的页面
-     * @param model model
-     * @return 返回
-     * @throws SSException 异常
-     */
-    @RequestMapping(value = "/select_image", method = RequestMethod.GET)
-    public String toSelectImage(Model model) throws SSException {
-        List<Image> imageList = Collections.emptyList();
-        List<Image> slImageList = Collections.emptyList();
-        imageList = imageService.listImageAll();
-        slImageList = imageService.listSlImageAll();
-        model.addAttribute("imageList", imageList);
-        model.addAttribute("slImageList",slImageList);
-        return "/image/select_img_list";
-    }
-
-
-
-
-
-//    /**
-//     * 根据id查询图片(前端可实现点击图片放大浏览图片)
-//     * @param id
-//     * @return
-//     */
-//    @RequestMapping(value ="query/{id}",method = RequestMethod.GET)
-//    public String queryImageById(@RequestParam("id") int id) {
-//        try {
-//            imageService.queryImageById(id);
-//            return "redirect:/image/list";
-//        } catch (SSException e ){
-//            LogClerk.errLog.error(e);
-//            sendErrMsg(e.getMessage());
-//            return ADMIN_SYS_ERR_PAGE;
-//        }
-//    }
 
     /**
-     * 选择轮播图片列表
+     * 选择轮播图片成功，放到卓音主页
      * @param model model
      * @return 返回
      */
@@ -227,22 +224,27 @@ public class ImagesController extends AbstractController{
         }
     }
 
-    /**
-     * 列出全部图片
-     * @param model model
-     * @return 返回
-     */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String listImageAll(Model model) {
-        try {
-            List<Image> imageList = Collections.emptyList();
-            imageList = imageService.listImageAll();
-            model.addAttribute("imageList", imageList);
-            return "/image/img_list";
-        } catch (SSException e) {
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
-    }
+
+
+
+//    /**
+//     * 根据id查询图片(前端可实现点击图片放大浏览图片,我们可以不用写)
+//     * @param id
+//     * @return
+//     */
+//    @RequestMapping(value ="query/{id}",method = RequestMethod.GET)
+//    public String queryImageById(@RequestParam("id") int id) {
+//        try {
+//            imageService.queryImageById(id);
+//            return "redirect:/image/......";
+//        } catch (SSException e ){
+//            LogClerk.errLog.error(e);
+//            sendErrMsg(e.getMessage());
+//            return ADMIN_SYS_ERR_PAGE;
+//        }
+//    }
+
+
+
+
 }

@@ -18,6 +18,8 @@ import java.util.List;
 /**
  * ImageService的实现
  * Created by houst,liuz on 2016/10/19.
+ * 增加图片，根据id删除图片，更新图片，
+ * 根据id查询图片，查询被轮播图片列表，查询图片列表
  */
 @Service("imageService")
 public class ImageServiceImpl implements ImageService {

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 轮播图片管理mapper层
  * Created by houst,liuz on 2017/10/19.
- *增加图片，删除图片，修改图片，根据id查询图片，查询图片列表
+ *增加图片，删除图片，修改图片，根据id查询图片，查询被轮播的图片，查询图片列表
  *
  */
 public interface ImageMapper {
