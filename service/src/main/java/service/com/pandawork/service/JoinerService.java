@@ -84,4 +84,5 @@ public interface JoinerService {
      * @throws SSException
      */
     public void updateState(int state,int id)throws SSException;
+
 }

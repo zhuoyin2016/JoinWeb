@@ -24,9 +24,8 @@
                     <td>${joiner.joinerSex}</td>
                     <td align="right">年级：</td>
                     <td>${joiner.joinerGrade}</td>
-                    <td rowspan="3" align="center" style="white-space:nowrap;overflow:hidden;text-overflow: ellipsis;">
-                        照片
-                        ${joiner.joinerPhoto}
+                    <td rowspan="3" align="center">
+                        <img src="../../../image/joiner/${joiner.joinerPhoto}" width="70px" height="100px"/>
                     </td>
                 </tr>
                 <tr>

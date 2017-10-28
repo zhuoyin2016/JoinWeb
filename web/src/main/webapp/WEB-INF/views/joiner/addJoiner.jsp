@@ -15,22 +15,22 @@
 <body>
 <div>
     <center style="margin-top: 50px">
-        <form action="${website}joiner/addJoiner" method="post">
+        <form action="${website}joiner/addJoiner" method="post"  enctype="multipart/form-data">
             <h2>东北师范大学卓音工作室2018报名表</h2>
-            <table border="1" >
+            <table border="1" style="table-layout: fixed;width: 812px">
                 <tr>
                     <td  align="right">姓名：</td>
-                    <td><input type="text" name="joinerName"/></td>
+                    <td><input type="text" name="joinerName" style="width: 110px"/></td>
                     <td align="right">性别：</td>
                     <td>
-                        <select name="joinerSex">
+                        <select name="joinerSex" style="width: 110px">
                             <option value="男"/>男</option>
                             <option value="女"/>女</option>
                         </select>
                     </td>
                     <td align="right">年级：</td>
                     <td>
-                        <select name="joinerGrade">
+                        <select name="joinerGrade" style="width: 110px">
                             <option value="2017" selected = "selected"/>2017级</option>
                             <option value="2016"/>2016级</option>
                             <option value="2015"/>2015级</option>
@@ -38,16 +38,16 @@
                             <option value="研究生"/>研究生</option>
                         </select>
                     </td>
-                    <td rowspan="3" align="center" >
-                        照片<br>
-                        <br>
-                        <input type="file" name="joinerPhoto" style="width: 60px "/>
+                    <td rowspan="3" align="center" style="white-space:nowrap;overflow:hidden;text-overflow: ellipsis;">
+                       <br> 照片<br>
+                        <input type='text'  name='joinerPhoto' id='textfield' class='text' style="width: 110px" /><br>
+                        <input type="file" name="file" class="file" id="fileField" size="28" onchange="document.getElementById('textfield').value=this.value" />
                     </td>
                 </tr>
                 <tr>
                     <td align="right">学院：</td>
                     <td>
-                        <select name="joinerCollege">
+                        <select name="joinerCollege" style="width: 110px">
                             <option value="信息科学与技术学院" selected = "selected"/>信息科学与技术学院</option>
                             <option value="传媒学院"/>传媒学院</option>
                             <option value="政法学院"/>政法学院</option>
@@ -62,21 +62,22 @@
                     </td>
                     <td align="right">专业：</td>
                     <td>
-                        <select name="joinerMajor">
+                        <select name="joinerMajor" style="width: 110px">
                             <option value="软件工程" />软件工程</option>
                             <option value="计算机（普班）"/>计算机（普班）</option>
                             <option value="计算机（中美）"/>计算机（中美）</option>
                             <option value="图书情报与档案管理"/>图书情报与档案管理</option>
                             <option value="教育技术学"/>教育技术学</option>
+                            <option value="其他"/>其他</option>
                         </select>
                     </td>
                     <td align="right">年级排名：</td>
-                    <td><input type="text" name="joinerRanking"/></td>
+                    <td><input type="text" name="joinerRanking" style="width: 110px"/></td>
                 </tr>
                 <tr>
                     <td align="right">意向部门：</td>
                     <td>
-                        <select name="joinerDep">
+                        <select name="joinerDep" style="width: 110px">
                             <option value="前端" />前端</option>
                             <option value="后端"/>后端</option>
                             <option value="产品部"/>产品部</option>
@@ -84,9 +85,9 @@
                         </select>
                     </td>
                     <td align="right">联系电话：</td>
-                    <td><input type="text" name="joinerNum"/></td>
+                    <td><input type="text" name="joinerNum" style="width: 110px"/></td>
                     <td align="right">QQ：</td>
-                    <td><input type="text" name="joinerQQ"/></td>
+                    <td><input type="text" name="joinerQQ" style="width: 110px"/></td>
                 </tr>
                 <tr>
                     <td align="right">籍贯：</td>

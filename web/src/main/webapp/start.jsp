@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-    response.sendRedirect("/joiner/toAddJ");
+    response.sendRedirect("/joiner/list");
 %>
 </body>
 </html>

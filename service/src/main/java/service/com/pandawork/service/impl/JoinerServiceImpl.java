@@ -231,5 +231,4 @@ public class JoinerServiceImpl implements JoinerService {
             throw SSException.get(NFException.UpdateStudentFailed, e);
         }
     }
-
 }

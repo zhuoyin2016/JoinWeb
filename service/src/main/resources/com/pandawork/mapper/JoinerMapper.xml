@@ -7,12 +7,11 @@
     <!--增加报名学生-->
     <insert id="addJoiner">
         INSERT INTO `t_joiner`
-        (`id`, `joiner_name`, `joiner_photo`, `joiner_sex`,`joiner_grade`,`joiner_ranking`,
+        (`id`, `joiner_name`,`joiner_photo`,`joiner_sex`,`joiner_grade`,`joiner_ranking`,
         `joiner_birthplace`,`joiner_college`,`joiner_major`,`joiner_number`,`joiner_qq`,
         `joiner_department`,`joiner_introduction`, `joiner_reason`)
-        VALUES (#{joiner.id}, #{joiner.joinerName},#{joiner.joinerPhoto},
-        #{joiner.joinerSex},#{joiner.joinerGrade},#{joiner.joinerRanking},
-        #{joiner.joinerBir},#{joiner.joinerCollege},#{joiner.joinerMajor},
+        VALUES (#{joiner.id},#{joiner.joinerName},#{joiner.joinerPhoto},#{joiner.joinerSex},#{joiner.joinerGrade},
+        #{joiner.joinerRanking},#{joiner.joinerBir},#{joiner.joinerCollege},#{joiner.joinerMajor},
         #{joiner.joinerNum},#{joiner.joinerQQ},#{joiner.joinerDep},
         #{joiner.joinerIntro}, #{joiner.joinerReason})
     </insert>
@@ -83,5 +82,4 @@
         FROM `t_joiner`
         WHERE `joiner_state`= #{state}
     </select>
-
 </mapper>
