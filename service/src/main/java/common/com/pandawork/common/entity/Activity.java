@@ -17,6 +17,10 @@ public class Activity extends AbstractEntity {
     @Id
     public Integer id;
 
+    //活动时间
+    @Column(name = "activity_time")
+    private String activityTime;
+
     //活动标题
     @Column(name = "activity_title")
     private String activityTitle;
@@ -44,6 +48,14 @@ public class Activity extends AbstractEntity {
     @Override
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getAcitivityTime() {
+        return activityTime;
+    }
+
+    public void setActivityTime(String acitivityTime) {
+        this.activityTime = acitivityTime;
     }
 
     public String getActivityTitle() {
@@ -90,6 +102,7 @@ public class Activity extends AbstractEntity {
     public String toString() {
         return "Activity{" +
                 "id=" + id +
+                ", activityTime='" + activityTime + '\'' +
                 ", activityTitle='" + activityTitle + '\'' +
                 ", activityContent='" + activityContent + '\'' +
                 ", activityImg1='" + activityImg1 + '\'' +

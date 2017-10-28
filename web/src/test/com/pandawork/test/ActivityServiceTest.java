@@ -22,11 +22,12 @@ public class ActivityServiceTest extends AbstractTestCase {
     @Test
     public void testAddActivity() throws SSException {
         Activity activity = new Activity();
-        activity.setActivityTitle("吃橘子");
-        activity.setActivityContent("酸的");
-        activity.setActivityImg1("吃橘子");
-        activity.setActivityImg2("酸的");
-        activity.setActivityImg3("吃橘子");
+        activity.setActivityTime("2018/3/24");
+        activity.setActivityTitle("吃栗子");
+        activity.setActivityContent("软的");
+        activity.setActivityImg1("kkk");
+        activity.setActivityImg2("kkk");
+        activity.setActivityImg3("kkk");
         activityService.addActivity(activity);
         System.out.println("添加成功");
     }
@@ -34,7 +35,7 @@ public class ActivityServiceTest extends AbstractTestCase {
     //测试删除活动
     @Test
     public void testDelActivityById() throws SSException{
-        activityService.delActivityById(1);
+        activityService.delActivityById(2);
         System.out.println("删除成功");
 
     }
@@ -42,8 +43,13 @@ public class ActivityServiceTest extends AbstractTestCase {
     //测试更新活动
     @Test
     public void testUpdateActivity() throws SSException{
-        Activity activity = activityService.queryActivityById(1);
-        activity.setActivityContent("甜的");
+        Activity activity = activityService.queryActivityById(5);
+        activity.setActivityTime("2019年5月30日");
+        activity.setActivityTitle("吃李子");
+        activity.setActivityContent("酸的");
+        activity.setActivityImg1("kkk");
+        activity.setActivityImg2("kkk");
+        activity.setActivityImg3("kkk");
         activityService.updateActivity(activity);
         System.out.println("更新成功");
 
@@ -58,7 +64,7 @@ public class ActivityServiceTest extends AbstractTestCase {
     //测试根据标题查询活动
     @Test
     public void testQueryActivityByTitle() throws SSException {
-        System.out.println(activityService.queryActivityByTitle("吃橘子"));
+        System.out.println(activityService.queryActivityByTitle("吃"));
     }
 
     //测试查询活动列表

@@ -7,17 +7,17 @@
     <!--增加活动-->
     <insert id="addActivity">
         INSERT INTO `t_activity`
-        (`id`, `activity_title`, `activity_content`, `activity_image1`,`activity_image2`,`activity_image3`)
-        VALUES (#{activity.id}, #{activity.activityTitle},
+        (`id`, `activity_time`,`activity_title`, `activity_content`, `activity_image1`,`activity_image2`,`activity_image3`)
+        VALUES (#{activity.id},#{activity.activityTime}, #{activity.activityTitle},
         #{activity.activityContent}, #{activity.activityImg1},#{activity.activityImg2},#{activity.activityImg3})
     </insert>
 
     <!--修改活动-->
     <update id="updateActivity">
         UPDATE `t_activity`
-        SET `activity_title` = #{activity.activityTitle},`activity_content`=#{activity.activityContent},
-        `activity_image1` = #{activity.activityImg1},`activity_image2`=#{activity.activityImg2},
-        `activity_image3` = #{activity.activityImg3}
+        SET `activity_time` = #{activity.activityTime},`activity_title` = #{activity.activityTitle},
+        `activity_content`=#{activity.activityContent},`activity_image1` = #{activity.activityImg1},
+        `activity_image2`=#{activity.activityImg2},`activity_image3` = #{activity.activityImg3}
         WHERE `id` = #{activity.id}
     </update>
 
@@ -39,7 +39,7 @@
     <select id="queryActivityByTitle" resultMap="pw.Activity">
     SELECT *
     FROM `t_activity`
-    WHERE `activity_title`=#{activity_title}
+    WHERE `activity_title` LIKE CONCAT('%',#{title},'%')
     </select>
 
     <!--列出全部活动-->

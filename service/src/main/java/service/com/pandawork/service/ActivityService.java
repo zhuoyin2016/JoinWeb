@@ -46,7 +46,7 @@ public interface ActivityService {
      * @return
      * @throws SSException
      */
-    public Activity queryActivityByTitle(String title)throws SSException;
+    public List<Activity> queryActivityByTitle(String title)throws SSException;
 
     /**
      *列出全部活动

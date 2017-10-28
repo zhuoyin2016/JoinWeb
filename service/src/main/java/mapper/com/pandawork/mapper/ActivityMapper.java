@@ -42,11 +42,11 @@ public interface ActivityMapper {
 
     /**
      * 根据标题查找活动
-     * @param activity_title
+     * @param title
      * @return
      * @throws Exception
      */
-    public Activity queryActivityByTitle(@Param("activity_title") String activity_title) throws  Exception;
+    public List<Activity> queryActivityByTitle(@Param("title") String title)throws Exception;
 
     /**
      * 查询所有活动列表

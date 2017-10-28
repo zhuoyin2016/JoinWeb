@@ -117,10 +117,12 @@ public class ActivityServiceImpl implements ActivityService {
      * @throws SSException
      */
     @Override
-    public Activity queryActivityByTitle(String title) throws SSException {
-        if(Assert.isNull(title)){
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
+    public List<Activity> queryActivityByTitle(String title) throws SSException {
+        if (Assert.isNull(title)) {
             return null;
-        }try{
+        }
+        try {
             return activityMapper.queryActivityByTitle(title);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
