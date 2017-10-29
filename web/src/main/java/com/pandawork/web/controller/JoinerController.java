@@ -31,7 +31,7 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/joiner")
 @SessionAttributes("Message")
-public class joinerController extends AbstractController {
+public class JoinerController extends AbstractController {
 
     /**
      * 遍历所有学生
@@ -195,7 +195,7 @@ public class joinerController extends AbstractController {
         try {
             if (!Assert.isNotNull(keyWord)) {
                 String message = "输入不能为空";
-                return "redirect:/joiner/message" + message;
+                return "redirect:/joiner/message/" + message;
             }
             List<Joiner> list = Collections.emptyList();
             if (type.equals("sex")) {
@@ -207,6 +207,12 @@ public class joinerController extends AbstractController {
             if (type.equals("major")) {
                 list = joinerService.queryJoinerByMajor(keyWord);
             }
+            if (type.equals("dep")) {
+                list = joinerService.queryJoinerByDep(keyWord);
+            }
+            if(type.equals("name")){
+                list = joinerService.queryJoinerByName(keyWord);
+            }
             if (type.equals("state")) {
                 if (keyWord.equals("待审核")) {
                     list = joinerService.queryJoinerByState(0);
@@ -214,14 +220,14 @@ public class joinerController extends AbstractController {
                 if (keyWord.equals("审核通过")) {
                     list = joinerService.queryJoinerByState(1);
                 }
-                if (keyWord.equals("审核为通过")) {
+                if (keyWord.equals("审核未通过")) {
                     list = joinerService.queryJoinerByState(2);
                 }
             }
             System.out.println(list);
             if (list.isEmpty()) {
                 String message = "没有与搜索条件匹配的项";
-                return "redirect:/joiner/message" + message;
+                return "redirect:/joiner/message/" + message;
             }
             model.addAttribute("list", list);
             return "joiner/search";

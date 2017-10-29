@@ -85,4 +85,20 @@ public interface JoinerService {
      */
     public void updateState(int state,int id)throws SSException;
 
+    /**
+     * 通过姓名查找
+     * @param name
+     * @return
+     * @throws SSException
+     */
+    public List<Joiner> queryJoinerByName(String name) throws SSException;
+
+    /**
+     * 根据意向部门查找
+     * @param department
+     * @return
+     * @throws SSException
+     */
+
+    public List<Joiner> queryJoinerByDep(String department) throws SSException;
 }

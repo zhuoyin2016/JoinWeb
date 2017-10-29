@@ -82,4 +82,18 @@
         FROM `t_joiner`
         WHERE `joiner_state`= #{state}
     </select>
+
+    <!--根据姓名查找学生-->
+    <select id="queryJoinerByName" resultMap="pw.Joiner">
+        SELECT *
+        FROM `t_joiner`
+        WHERE `joiner_name`LIKE CONCAT('%',#{name},'%')
+    </select>
+
+    <!--根据意向部门查找学生-->
+    <select id="queryJoinerByDep" resultMap="pw.Joiner">
+        SELECT *
+        FROM `t_joiner`
+        WHERE `joiner_department`LIKE CONCAT('%',#{department},'%')
+    </select>
 </mapper>

@@ -231,4 +231,38 @@ public class JoinerServiceImpl implements JoinerService {
             throw SSException.get(NFException.UpdateStudentFailed, e);
         }
     }
+
+    /**
+     * 通过姓名查找
+     * @param name
+     * @return
+     * @throws SSException
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
+    public List<Joiner> queryJoinerByName(String name) throws SSException{
+        if (Assert.isNull(name)) {
+            return null;
+        }
+        try {
+            return joinerMapper.queryJoinerByName(name);
+        } catch (Exception e) {
+            LogClerk.errLog.error(e);
+            throw SSException.get(NFException.AddMember,e);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
+    public List<Joiner> queryJoinerByDep(String department) throws SSException{
+        if (Assert.isNull(department)) {
+            return null;
+        }
+        try {
+            return joinerMapper.queryJoinerByDep(department);
+        } catch (Exception e) {
+            LogClerk.errLog.error(e);
+            throw SSException.get(NFException.AddMember,e);
+        }
+    }
 }

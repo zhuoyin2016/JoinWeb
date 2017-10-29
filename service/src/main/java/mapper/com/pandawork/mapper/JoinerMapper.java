@@ -96,4 +96,20 @@ public interface JoinerMapper {
      * @throws Exception
      */
     public void updateState(@Param("state") int state, @Param("id") int id) throws Exception;
+
+    /**
+     * 通过姓名查找
+     * @param name
+     * @return
+     * @throws Exception
+     */
+    public List<Joiner> queryJoinerByName(@Param("name")String name) throws Exception;
+
+    /**
+     * 根据意向部门查找
+     * @param department
+     * @return
+     * @throws Exception
+     */
+    public List<Joiner> queryJoinerByDep(@Param("department")String department) throws Exception;
 }
