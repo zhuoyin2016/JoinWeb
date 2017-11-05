@@ -42,7 +42,6 @@ public class ActivityController extends AbstractController{
         try{
             List<Activity> activityList = activityService.listActivityAll();
             model.addAttribute("activityList" , activityList);
-            System.out.println(activityList);
             return "activity/listall";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
@@ -92,10 +91,18 @@ public class ActivityController extends AbstractController{
     }
 
     /**
-     * 增加活动
+     * 增加活动待完成
      */
     @RequestMapping(value ="/addActivity", method = RequestMethod.POST)
-    public String newActivity(Activity activity, RedirectAttributes redirectAttributes) {
+    public String newActivity(Activity activity, @RequestParam("file")CommonsMultipartFile file,RedirectAttributes redirectAttributes,HttpServletRequest request) {
+        String  filename = file.getOriginalFilename();
+        String newFileName =  UUID.randomUUID()+ filename;
+        ServletContext sc = request.getSession().getServletContext();
+        String path = sc.getRealPath("image/activityImage")+"/";
+        File f = new File(path);
+        if(!f.exists()){
+            f.mkdirs();
+        }
         try {
             activityService.addActivity(activity);
             redirectAttributes.addFlashAttribute("message", "添加成功！");
@@ -113,7 +120,7 @@ public class ActivityController extends AbstractController{
      */
     @RequestMapping(value = "/toadd", method = RequestMethod.GET)
     public String toAdd(){
-        return "add";
+        return "activity/add";
     }
 
     /**

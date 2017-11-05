@@ -50,13 +50,14 @@ public class Activity extends AbstractEntity {
         this.id = id;
     }
 
-    public String getAcitivityTime() {
+    public void setActivityTime(String activityTime) {
+        this.activityTime = activityTime;
+    }
+
+    public String getActivityTime() {
         return activityTime;
     }
 
-    public void setActivityTime(String acitivityTime) {
-        this.activityTime = acitivityTime;
-    }
 
     public String getActivityTitle() {
         return activityTitle;

@@ -43,22 +43,24 @@
     <div class="ceshi">
     </div>
 </div>
-<div class="center">
-    <div class="left">
-        <h1>活动简述</h1>
-        <div class="content">
-            <p class="para">
-               ${activity.activityContent}
-            </p>
-        </div>
-    </div>
-    <div class="right">
-        <h2>${activity.activityTitle}</h2>
-        <p>${activity.acitivityTime}</p>
-        <img src="../resource/imgs/activity-one/01.jpg">
-        <a href="${website}activity/return">返回首页</a>
-    </div>
-</div>
+<table border="1" align="left">
+    <tr>
+        <td align="center">活动标题</td>
+        <td>${activity.activityTitle}</td>
+    </tr>
+    <tr>
+        <td align="center">活动时间</td>
+        <td>${activity.activityTime}</td>
+    </tr>
+    <tr>
+        <td>活动内容</td>
+        <td>${activity.activityContent}</td>
+    </tr>
+    <tr>
+        <td>活动图片</td>
+        <td>${activity.activityImg1}</td>
+    </tr>
+</table>
 <div class="footer">
     <img class="foot-bg" src="../resource/imgs/小图标/foot-bg2.jpg">
     <div class="foot-left">

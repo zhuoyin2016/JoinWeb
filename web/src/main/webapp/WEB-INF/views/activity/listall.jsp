@@ -48,13 +48,12 @@
 </div>
 <div class="center">
     <h2 class="smatitle">活动信息</h2>
-    <c:forEach items="activityList" var="activity" varStatus="status">
+    <c:forEach items="${activityList}" var="activity" varStatus="status">
     <div class="pic" id="one">
         <img src="../resource/imgs/activity/01.jpg" class="big-pic">
         <p class="but" id="butone">
-                ${activity.id}
-            <%--<span><a href="${website}activity/select/${activity.id}" class="href" id="hrefone" target="_blank">查看详情</a></span>--%>
-            <%--<span>标题：${activity.activityTitle}</span>--%>
+            <span><a href="${website}activity/select/${activity.id}">${activity.activityTitle}</a></span>
+            <span><a href="${website}activity/delete/${activity.id}">删除</a></span>
         </p>
     </div>
     </c:forEach>
