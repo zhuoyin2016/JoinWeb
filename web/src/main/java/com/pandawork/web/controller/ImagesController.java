@@ -1,5 +1,6 @@
 package com.pandawork.web.controller;
 
+import com.pandawork.common.entity.CurrentManager;
 import com.pandawork.common.entity.Image;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
@@ -7,10 +8,8 @@ import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.web.spring.AbstractController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,18 +30,20 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/image")
+@SessionAttributes({"num","number"})
 public class ImagesController extends AbstractController{
 
     /**
      * 上传图片处理
      * @param num num
-     * @param session session
+
      * @return 返回
      */
-    @RequestMapping(value ="/to_add_image/{num}", method = RequestMethod.GET)
-    public String toAddImage(@PathVariable("num")int num, HttpSession session) {
-        session.setAttribute("num",num);
-        return "redirect:/image/list";
+    @RequestMapping(value ="/to_add_image/{num}/{number}", method = RequestMethod.GET)
+    public String toAddImage(@PathVariable("num") int num, @PathVariable("number") int number,ModelMap modelMap,Model model) throws SSException {
+       modelMap.addAttribute("num",num);
+        modelMap.addAttribute("number",number);
+        return "redirect:/image/list2";
     }
 
 
@@ -55,7 +56,7 @@ public class ImagesController extends AbstractController{
      * @throws SSException 异常
      */
     @RequestMapping(value = "/add_image", method = RequestMethod.POST)
-    public String addImage(@RequestParam("file")CommonsMultipartFile file, HttpServletRequest request,Model model) throws SSException {
+    public String addImage(@RequestParam("file")CommonsMultipartFile file,HttpServletRequest request, Model model) throws SSException {
 
         //使用springMVC提供的CommonsMultipartFile类进行读取文件
         //获取原文件名，并在后台输出
@@ -102,7 +103,7 @@ public class ImagesController extends AbstractController{
         image.setSelect(0);
         imageService.addImage(image);
 
-        return "redirect:/image/list";
+        return "redirect:/image/list2";
     }
 
     /**
@@ -130,7 +131,7 @@ public class ImagesController extends AbstractController{
             imageService.delImageById(id);
             System.out.println("数据库删除成功");
 
-            return "redirect:/image/list";
+            return "redirect:/image/list2";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -148,7 +149,11 @@ public class ImagesController extends AbstractController{
         try {
             List<Image> imageList = Collections.emptyList();
             imageList = imageService.listImageAll();
+            int number = 0;
+            int num = 0;
             model.addAttribute("imageList", imageList);
+            model.addAttribute("number", number);
+            model.addAttribute("num", num);
             return "/image/img_list";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
@@ -156,6 +161,23 @@ public class ImagesController extends AbstractController{
             return ADMIN_SYS_ERR_PAGE;
         }
     }
+
+    @RequestMapping(value = "/list2", method = RequestMethod.GET)
+    public String listImageAll2(Model model,@ModelAttribute("num") int num,@ModelAttribute("number") int number) {
+        try {
+            List<Image> imageList = Collections.emptyList();
+            imageList = imageService.listImageAll();
+            model.addAttribute("imageList", imageList);
+            model.addAttribute("num",num);
+            model.addAttribute("number",number);
+            return "/image/img_list";
+        } catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
 
     /**
      * 跳转到选择轮播图片的页面
@@ -180,17 +202,15 @@ public class ImagesController extends AbstractController{
      * @return 返回
      */
     @RequestMapping(value = "/select/{id}",method = RequestMethod.GET)
-    public String selectImage(@PathVariable("id")int id,Model model){
+    public String selectImage(@PathVariable("id")int id){
         try{
             Image image = imageService.queryImageById(id);
             int sl = image.getSelect();
             System.out.println(sl);
             if(sl == 0){
                 image.setSelect(1);
-                model.addAttribute("msg1","已选择");
             }else{
                 image.setSelect(0);
-                model.addAttribute("msg0","X");
             }
             imageService.updateImage(image);
             System.out.println("选择成功！");

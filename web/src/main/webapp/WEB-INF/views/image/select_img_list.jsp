@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>选择图片的页面</title>
@@ -28,12 +29,6 @@
             <td>${status.index+1}</td>
             <td><img src="${image.imgName}" width="80px" height="60px"></td>
             <td><a href="${website}image/select/${image.id}">选择/取消</a></td>
-            <c:if test="${image.select==1}">
-                <td>${msg1}</td>
-            </c:if>
-            <c:if test="${image.select==0}">
-                <td>${msg0}</td>
-            </c:if>
         </tr>
     </c:forEach>
 </table>
@@ -41,7 +36,14 @@
     <c:forEach items="${slImageList}" var="slImage" varStatus="status">
         <img src="${slImage.imgName}" width="80px" height="60px">
     </c:forEach>
-    <p align="center"><input type="submit" value="确定"></p>
+    <%--<p align="center"><input type="submit" value="确定"></p>--%>
+    <c:if test="${fn:length(slImageList) != 5}">
+        当前共${fn:length(slImageList)}张，请选择5张图片！
+    </c:if>
+    <c:if test="${fn:length(slImageList) == 5}">
+        已选择5张，请点击确定！
+        <p align="center"><input type="submit" value="确定"></p>
+    </c:if>
 </form>
 </body>
 </html>

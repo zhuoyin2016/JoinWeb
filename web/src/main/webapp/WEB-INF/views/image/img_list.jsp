@@ -33,14 +33,12 @@
         <td><a href="${website}image/delete/${image.id}">删除</a></td>
     </tr>
     </c:forEach>
-    <%
-        int num=0;//标志是否点击了添加图片
-    %>
     <tr>
-        <td colspan="5"><a href="${website}image/to_add_image/${num=1}">添加图片</a>
-        </td>
+        <c:if test="${number == 0}"><!--number 控制显示“添加图片按钮”-->
+            <td colspan="5"><a href="${website}image/to_add_image/1/1">添加图片</a></td>
+        </c:if>
     </tr></br><!--有点疑问-->
-    <c:if test="${sessionScope.num==1}">
+    <c:if test="${num == 1}"><!--num 控制添加文件的显示-->
         <tr>
             <form action="${website}image/add_image" method="post" enctype="multipart/form-data">
                 <td><input type="file" name="file" id="imageField"></td>

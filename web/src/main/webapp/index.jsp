@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-response.sendRedirect("/activity/listAll");
+response.sendRedirect("/image/list");
 %>
 </body>
 </html>
