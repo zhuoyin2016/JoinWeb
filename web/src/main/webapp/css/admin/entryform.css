@@ -1,0 +1,28 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+ 
+}
+
+/*后台管理页面报名表*/
+.navbar .navbar-fixed-top{
+
+}
+.entryform-div{
+  height:550px;
+  width:90%;
+/*  border:1px solid black;*/
+  margin-top:20px;
+  margin-left:5%;
+  margin-right:5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.entryform-table{
+  height:500px;
+  width:100%;
+  border-color:black;
+  border:1px solid black;
+  border-bottom-color: black;
+}
