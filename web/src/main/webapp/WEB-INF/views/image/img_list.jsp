@@ -47,7 +47,7 @@
         </tr>
     </c:if>
     <tr>
-        <td colspan="5"><a href="${website}image/select_image">选择需要轮播的图片</a></td>
+        <td colspan="5"><a href="${website}image/select_image">轮播的图片</a></td>
     </tr>
     <tr>
         <td colspan="5">${msg}</td>

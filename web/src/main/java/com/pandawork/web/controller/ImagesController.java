@@ -226,7 +226,7 @@ public class ImagesController extends AbstractController{
 
 
     /**
-     * 选择轮播图片成功，放到卓音主页
+     * 选择轮播图片成功，跳转到轮播图片的浏览页面
      * @param model model
      * @return 返回
      */
@@ -236,7 +236,7 @@ public class ImagesController extends AbstractController{
             List<Image> slImageList = Collections.emptyList();
             slImageList = imageService.listSlImageAll();
             model.addAttribute("slImageList", slImageList);
-            return "....";//跳转到卓音主页
+            return "image/selectok";//跳转到图片轮播页面
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -244,7 +244,24 @@ public class ImagesController extends AbstractController{
         }
     }
 
-
+    /**
+     * 跳转到后台首页
+     * @param model model
+     * @return return
+     */
+    @RequestMapping(value = "/...",method = RequestMethod.POST)
+    public String toReturn(Model model){
+        try{
+            List<Image> slImageList = Collections.emptyList();
+            slImageList = imageService.listSlImageAll();
+            model.addAttribute("slImageList", slImageList);
+            return "index";//跳转到后台首页
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
 
 
 //    /**
