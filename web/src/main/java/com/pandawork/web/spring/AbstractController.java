@@ -188,6 +188,9 @@ public class AbstractController extends Base {
     @Qualifier("joinerService")
     protected static JoinerService joinerService;
 
+    @StaticAutoWire
+    @Qualifier("activityService")
+    protected static ActivityService activityService;
 
     @StaticAutoWire
     @Qualifier("memberService")

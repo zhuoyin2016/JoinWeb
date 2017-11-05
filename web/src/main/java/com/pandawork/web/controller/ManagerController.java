@@ -126,6 +126,7 @@ public class ManagerController extends AbstractController {
                     List<Manager> managerList = managerService.listAll();
                     model.addAttribute("managerList",managerList);
                     model.addAttribute("managerStatus",currentManager.getCurrentStatus());
+                    System.out.println(managerList);
                     return "manager/manager_main";
             }else{
                 redirectAttributes.addFlashAttribute("message","用户名已存在，请重新添加！！！");

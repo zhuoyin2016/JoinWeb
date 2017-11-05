@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-response.sendRedirect("/member/join");
+response.sendRedirect("/activity/listAll");
 %>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class ActivityServiceTest extends AbstractTestCase {
     public void testAddActivity() throws SSException {
         Activity activity = new Activity();
         activity.setActivityTime("2018/3/24");
-        activity.setActivityTitle("吃栗子");
+        activity.setActivityTitle("吃栗子jjjj");
         activity.setActivityContent("软的");
         activity.setActivityImg1("kkk");
         activity.setActivityImg2("kkk");

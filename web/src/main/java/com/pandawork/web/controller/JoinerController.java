@@ -106,7 +106,7 @@ public class JoinerController extends AbstractController {
             }
         }
         String message = "提交成功";
-        return "redirect:/joiner/message/" + message;
+        return "redirect:/joiner/message/" + message;   //method
     }
 
     /**
@@ -123,7 +123,7 @@ public class JoinerController extends AbstractController {
 
             Joiner joiner = joinerService.queryJoinerById(id);
             model.addAttribute("joiner", joiner);
-            return "joiner/show";
+            return "joiner/show";  //jsp
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
