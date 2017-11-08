@@ -162,6 +162,13 @@ public class ImagesController extends AbstractController{
         }
     }
 
+    /**
+     * 文件删除后跳转回本页面
+     * @param model model
+     * @param num num
+     * @param number number
+     * @return return
+     */
     @RequestMapping(value = "/list2", method = RequestMethod.GET)
     public String listImageAll2(Model model,@ModelAttribute("num") int num,@ModelAttribute("number") int number) {
         try {
@@ -230,7 +237,7 @@ public class ImagesController extends AbstractController{
      * @param model model
      * @return 返回
      */
-    @RequestMapping(value = "/select_ok",method = RequestMethod.POST)
+    @RequestMapping(value = "/select_ok",method = RequestMethod.GET)
     public String slOkImage(Model model){
         try{
             List<Image> slImageList = Collections.emptyList();
