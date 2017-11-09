@@ -34,7 +34,9 @@ public class ManagerController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
+    public String login(Model model) throws SSException {
+        List<Manager> managerList = managerService.listAll();
+        model.addAttribute("managerList",managerList);
         return "manager/login";
     }
 
@@ -48,7 +50,7 @@ public class ManagerController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/dologin", method = RequestMethod.POST)
     public String doLogin(CurrentManager currentManager, Model model, ModelMap modelMap, RedirectAttributes redirectAttributes) throws SSException {
 
         if (Assert.isNull(currentManager.getCurrentUsername())) {
@@ -111,7 +113,7 @@ public class ManagerController extends AbstractController {
     public String doRegister(Manager manager,Model model,@ModelAttribute("currentManager") CurrentManager currentManager,RedirectAttributes redirectAttributes) {
 
         if(Assert.isNull(manager.getUsername())||Assert.isNull(manager.getPassword())){
-            redirectAttributes.addFlashAttribute("message","用户名、密码均不能为空！！！");
+            redirectAttributes.addFlashAttribute("message","请填入完整信息！！！");
             return "redirect:/man/add";
         }
         try {
@@ -298,10 +300,12 @@ public class ManagerController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/logout" ,method = RequestMethod.GET)
-    public String logout(HttpSession httpSession, SessionStatus sessionStatus,Model model){
+    public String logout(HttpSession httpSession, SessionStatus sessionStatus,Model model) throws SSException {
         httpSession.removeAttribute("currentManager"); //清除HttpSession的数据
         System.out.println("退出："+httpSession.getAttribute("currentManager"));
         sessionStatus.setComplete(); //清除@SessionAttributes的session,不会清除HttpSession的数据
+        List<Manager> managerList = managerService.listAll();
+        model.addAttribute("managerList",managerList);
         model.addAttribute("message","退出成功！！！");
         return "manager/login";
 

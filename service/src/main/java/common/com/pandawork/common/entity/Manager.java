@@ -65,7 +65,7 @@ public class Manager extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Manager{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
