@@ -131,7 +131,6 @@ public class ActivityController extends AbstractController{
                 e.printStackTrace();
                 return ADMIN_SYS_ERR_PAGE;
             }
-
         }
         activity.setActivityImg1(newFileName);
         activityService.addActivity(activity);
