@@ -1,0 +1,71 @@
+.mumber{
+	border:0px solid;
+	border-bottom:3px solid #6f7171;
+	background: url(../../img/index/mumber-background.jpg) no-repeat center center;
+	background-size: cover;
+	height: 100%;
+	clear: both;
+	width: 100%;
+}
+.mumber h1{
+	padding-top: 50px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: 500;
+	color: white;
+	text-shadow:4px 4px 16px #c6ffff;
+}
+.clear{
+	clear: both;
+	margin-bottom: 190px;
+}
+.mumber-center{
+	margin: 0 auto;
+	width: 85%;
+}
+.part{
+	float: left;
+	display: inline-block;
+	margin-top: 100px;
+	opacity:1;
+}
+#part2,#part3,#part4{
+	margin-left: 6%;
+}
+.on{opacity: 0.7;}
+.large{font-size: 55px;}
+.large-{font-size: 25px;}
+.box1{
+	width:0;
+	border-left: 132px solid transparent;
+	border-right: 132px solid transparent;
+	border-bottom: 80px solid #c6ffff;
+}
+.box2{
+	width: 264px;
+	height: 150px;
+	background-color: #c6ffff;
+}
+.box3{
+	width:0;
+	border-top: 80px solid #c6ffff;
+	border-left: 132px solid transparent;
+	border-right: 132px solid transparent;
+}
+.box2 h2{
+	text-align: center;
+	font-size: 35px;
+	font-weight: 400;
+	color: black;
+	text-shadow: 0px 0px 16px #41b8d0;
+}
+.box2 p{
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 15px;
+	font-size: 20px;
+	color: black;
+}
+.special{
+	padding-top: 50px;
+}

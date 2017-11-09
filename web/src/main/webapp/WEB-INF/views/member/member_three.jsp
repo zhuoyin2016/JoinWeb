@@ -67,7 +67,12 @@
                             <li class="divider"></li>
                             <li><a href="#">项目</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">图片</a></li>
+                            <li class="level1_1"><a class="big-li-of-a">图片</a>
+                                <ul class="level2_1">
+                                    <li><a class="small-li-of-a" href="index-picture.html">全部图片</a></li>
+                                    <li><a class="small-li-of-a" href="index-picture-carousel.html">轮播图片</a></li>
+                                </ul>
+                            </li>
                             <li class="divider"></li>
                             <li><a href="#">部门成员</a></li>
                         </ul>

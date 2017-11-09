@@ -37,10 +37,10 @@ public class MemberController extends AbstractController {
         return "member/join";
     }
 
-//    @RequestMapping(value = "/join2",method = RequestMethod.GET)
-//    public String join2(){
-//        return "member/member_one";
-//    }
+    @RequestMapping(value = "/join2",method = RequestMethod.GET)
+    public String join2(){
+        return "member/index_member";
+    }
 
     //根据部门查找
     @RequestMapping(value = "/queryByDepartment/{depart}", method = RequestMethod.GET)
@@ -73,6 +73,40 @@ public class MemberController extends AbstractController {
             return ADMIN_SYS_ERR_PAGE;
         }
     }
+
+
+    //首页根据部门查找
+    @RequestMapping(value = "/queryByDepartment2/{depart}", method = RequestMethod.GET)
+    public String queryByDepartment2(@PathVariable("depart") int depart, Model model, RedirectAttributes redirectAttributes) {
+        try {
+            if (Assert.isNull(depart)) {
+                redirectAttributes.addAttribute("message", "无成员");
+                return "member/join2";
+            }
+            List<Member> memberList = memberService.queryMemberByDepartment(depart);
+            if (Assert.isNull(memberList)) {
+                redirectAttributes.addAttribute("message", "没有相关部门");
+                return "member/join2";
+            }
+            model.addAttribute("memberList", memberList);
+
+            if (depart == 1) {
+                return "member/postgraduate";
+            } else if (depart == 2) {
+                return "member/front";
+            } else if (depart == 3) {
+                return "member/back_end";
+            } else {
+                return "member/product";
+            }
+
+        } catch (Exception e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
 
 
     //跳到增加成员界面

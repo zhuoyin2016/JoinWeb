@@ -33,7 +33,7 @@
             //火狐下，直接设img属性
             imgObjPreview.style.display = 'block';
             imgObjPreview.style.width = '300px';
-            imgObjPreview.style.height = '400px';
+            imgObjPreview.style.height = '300px';
             //imgObjPreview.src = docObj.files[0].getAsDataURL();
             //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
             imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
@@ -44,7 +44,7 @@
             var localImagId = document.getElementById("localImag");
             //必须设置初始大小
             localImagId.style.width = "300px";
-            localImagId.style.height = "400px";
+            localImagId.style.height = "300px";
             //图片异常的捕捉，防止用户修改后缀来伪造图片
             try {
                 localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
@@ -81,7 +81,6 @@
                     <li><a href="index.html">退出</a></li>
                 </ul>
             </div>
-
             <div class="nav-collapse">
                 <ul class="nav">
                     <li><a href="index.html">首页</a></li>
@@ -166,7 +165,7 @@
                             <label class="control-label" for="role">头像</label>
                             <div class="controls">
                                 <img type="text" class="input-xlarge" id="role"
-                                     src="../../../image/memberImage/${member.memberPhoto}"></img>
+                                     src="../../../image/memberImage/${member.memberPhoto}"> </img>
                             </div>
                         </div>
                         <p hidden>

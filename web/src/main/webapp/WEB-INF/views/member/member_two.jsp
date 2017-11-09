@@ -102,7 +102,12 @@
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
                     <li><a href="#">活动</a></li>
                     <li><a href="#">项目</a></li>
-                    <li><a href="#">图片</a></li>
+                    <li class="level1_1"><a class="big-li-of-a">图片</a>
+                        <ul class="level2_1">
+                            <li><a class="small-li-of-a" href="index-picture.html">全部图片</a></li>
+                            <li><a class="small-li-of-a" href="index-picture-carousel.html">轮播图片</a></li>
+                        </ul>
+                    </li>
                     <li class="level1_1"><a class="big-li-of-a">部门成员</a>
                         <ul class="level2_1">
                             <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>

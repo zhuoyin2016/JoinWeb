@@ -30,6 +30,7 @@
 
 <!-- 导航栏 -->
 
+<!-- 导航栏 -->
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -65,9 +66,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">内容<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">活动</a></li>
+                            <li><a href="index-activity.html">活动</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">项目</a></li>
+                            <li><a href="index-project.html">项目</a></li>
                             <li class="divider"></li>
                             <li><a href="#">图片</a></li>
                             <li class="divider"></li>
@@ -88,7 +89,6 @@
         </div>
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span3">
@@ -102,10 +102,15 @@
                         </ul>
                     </li>
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
-                    <li><a href="#">活动</a></li>
-                    <li><a href="#">项目</a></li>
-                    <li><a href="#">图片</a></li>
-                    <li class="level1_1"><a class="big-li-of-a">部门成员</a>
+                    <li><a href="index-activity.html">活动</a></li>
+                    <li><a href="index-project.html">项目</a></li>
+                    <li class="level1_1"><a class="big-li-of-a">图片</a>
+                        <ul class="level2_1">
+                            <li><a class="small-li-of-a" href="index-picture.html">全部图片</a></li>
+                            <li><a class="small-li-of-a" href="index-picture-carousel.html">轮播图片</a></li>
+                        </ul>
+                    </li>
+                    <li class="level1_1"><a class="big-li-of-a" >部门成员</a>
                         <ul class="level2_1">
                             <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
                             <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
