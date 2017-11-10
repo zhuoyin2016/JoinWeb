@@ -144,7 +144,7 @@ public class ManagerController extends AbstractController {
 
 
     /**
-     * 删除管理员
+     * 删除管理员.
      * @param currentManager
      * @param id
      * @param model
