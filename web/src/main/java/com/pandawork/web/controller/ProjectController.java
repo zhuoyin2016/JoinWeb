@@ -119,7 +119,7 @@ public class ProjectController extends AbstractController {
             try{
                 Project project = projectService.selectProject(projectId);
                 model.addAttribute("project",project);
-                return "project/index-project-change";
+                return "project/index-project-select";
             }catch (SSException e){
                 LogClerk.errLog.error(e);
                 sendErrMsg(e.getMessage());

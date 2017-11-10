@@ -122,8 +122,6 @@
                 </div>
                 <p style="text-align: center;font-size: 25px">项目管理</p>
                 <div class="container-fluid">
-                    <form class="form-horizontal" action="${website}/project/addProject" method="post"  enctype="multipart/form-data">
-                        <fieldset>
                             <div class="control-group">
                                 <label class="control-label">标题</label>
                                 <div class="controls">
@@ -143,9 +141,9 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">文件</label>
+                                <label class="control-label">图片</label>
                                 <div class="controls">
-                                    <input type="file" class="input-xlarge" name="file" required="required" onchange="document.getElementById('textfield').value=this.value" />
+                                   <img src="../../../image/projectImage/${project.image}"/>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -154,9 +152,6 @@
                                     <textarea type="text" class="input-xlarge" id="role"  name="content" required="required" placeholder="${project.content}"></textarea>
                                 </div>
                             </div>
-                            <p style="margin-left: 20%;margin-top: 20px;"><input type="submit" value="确认添加"><a class="btn" href="index-project.html">取消</a></p>
-                        </fieldset>
-                    </form>
                 </div>
             </div>
         </div>
