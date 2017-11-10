@@ -178,7 +178,7 @@ public class JoinerController extends AbstractController {
         try {
             joinerService.delJoiner(id);
             model.addAttribute("Message", "删除成功");
-            return "redirect:/joiner/list";
+            return "redirect:/joiner/list/first/1";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -197,7 +197,7 @@ public class JoinerController extends AbstractController {
     public String check(@PathVariable("id") int id, @RequestParam("joinerState") int state) {
         try {
             joinerService.updateState(state, id);
-            return "redirect:/joiner/list";
+            return "redirect:/joiner/list/first/1";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
