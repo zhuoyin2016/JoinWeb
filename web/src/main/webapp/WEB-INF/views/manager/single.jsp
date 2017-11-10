@@ -73,11 +73,6 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <!-- <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a> -->
             <a class="brand" href="#">卓音后台管理</a>
             <div class="btn-group pull-right">
                 <a class="btn" href="#">
@@ -97,36 +92,43 @@
 
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li><a href="index.html">首页</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index-user.html">工作室成员</a></li>
                             <li class="divider"></li>
-                            <li><a href="index-role.html">管理员</a></li>
+                            <li><a href="${website}man/all">管理员</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">内容<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">活动</a></li>
+                            <li><a href="${website}activity/listAll">活动</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">项目</a></li>
+                            <li class="level1_1"><a class="big-li-of-a">图片</a>
+                                <ul class="level2_1">
+                                    <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
+                                    <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
+                                </ul>
+                            </li>
                             <li class="divider"></li>
-                            <li><a href="#">图片</a></li>
+                            <li class="level1_1"><a class="big-li-of-a">部门成员</a>
+                                <ul class="level2_1">
+                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
+                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
+                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${3}">后端</a></li>
+                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">报名<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index-entry-form.html">报名表</a></li>
-                            <li class="divider"></li>
-                            <li><a href="index-applicant.html">报名者</a></li>
+                            <li><a href="${website}joiner/list">报名者</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
-
         </div>
     </div>
 </div>
@@ -137,23 +139,26 @@
             <div class="well sidebar-nav">
                 <ul class="nav nav-list">
                     <li class="nav-header"><i class="icon-wrench"></i>人员</li>
-                    <li class=""><a href="#">工作室成员</a></li>
-                    <li class="level1_1"><a class="big-li-of-a" href="#">管理员</a>
+                    <li class=""><a href="${website}man/all">管理员</a></li>
+                    <li class="nav-header"><i class="icon-signal"></i> 内容</li>
+                    <li><a href="${website}activity/listAll">活动</a></li>
+                    <li><a href="${website}project/projectAllProject">项目</a></li>
+                    <li class="level1_1"><a class="big-li-of-a">图片</a>
                         <ul class="level2_1">
-                            <!--  <li><a class="small-li-of-a" href="index-role.html">登录</a></li> -->
-                            <!-- <li><a class="small-li-of-a" href="index-rolepersonchange.html">修改个人资料</a></li>
-                            <li><a class="small-li-of-a" href="index-rolechangeadmin.html">修改管理员信息</a></li>
-                            <li><a class="small-li-of-a" href="index-rolechange.html">添加管理员</a></li> -->
-                            <li><a class="small-li-of-a" href="index-allrole.html">显示所有管理员</a></li>
+                            <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
+                            <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
                         </ul>
                     </li>
-                    <li class="nav-header"><i class="icon-signal"></i> 内容</li>
-                    <li><a href="#">活动</a></li>
-                    <li><a href="#">项目</a></li>
-                    <li><a href="#">图片</a></li>
+                    <li class="level1_1"><a class="big-li-of-a">部门成员</a>
+                        <ul class="level2_1">
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${3}">后端</a></li>
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-header"><i class="icon-signal"></i> 报名</li>
-                    <li><a href="index-entry-form.html">报名表</a></li>
-                    <li><a href="index-applicant.html">报名者</a></li>
+                    <li><a href="${website}joiner/list">报名者</a></li>
                 </ul>
             </div>
         </div>

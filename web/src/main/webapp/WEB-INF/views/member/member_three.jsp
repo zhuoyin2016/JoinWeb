@@ -50,7 +50,7 @@
 
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li><a href="index.html">首页</a></li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
                         <ul class="dropdown-menu">

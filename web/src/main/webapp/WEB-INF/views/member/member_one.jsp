@@ -48,10 +48,8 @@
                                     <li><a href="${website}man/logout">退出账号</a></li>
                                 </ul>
                             </div>
-
                             <div class="nav-collapse">
                                 <ul class="nav">
-                                    <li><a href="index.html">首页</a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
                                         <ul class="dropdown-menu">
@@ -367,9 +365,9 @@
                     </tr>
                 </table>
             </div>
-                        </div>
-                    </div>
-                </div>
+         </div>
+      </div>
+   </div>
 
 <script src="../../../js/admin/jquery.js"></script>
 <script src="../../../js/admin/bootstrap.min.js"></script>
