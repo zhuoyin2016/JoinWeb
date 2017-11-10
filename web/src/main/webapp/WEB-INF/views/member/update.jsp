@@ -332,8 +332,8 @@
     </div>
 </div>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../../../js/admin/jquery.js"></script>
+<script src="../../../js/admin/bootstrap.min.js"></script>
 <script>
     $(document).ready(function() {
         $('.dropdown-menu li a').hover(
