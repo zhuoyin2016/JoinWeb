@@ -23,7 +23,7 @@
 
     <link href="../../../css/admin/bootstrap.css" rel="stylesheet">
     <link href="../../../css/admin/site.css" rel="stylesheet">
-    <link href="../../../css/admin//bootstrap-responsive.css" rel="stylesheet">
+    <link href="../../../css/admin/bootstrap-responsive.css" rel="stylesheet">
 </head>
 
 <!-- 导航栏 -->

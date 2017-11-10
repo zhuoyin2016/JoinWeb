@@ -22,32 +22,56 @@
 <div class="wrap">
     <!--#include file="head.html"
     #include file="side.html"-->
+    <%--<c:forEach items="${slImageList}" var="slImage" varStatus="status">--%>
+    <%--<div style="float: left;padding: 20px;margin: 2%;text-align: center;">--%>
+    <%--<h2>${status.index+1}</h2>--%>
+    <%--<img style="width: 240px;height: 150px;" src="${slImage.imgName}" />--%>
+    <%--<p>${image.uploadImgTime}</p>--%>
+    <%--</div>--%>
+    <%--</c:forEach>--%>
 
+    <%--<c:forEach items="${slImageList}" var="slImage" varStatus="status">--%>
+        <%--<div class="img03">--%>
+            <%--<img src="${slImage.imgName}" />--%>
+            <%--<div class="banner-txt">--%>
+                <%--<c:if test="${status.index+1 == 1}">--%>
+                    <%--<p>JOIN STUDIO</p>--%>
+                <%--</c:if>--%>
+                <%--<c:if test="${status.index+1 == 2}">--%>
+                    <%--<p>JOIN STUDIO</p>--%>
+                    <%--<p class="txt2">卓音工作室</p>--%>
+                    <%--<p>Information to create competitiveness</p>--%>
+                <%--</c:if>--%>
+                <%--<c:if test="${status.index+1 == 3}">--%>
+                    <%--<p>Information to create competitiveness</p>--%>
+                    <%--<p class="txt2">信息创造竞争力</p>--%>
+                <%--</c:if>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</c:forEach>--%>
     <div class="main">
         <div class="section" id="section1">
             <div class="banner">
                 <div class="banner-list">
-                    <div class="img03">
-                        <p>JOIN STUDIO</p>
-                    </div>
-                    <div class="img01">
-                        <p>JOIN STUDIO</p>
-                        <p class="txt2">卓音工作室</p>
-                        <p>Information to create competitiveness</p>
-                    </div>
-                    <div class="img02">
-                        <p>Information to create competitiveness</p>
-                        <p class="txt2">信息创造竞争力</p>
-                    </div>
-                    <div class="img03">
-                        <p>JOIN STUDIO</p>
-                    </div>
-                    <div class="img01">
-                        <p>JOIN STUDIO</p>
-                        <p class="txt2">卓音工作室</p>
-                        <p>Information to create competitiveness</p>
-                    </div>
-
+                    <c:forEach items="${slImageList}" var="slImage" varStatus="status">
+                        <div class="img03">
+                            <img src="${slImage.imgName}" />
+                            <div class="banner-txt">
+                                <c:if test="${status.index == 0}">
+                                    <p>JOIN STUDIO</p>
+                                </c:if>
+                                <c:if test="${status.inde == 1}">
+                                    <p>JOIN STUDIO</p>
+                                    <p class="txt2">卓音工作室</p>
+                                    <p>Information to create competitiveness</p>
+                                </c:if>
+                                <c:if test="${status.index+1 == 2}">
+                                    <p>Information to create competitiveness</p>
+                                    <p class="txt2">信息创造竞争力</p>
+                                </c:if>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </div>
                 <div class="dots">
                     <span class="on"></span>
@@ -117,6 +141,7 @@
                         <p>Aliquam volutpat sapien vitae elit porta fermentum. Nam condimentum rhoncus nisl.</p>
                     </a>
             </div>
+
         </div>
     </div>
     <div class="section mumber" id="section4">

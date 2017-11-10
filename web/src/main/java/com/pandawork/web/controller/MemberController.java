@@ -1,5 +1,6 @@
 package com.pandawork.web.controller;
 
+import com.pandawork.common.entity.Image;
 import com.pandawork.common.entity.Member;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
@@ -37,8 +38,20 @@ public class MemberController extends AbstractController {
         return "member/join";
     }
 
+    /**
+     * 主页~~~
+     * @param model model
+     * @return return
+     * @throws SSException 异常
+     */
     @RequestMapping(value = "/join2",method = RequestMethod.GET)
-    public String join2(){
+    public String join2(Model model) throws SSException {
+        //轮播图片的保存
+        List<Image> slImageList = Collections.emptyList();
+        slImageList = imageService.listSlImageAll();
+        model.addAttribute("slImageList",slImageList);
+
+
         return "index_join";
     }
 
