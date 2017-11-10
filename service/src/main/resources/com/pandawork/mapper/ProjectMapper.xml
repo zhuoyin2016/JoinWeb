@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.pandawork.mapper.ProjectMapper">
+
+    <!--添加新项目-->
+    <insert id = "addProject">
+        INSERT INTO `t_project`
+        (`id`,`project_title`,`project_content`,`project_date`,`project_image`,`project_notes`)
+        VALUES
+        (#{project.id},#{project.name},#{project.content},#{project.date},#{project.image},#{project.notes})
+    </insert>
+    <!--删除项目-->
+    <delete id = "delProject">
+        DELETE FROM `t_project`
+        WHERE id = #{id}
+    </delete>
+    <!--更新/修改项目-->
+    <update id = "updateProject">
+        UPDATE `t_project`
+        SET
+        `project_title` = #{project.name},
+        `project_content` = #{project.content},
+        `project_date` = #{project.date},
+        `project_image` = #{project.image},
+        `project_notes` = #{project.notes}
+        WHERE id = #{project.id}
+    </update>
+    <!--根据id单查项目-->
+    <select id = "selectProject" resultMap="pw.Project" >
+        SELECT * FROM `t_project`
+        WHERE id = #{id}
+    </select>
+    <!--全查项目-->
+    <select id = "listAllProject" resultMap="pw.Project" >
+        SELECT * FROM `t_project`
+    </select>
+</mapper>
