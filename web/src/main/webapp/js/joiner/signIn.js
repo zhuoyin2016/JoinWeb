@@ -101,11 +101,11 @@
 	//提交信息弹框
 	function tips(){
 		if(confirm("确认提交您的报名信息")){
-			alert("您的报名信息已经提交,录取及面试结果请继续关注我们的网站");
-			location.href = "https://www.baidu.com";
+			document.getElementById("myForm").submit();
 		}
 		else{
 			//
+			return false;
 		}
 	}
 

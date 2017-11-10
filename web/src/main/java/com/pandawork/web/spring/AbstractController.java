@@ -195,4 +195,8 @@ public class AbstractController extends Base {
     @StaticAutoWire
     @Qualifier("memberService")
     protected static MemberService memberService;
+
+    @StaticAutoWire
+    @Qualifier("pageService")
+    protected static PageService pageService;
 }

@@ -18,7 +18,7 @@
 </head>
 <body>
 <p class="topic">报名表</p>
-<form action ="${website}joiner/addJoiner" method="post"  enctype="multipart/form-data" class="content">
+<form action ="${website}joiner/addJoiner" method="post"  enctype="multipart/form-data" class="content" id="myForm">
     <div class="sub-content">
         <div class="topLeft">
             <label class="two-letter">姓名</label>
@@ -75,7 +75,7 @@
             <p>加入工作室的理由</p>
             <textarea name="joinerReason"></textarea>
         </div>
-        <input type="submit" name="submit" id="submit" value="提交信息" onclick="tips();">
+        <input type="submit" name="button" id="submit" value="提交信息" onclick="tips();">
     </div>
 </form>
 <script type="text/javascript" src="../../../js/joiner/jquery.js"></script>

@@ -1,6 +1,7 @@
 package com.pandawork.web.controller;
 
 import com.pandawork.common.entity.Joiner;
+import com.pandawork.common.utils.SplitPage;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
@@ -39,11 +40,20 @@ public class JoinerController extends AbstractController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String joinerList(Model model) {
+    @RequestMapping(value = "/list/{flag}/{current}", method = RequestMethod.GET)
+    public String joinerList(@PathVariable("flag")String flag,@PathVariable("current")String current,Model model) {
         try {
             List<Joiner> list = Collections.emptyList();
-            list = joinerService.listAllJoiner();
+            SplitPage splitPage = new SplitPage();
+            int totalRows = pageService.getTotalRows();
+            splitPage.setTotalRows(totalRows);
+            if(current != null){
+                int currentPage = Integer.parseInt(current);
+                splitPage.setCurrentPage(currentPage);
+            }
+            pageService.toNewPage(flag,splitPage);
+            list = pageService.queryByPage(splitPage);
+            model.addAttribute("splitPage",splitPage);
             model.addAttribute("list", list);
             return "joiner/listAll";
         } catch (SSException e) {
@@ -116,7 +126,7 @@ public class JoinerController extends AbstractController {
             }
         }
         String message = "提交成功";
-        return "redirect:/joiner/addjoiner";
+        return "joiner/addJoiner";
     }
 
     /**
