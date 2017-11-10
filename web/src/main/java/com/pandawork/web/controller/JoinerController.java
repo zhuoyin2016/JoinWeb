@@ -1,5 +1,6 @@
 package com.pandawork.web.controller;
 
+import com.pandawork.common.entity.CurrentManager;
 import com.pandawork.common.entity.Joiner;
 import com.pandawork.common.utils.SplitPage;
 import com.pandawork.core.common.exception.SSException;
@@ -31,7 +32,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/joiner")
-@SessionAttributes("Message")
+@SessionAttributes("currentManager")
 public class JoinerController extends AbstractController {
 
     /**
@@ -41,7 +42,7 @@ public class JoinerController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/list/{flag}/{current}", method = RequestMethod.GET)
-    public String joinerList(@PathVariable("flag")String flag,@PathVariable("current")String current,Model model) {
+    public String joinerList(@PathVariable("flag")String flag,@PathVariable("current")String current,Model model,@ModelAttribute("currentManager") CurrentManager currentManager) {
         try {
             List<Joiner> list = Collections.emptyList();
             SplitPage splitPage = new SplitPage();
@@ -53,6 +54,7 @@ public class JoinerController extends AbstractController {
             }
             pageService.toNewPage(flag,splitPage);
             list = pageService.queryByPage(splitPage);
+            model.addAttribute("managerStatus",currentManager.getCurrentStatus());
             model.addAttribute("splitPage",splitPage);
             model.addAttribute("list", list);
             return "joiner/listAll";

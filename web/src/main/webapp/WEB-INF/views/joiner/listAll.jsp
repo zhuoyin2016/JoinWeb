@@ -150,9 +150,13 @@
                         <th>年级</th>
                         <th>年级排名</th>
                         <th>意向部门</th>
+                        <c:if test="${managerStatus != '0'}">
                         <th>操作</th>
+                        </c:if>
                         <th>状态</th>
+                        <c:if test="${managerStatus != '0'}">
                         <th>审核</th>
+                        </c:if>
                     </tr>
                     </thead>
                     <c:forEach items="${list}"  var="joiner" varStatus="status">
@@ -166,7 +170,9 @@
                         <td>${joiner.joinerGrade}</td>
                         <td>${joiner.joinerRanking}</td>
                         <td>${joiner.joinerDep}</td>
+                        <c:if test="${managerStatus != '0'}">
                         <td><a href="${website}joiner/del/${joiner.id}">删除</a></td>
+                        </c:if>
                         <td>
                             <c:if test="${joiner.joinerState == '1'}">
                             <span class="label label-success">
@@ -187,6 +193,7 @@
 
                         </td>
                         <form action="${website}joiner/check/${joiner.id}" method="post">
+                            <c:if test="${managerStatus != '0'}">
                             <td>
                                 <select name="joinerState" style="width: 70px">
                                     <option value="0" selected="selected">请选择</option>
@@ -196,6 +203,7 @@
                                 </select>
                             </td>
                             <td><input type="submit" value="确定"></td>
+                            </c:if>
                         </form>
                     </tr>
                     </tbody>
@@ -208,7 +216,6 @@
             <a href="${website}joiner/list/first/${splitPage.currentPage}">首页</a>
             <a href="${website}joiner/list/previous/${splitPage.currentPage}">上一页</a>
             </c:if>
-            <c:forEach begin="${splitPage.currentPage-2}" end="${splitPage.currentPage+2}" var="page">
             <a href="${website}joiner/list/${page}/${splitPage.currentPage}">${page}</a>
             <a href="${website}joiner/list/next/${splitPage.currentPage}">下一页</a>
             <a href="${website}joiner/list/last/${splitPage.currentPage}">尾页</a>

@@ -210,7 +210,7 @@
                         </ul>
                     </li>
                     <li class="nav-header"><i class="icon-signal"></i> 报名</li>
-                    <li><a href="${website}joiner/list">报名者</a></li>
+                    <li><a href="${website}joiner/list/first/1">报名者</a></li>
                 </ul>
             </div>
         </div>
