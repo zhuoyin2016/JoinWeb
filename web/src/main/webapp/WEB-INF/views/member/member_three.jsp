@@ -142,7 +142,6 @@
                     </tr>
                     </thead>
 
-
                     <c:forEach items="${memberList}" var="memberList" varStatus="status">
                     <div class="people">
                         <c:if test="${memberList.visible=='1'}">
@@ -338,7 +337,7 @@
                         </c:if>
                     </div>
                     </c:forEach>
-                   <tr  >
+                   <tr>
                        <td colspan="8" style="text-align: center">
                         <a href="${website}member/addMember" colspan = " 3 ">
                             <input type="button" class="btn" name="button"   value="添加" style="text-align: center">
@@ -349,7 +348,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 
