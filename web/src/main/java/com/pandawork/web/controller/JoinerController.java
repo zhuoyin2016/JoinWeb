@@ -54,17 +54,26 @@ public class JoinerController extends AbstractController {
     }
 
     /**
-     * 跳转到报名页面
+     * 报名页面
      *
      * @return
      */
     @RequestMapping(value = "/toAddJ", method = RequestMethod.GET)
     public String toAddJ() {
+        return "joiner/toAdd";
+    }
+
+    /**
+     *跳转到报名表
+     * @return
+     */
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String AddJ() {
         return "joiner/addJoiner";
     }
 
     /**
-     * 报名页面
+     * 报名
      *
      * @param joiner
      * @param request
@@ -73,6 +82,7 @@ public class JoinerController extends AbstractController {
 
     @RequestMapping(value = "/addJoiner", method = RequestMethod.POST)
     public String addJoiner(@RequestParam("file") CommonsMultipartFile file, Joiner joiner, HttpServletRequest request) {
+        System.out.println("joiner:" + joiner);
         //获得原始文件名
         String filename = file.getOriginalFilename();
         System.out.println("原始文件名：" + filename);
@@ -106,7 +116,7 @@ public class JoinerController extends AbstractController {
             }
         }
         String message = "提交成功";
-        return "redirect:/joiner/message/" + message;   //method
+        return "redirect:/joiner/addjoiner";
     }
 
     /**

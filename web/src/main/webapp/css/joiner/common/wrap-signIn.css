@@ -1,0 +1,49 @@
+body{
+	background-image: url(../../../img/home/bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat; 
+}
+.tip{
+	width: 400px;
+	height: 100px;
+	border-radius: 30px;
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.join{
+	display: block;
+	font-size: 50px;
+	margin-top: 15px;
+	margin-left: 100px;
+	text-shadow: 3px 3px #92f7f1;
+}
+.join:hover{
+	text-decoration: none;
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	-o-transform: rotate(10deg);
+	-ms-transform: rotate(10deg);
+	transform: rotate(10deg);
+	text-shadow: -5px -5px #6fe0fc;
+	transition: 0.5s linear; 
+}
+.trans{
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	color: white;
+	text-shadow: 2px 2px #6fe0fc;
+}
+
+.sentence{
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	color: white;
+	font-size: 20px;
+}
