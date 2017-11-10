@@ -11,9 +11,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <title>卓音工作室后端</title>
+    <title>卓音工作室产品部</title>
     <link rel="stylesheet" type="text/css" href="../../../css/member/icomoon.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/member/front.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/member/product.css">
     <link rel="stylesheet" type="text/css" href="../../../css/member/reset.css">
     <link rel="stylesheet" href="../../../css/member/foot.css"/>
     <link rel="stylesheet" href="../../../css/member/side.css"/>
@@ -32,7 +32,7 @@
                 <li><a href="${website}member/queryByDepartment2/${2}" target="_blank">前端成员</a></li>
                 <li><a href="${website}member/queryByDepartment2/${3}" target="_blank">后端成员</a></li>
                 <li><a href="#"></a></li>
-                <li><a href="#handler">前端负责人</a></li>
+                <li><a href="#handler">产品负责人</a></li>
                 <li><a href="#normal">部员</a></li>
             </ul>
         </div>
@@ -387,7 +387,7 @@
 
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
             <c:if test="${memberList.visible == '1'}">
-                2016级成员
+                <%--2016级成员--%>
                 <c:if test="${memberList.grade==2016&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">

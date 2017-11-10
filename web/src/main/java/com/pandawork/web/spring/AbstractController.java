@@ -199,8 +199,7 @@ public class AbstractController extends Base {
     @StaticAutoWire
     @Qualifier("pageService")
     protected static PageService pageService;
-
     @StaticAutoWire
     @Qualifier("projectService")
-    protected static ProjectService projectService;
+    protected static ProjectService projectService ;
 }

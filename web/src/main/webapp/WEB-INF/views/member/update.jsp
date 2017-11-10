@@ -21,18 +21,23 @@
     <meta name="description" content="Admin panel developed with the Bootstrap from Twitter.">
     <!-- 从Twitter，内容管理员面板开发与引导。 -->
     <meta name="author" content="travis">
+
     <link href="../../../css/admin/bootstrap.css" rel="stylesheet">
     <link href="../../../css/admin/site.css" rel="stylesheet">
     <link href="../../../css/admin/bootstrap-responsive.css" rel="stylesheet">
+
 </head>
 
+       <%--实现图片上传预览功能--%>
 <script>
     function setImagePreview() {
         var docObj = document.getElementById("doc");
+        var img = document.getElementById("i");
         var imgObjPreview = document.getElementById("preview");
         if (docObj.files && docObj.files[0]) {
             //火狐下，直接设img属性
             imgObjPreview.style.display = 'block';
+            img.style.display = 'none'
             imgObjPreview.style.width = '300px';
             imgObjPreview.style.height = '300px';
             //imgObjPreview.src = docObj.files[0].getAsDataURL();
@@ -60,6 +65,9 @@
         return true;
     }
 </script>
+
+
+
 <body>
 <!-- 导航栏 -->
 <div class="navbar navbar-fixed-top">
@@ -154,8 +162,6 @@
                 </ul>
             </div>
         </div>
-
-
         <div class="span9">
             <div class="row-fluid">
                 <div class="page-header">
@@ -170,17 +176,19 @@
                         <div class="control-group">
                             <label class="control-label" for="role">头像</label>
                             <div class="controls">
-                                <img type="text" class="input-xlarge" id="role"
+                                <img type="text" class="input-xlarge" id="i"
                                      src="../../../image/memberImage/${member.memberPhoto}"> </img>
+                            </div>
+                            <div id="localImag" class="controls">
+                                <img id="preview" class="input-xlarge" width=-1 height=-1 style="diplay:none"/>
                             </div>
                         </div>
                         <p hidden>
                             <input type="text" name="memberPhoto" value="${member.memberPhoto}"/>
                         </p>
 
-                        <div id="localImag">
-                            <img id="preview" width=-1 height=-1 style="diplay:none"/>
-                        </div>
+
+
                         <p>
                             <input type="file" name="file" class="file" id="doc" size="28" value="修改头像"
                                    onchange="javascript:setImagePreview();"/>
@@ -266,28 +274,28 @@
                                 <div class="controls">
                                     <select type="selected" class="input-xlarge" id="eee" name="position">
                                         <c:if test="${member.department=='1'}">
-                                            <option value="1" selected="selected">主任</option>
+                                            <option value="1" >主任</option>
                                             <option value="2">副主任</option>
                                             <option value="3">负责人</option>
                                             <option value="4">成员</option>
                                         </c:if>
                                         <c:if test="${member.department=='2'}">
+                                            <option value="2" >副主任</option>
                                             <option value="1">主任</option>
-                                            <option value="2" selected="selected">副主任</option>
                                             <option value="3">负责人</option>
                                             <option value="4">成员</option>
                                         </c:if>
                                         <c:if test="${member.department=='3'}">
+                                            <option value="3" >负责人</option>
                                             <option value="1">主任</option>
                                             <option value="2">副主任</option>
-                                            <option value="3" selected="selected">负责人</option>
                                             <option value="4">成员</option>
                                         </c:if>
                                         <c:if test="${member.department=='4'}">
+                                            <option value="4">成员</option>
                                             <option value="1">主任</option>
                                             <option value="2">副主任</option>
                                             <option value="3">负责人</option>
-                                            <option value="4" selected="selected">成员</option>
                                         </c:if>
                                     </select>
                                 </div>
@@ -317,6 +325,41 @@
                         </div>
                     </fieldset>
                 </form>
-                ${message}
+        ${message}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.dropdown-menu li a').hover(
+                function() {
+                    $(this).children('i').addClass('icon-white');
+                },
+                function() {
+                    $(this).children('i').removeClass('icon-white');
+                });
+    });
+    $(function(){
+        $("a.big-li-of-a").next().hide();
+        $(".level1_1 > a").click(function(){
+            // 如果执行第一个level的下一个level
+            if($(".level2_1").css("display")=="none"){
+                $(this).addClass("current")
+                //给当前元素添加“current”元素
+                $(".level2_1").show();//显示内容
+                return false;//避免<a>标签跳转
+            }
+
+            else{//否则将内容隐藏（或者说是重新点击时隐藏）
+                $(".level2_1").hide();
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <title>卓音工作室研究生</title>
+    <title>卓音工作室前端</title>
     <link rel="stylesheet" type="text/css" href="../../../css/member/icomoon.css">
     <link rel="stylesheet" type="text/css" href="../../../css/member/front.css">
     <link rel="stylesheet" type="text/css" href="../../../css/member/reset.css">

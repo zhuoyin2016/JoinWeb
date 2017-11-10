@@ -59,5 +59,11 @@
                 });
     });
 </script>
+
+
+
+<%--<%--%>
+    <%--response.sendRedirect("/member/join2");--%>
+<%--%>--%>
 </body>
 </html>
