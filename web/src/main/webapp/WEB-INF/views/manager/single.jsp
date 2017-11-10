@@ -179,19 +179,19 @@
                         <div class="control-group">
                             <label class="control-label" for="eee">请输入原密码</label>
                             <div class="controls">
-                                <input type="psaaword" class="input-xlarge" id="eee" name="oldPassword"/>
+                                <input type="password" class="input-xlarge" id="eee" name="oldPassword"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="slug">请输入新密码</label>
                             <div class="controls">
-                                <input type="psaaword" class="input-xlarge" id="slug" name="password"/>
+                                <input type="password" class="input-xlarge" id="slug" name="password"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="sss">再次输入新密码</label>
                             <div class="controls">
-                                <input type="psaaword" class="input-xlarge" id="sss" name="password2"/>
+                                <input type="password" class="input-xlarge" id="sss" name="password2"/>
                             </div>
                         </div>
 

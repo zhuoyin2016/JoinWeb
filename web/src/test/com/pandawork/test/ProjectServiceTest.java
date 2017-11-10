@@ -18,7 +18,6 @@ public class ProjectServiceTest extends com.pandawork.test.AbstractTestCase{
     @Test
     public void testaddProject()throws SSException{
         Project project = new Project();
-        project.setId(5);
         project.setContent("豆子");
         project.setImage("project");
         project.setDate("20160101");

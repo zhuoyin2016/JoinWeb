@@ -61,11 +61,7 @@ public class ProjectController extends AbstractController {
                 project.setImage(newFileName);
                 projectService.addProject(project);
                 return "redirect:/project/listAllProject";
-                }catch(SSException e){
-                    LogClerk.errLog.error(e);
-                    sendErrMsg(e.getMessage());
-                    return ADMIN_SYS_ERR_PAGE;
-                }catch(Exception e){
+                } catch(Exception e){
                     e.printStackTrace();
                     return ADMIN_SYS_ERR_PAGE;
                 }

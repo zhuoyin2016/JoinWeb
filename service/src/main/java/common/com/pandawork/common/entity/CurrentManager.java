@@ -3,6 +3,8 @@ package com.pandawork.common.entity;
 /**
  * Created by wangh on 2017/10/21.
  */
+
+//当前管理员
 public class CurrentManager {
     private Integer currentId;
     private String currentUsername;

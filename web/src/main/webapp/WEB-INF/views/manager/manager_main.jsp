@@ -252,13 +252,13 @@
                             <c:if test="${manager.status == 2}">
                                 <td><%=++i%></td>
                                 <td>${manager.username}</td>
-                                <td colspan="2" align="center">超级管理员</td>
+                                <td colspan="2" align="center"  style="height: 30px;">超级管理员</td>
                             </c:if>
                         </tr>
                             <c:if test="${status1.last eq true}">
                                 <%--再显示高级管理员 --%>
                                 <c:forEach items="${managerList}"  var="manager" varStatus="status2">
-                                    <tr class="list-roles">
+                                    <tr class="list-roles" >
                                         <c:if test="${manager.status == 1}">
                                             <td><%=++i%></td>
                                             <td>${manager.username}</td>
