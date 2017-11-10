@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface PageMapper {
     /**
-     * 查询所有记录，使用分页对象中的一些变量获取
+     * 查询当前页面显示条数
      * @param a
      * @param b
      * @return

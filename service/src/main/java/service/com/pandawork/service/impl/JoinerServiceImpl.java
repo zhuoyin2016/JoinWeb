@@ -42,7 +42,6 @@ public class JoinerServiceImpl implements JoinerService {
             joinerMapper.addJoiner(joiner);
         } catch (Exception e) {
             LogClerk.errLog.error(e);
-//            throw SSException.get(NFException.AddJoinerFailed, e);
         }
 
     }
@@ -252,6 +251,12 @@ public class JoinerServiceImpl implements JoinerService {
         }
     }
 
+    /**
+     * 通过意向部门查找
+     * @param department
+     * @return
+     * @throws SSException
+     */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public List<Joiner> queryJoinerByDep(String department) throws SSException{

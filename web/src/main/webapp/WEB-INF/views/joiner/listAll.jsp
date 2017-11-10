@@ -209,6 +209,7 @@
                     </tbody>
                     </c:forEach>
                 </table>
+                <%--分页--%>
             <div id="page">
             <span style="font-size: 13px;">共<span class="all">${splitPage.totalRows}</span>条</span>
             <span class="now">${splitPage.currentPage}/</span><span class="total">${splitPage.totalPage}</span>

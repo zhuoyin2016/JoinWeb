@@ -94,12 +94,10 @@ public class JoinerController extends AbstractController {
 
     @RequestMapping(value = "/addJoiner", method = RequestMethod.POST)
     public String addJoiner(@RequestParam("file") CommonsMultipartFile file, Joiner joiner, HttpServletRequest request) {
-        System.out.println("joiner:" + joiner);
-        //获得原始文件名
+        System.out.println("joiner:" + joiner);//获得原始文件名
         String filename = file.getOriginalFilename();
         System.out.println("原始文件名：" + filename);
-        String newFileName = UUID.randomUUID() + filename;
-//       UUID.randomUUID()局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的，
+        String newFileName = UUID.randomUUID() + filename;//UUID.randomUUID()局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的，
         ServletContext sc = request.getSession().getServletContext();
         String path = sc.getRealPath("image/joiner") + "/";
         File f = new File(path);

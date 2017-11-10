@@ -125,7 +125,7 @@
                 <div class="page-header">
                     <h1>报名者 <small>所有报名者</small></h1>
                 </div>
-                <p style="text-align: center;">卓音工作室2018学生报名信息</p>
+                <p style="text-align: left;margin-left:80px;">卓音工作室2018学生报名信息</p>
                 <table class="table table-striped table-bordered table-condensed" style="margin-left:80px;width: 500px">
                     <thead>
                     <tr>
@@ -163,9 +163,7 @@
                     <tr>
                         <td align="right">自我介绍</td>
                         <td colspan="6">
-                        <textarea  style="width: 690px;height: 200px;">
-                            ${joiner.joinerIntro}
-                        </textarea>
+                        <textarea  style="width: 690px;height: 200px;">${joiner.joinerIntro}</textarea>
                         </td>
 
                     </tr>
@@ -173,9 +171,7 @@
                         <td align="right">加入工作<br>
                             室的理由</td>
                         <td colspan="6">
-                        <textarea name="joinerReason" style="width: 690px;height: 150px;" >
-                            ${joiner.joinerReason}
-                        </textarea>
+                        <textarea name="joinerReason" style="width: 690px;height: 150px;" >${joiner.joinerReason}</textarea>
                         </td>
                     </tr>
                         </tbody>

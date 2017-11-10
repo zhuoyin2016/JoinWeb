@@ -29,7 +29,7 @@ public class PageServiceImpl implements PageService {
     protected CommonDao commonDao;
 
     /**
-     *
+     *查询当前页面显示条数
      * @param sPage
      * @return
      * @throws SSException
@@ -50,7 +50,7 @@ public class PageServiceImpl implements PageService {
     }
 
     /**
-     *
+     *查询记录条数
      * @return
      * @throws SSException
      */
@@ -68,7 +68,7 @@ public class PageServiceImpl implements PageService {
     }
 
     /**
-     *
+     *跳转页面
      * @param flag
      * @return
      * @throws SSException
@@ -77,17 +77,17 @@ public class PageServiceImpl implements PageService {
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public int toNewPage(String flag,SplitPage splitPage) throws SSException{
         int newPage = splitPage.getCurrentPage();//定义新页数为当前页
-        if (flag != null && !"".equals(flag)) {  //请求参数不为空
+        if (flag != null && !"".equals(flag)) {
             if (flag.equals("first")) {  //如果传入的参数为第一页
-                newPage = 1;  //新页数为第一页
+                newPage = 1;
             } else if (flag.equals("last")) {  //如果传入的参数为最后一页
-                newPage = splitPage.getTotalPage();  //新页数为最后一页
+                newPage = splitPage.getTotalPage();
             } else if (flag.equals("next")) { //如果传入的参数为下一页
-                newPage = splitPage.getCurrentPage() + (splitPage.getCurrentPage() == (splitPage.getTotalPage()) ? 0 : 1); // 如果当前页面与总的页面数相等则不再向后（+1）
+                newPage = splitPage.getCurrentPage() + (splitPage.getCurrentPage() == (splitPage.getTotalPage()) ? 0 : 1); //判断当前页是否为最后一页
                 System.out.println(newPage);
             } else if (flag.equals("previous")) {  //如果传入的参数为上一页
                 newPage = splitPage.getCurrentPage()
-                        - ((splitPage.getCurrentPage() == splitPage.getFirstPage()) ? 0 : 1);// 如果当前页面与首页相等则不再向前（-1）
+                        - ((splitPage.getCurrentPage() == splitPage.getFirstPage()) ? 0 : 1);//判断当前页是否为第一页
             } else {
                 // 传入的是个数字字符串参数
                 newPage = Integer.parseInt(flag.trim());
