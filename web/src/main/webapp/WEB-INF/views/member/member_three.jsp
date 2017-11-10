@@ -31,11 +31,10 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-
             <a class="brand" href="#">卓音后台管理</a>
             <div class="btn-group pull-right">
                 <a class="btn" href="#">
-                    <i class="icon-user"></i> 管理员
+                    <i class="icon-user"></i> 设置
                     <!-- 放在最右的小图标 -->
                 </a>
                 <!-- 下拉小图标 -->
@@ -43,9 +42,9 @@
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">简况</a></li>
+                    <li><a href="${website}man/single">修改个人资料</a></li>
                     <li class="divider"></li>
-                    <li><a href="index.html">退出</a></li>
+                    <li><a href="${website}man/logout">退出账号</a></li>
                 </ul>
             </div>
 
@@ -62,7 +61,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">内容<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">活动</a></li>
+                            <li><a href="${website}activity/listAll">活动</a></li>
                             <li class="divider"></li>
                             <li class="divider"></li>
                             <li><a href="#">图片</a></li>
@@ -80,7 +79,6 @@
                     </li>
                 </ul>
             </div>
-
         </div>
     </div>
 </div>
@@ -98,7 +96,7 @@
                         </ul>
                     </li>
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
-                    <li><a href="#">活动</a></li>
+                    <li><a href="${website}activity/listAll">活动</a></li>
                     <li><a href="#">项目</a></li>
                     <li class="level1_1"><a class="big-li-of-a">图片</a>
                         <ul class="level2_1">
@@ -120,6 +118,8 @@
                 </ul>
             </div>
         </div>
+
+
         <div class="span9">
             <div class="row-fluid">
                 <div class="page-header">
@@ -338,15 +338,22 @@
                         </c:if>
                     </div>
                     </c:forEach>
-
-                    <p style="margin-left: 40%;margin-top: 20px;">
-                        <a href="${website}member/addMember"><input type="button" class="btn" name="button"   value="添加" style="text-align: center"></a>
-                        <a href="${website}/member/join"><input type="button" class="btn" name="button"   value="退出" style="text-align: center"></a>
-                    </p>
+                   <tr  >
+                       <td colspan="8" style="text-align: center">
+                        <a href="${website}member/addMember" colspan = " 3 ">
+                            <input type="button" class="btn" name="button"   value="添加" style="text-align: center">
+                        </a>
+                       </td>
+                   </tr>
+              </table>
             </div>
         </div>
     </div>
+
 </div>
+
+
+
 
 <script src="../../../js/admin/jquery.js"></script>
 <script src="../../../js/admin/bootstrap.min.js"></script>

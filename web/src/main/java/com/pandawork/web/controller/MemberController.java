@@ -39,7 +39,7 @@ public class MemberController extends AbstractController {
 
     @RequestMapping(value = "/join2",method = RequestMethod.GET)
     public String join2(){
-        return "member/index_member";
+        return "index_join";
     }
 
     //根据部门查找
@@ -252,8 +252,6 @@ public class MemberController extends AbstractController {
                 memberService.updateMember(member);
                 return "redirect:/member/queryByDepartment/" + depart;
             }
-
-
         } catch (Exception e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

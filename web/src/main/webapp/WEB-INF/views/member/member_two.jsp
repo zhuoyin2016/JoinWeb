@@ -63,7 +63,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">内容<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">活动</a></li>
+                            <li><a href="${website}activity/listAll">活动</a></li>
                             <li class="divider"></li>
                             <li><a href="#">项目</a></li>
                             <li class="divider"></li>
@@ -100,7 +100,7 @@
                         </ul>
                     </li>
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
-                    <li><a href="#">活动</a></li>
+                    <li><a href="${website}activity/listAll">活动</a></li>
                     <li><a href="#">项目</a></li>
                     <li class="level1_1"><a class="big-li-of-a">图片</a>
                         <ul class="level2_1">
@@ -343,7 +343,7 @@
                     <p style="margin-left: 40%;margin-top: 20px;">
                     <p style="margin-left: 40%;margin-top: 20px;">
                         <a href="${website}member/addMember"><input type="button" class="btn" name="button"   value="添加" style="text-align: center"></a>
-                        <a href="${website}/member/join"><input type="button" class="btn" name="button"   value="退出" style="text-align: center"></a>
+
                     </p>
                     </p>
             </div>

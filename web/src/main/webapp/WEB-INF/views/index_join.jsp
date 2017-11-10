@@ -11,12 +11,12 @@
 <head>
     <meta charset="utf-8"/>
     <title>卓音工作室官网</title>
-    <link rel="stylesheet" href="../../../css/member/reset.css"/>
-    <link rel="stylesheet" href="../../../css/member/index.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/member/mumberIntroduce.css">
-    <script src="../../../js/common/jquery.js"></script>
-    <script src="../../../js/member/index.js"></script>
-    <script src="../../../js/member/mumberIntroduce.js"></script>
+    <link rel="stylesheet" href="../../css/member/reset.css"/>
+    <link rel="stylesheet" href="../../css/member/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/member/mumberIntroduce.css">
+    <script src="../../js/common/jquery.js"></script>
+    <script src="../../js/member/index.js"></script>
+    <script src="../../js/member/mumberIntroduce.js"></script>
 </head>
 <body>
 <div class="wrap">
