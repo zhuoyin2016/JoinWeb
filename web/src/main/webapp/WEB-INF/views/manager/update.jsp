@@ -184,6 +184,8 @@
                 </div>
 
                 <form class="form-horizontal" action="${website}man/update" method="post">
+                    <input name="id" value="${manager.id}" type="hidden">
+                    <input name="password" value="${manager.password}" type="hidden">
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="role">用户名</label>

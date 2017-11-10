@@ -141,7 +141,9 @@
                         <th>专业</th>
                         <th>职务</th>
                         <th>个人简介</th>
+                        <c:if test="${managerStatus != '0'}">
                         <th>操作</th>
+                        </c:if>
                     </tr>
                     </thead>
 
@@ -172,10 +174,12 @@
                                     </c:if>
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
+                                        <c:if test="${managerStatus != '0'}">
                                         <p>
                                             <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
                                             <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:if>
@@ -212,10 +216,12 @@
                                     </c:if>
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
+                                        <c:if test="${managerStatus != '0'}">
                                         <p>
                                             <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
                                             <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:if>
@@ -252,10 +258,12 @@
                                     </c:if>
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
+                                        <c:if test="${managerStatus != '0'}">
                                         <p>
                                             <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
                                             <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:if>
@@ -291,10 +299,12 @@
                                     </c:if>
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
+                                        <c:if test="${managerStatus != '0'}">
                                         <p>
                                             <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
                                             <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:if>
@@ -328,10 +338,12 @@
                                     </c:if>
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
+                                        <c:if test="${managerStatus != '0'}">
                                         <p>
                                             <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
                                             <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
+                                        </c:if>
                                     </td>
                                 </tr>
 
@@ -342,9 +354,11 @@
                     </c:forEach>
                    <tr>
                        <td colspan="8" style="text-align: center">
+                        <c:if test="${managerStatus != '0'}">
                         <a href="${website}member/addMember" colspan = " 3 ">
                             <input type="button" class="btn" name="button"   value="添加" style="text-align: center">
                         </a>
+                        </c:if>
                        </td>
                    </tr>
               </table>

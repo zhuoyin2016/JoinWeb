@@ -122,6 +122,7 @@
 </head>
 <body>
 <!-- 导航栏 -->
+<!-- 导航栏 -->
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -157,11 +158,13 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">内容<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">活动</a></li>
+                            <li><a href="index-activity.html">活动</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">项目</a></li>
+                            <li><a href="index-project.html">项目</a></li>
                             <li class="divider"></li>
                             <li><a href="#">图片</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">部门成员</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -178,7 +181,6 @@
         </div>
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span3">
@@ -192,15 +194,29 @@
                         </ul>
                     </li>
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
-                    <li><a href="#">活动</a></li>
-                    <li><a href="#">项目</a></li>
-                    <li><a href="#">图片</a></li>
+                    <li><a href="index-activity.html">活动</a></li>
+                    <li><a href="index-project.html">项目</a></li>
+                    <li class="level1_1"><a class="big-li-of-a">图片</a>
+                        <ul class="level2_1">
+                            <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
+                            <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
+                        </ul>
+                    </li>
+                    <li class="level1_1"><a class="big-li-of-a" >部门成员</a>
+                        <ul class="level2_1">
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${3}">后端</a></li>
+                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-header"><i class="icon-signal"></i> 报名</li>
                     <li><a href="index-entry-form.html">报名表</a></li>
                     <li><a href="index-applicant.html">报名者</a></li>
                 </ul>
             </div>
         </div>
+
         <div class="span9">
             <div class="row-fluid">
                 <div class="page-header">
@@ -223,81 +239,81 @@
                     </thead>
 
                     <tbody>
-                    <c:forEach items="${managerList}"  var="manager" varStatus="status">
 
+                        <%--显示序号--%>
+                        <%--<c:forEach items="${managerList}"  var="manager" varStatus="status">--%>
+                        <%--<tr class="list-roles">--%>
+                            <%--<td>${status.count}</td>--%>
+
+
+                        <%
+                            int i = 0;
+                        %>
+                        <%--先显示超级管理员--%>
+                        <c:forEach items="${managerList}"  var="manager" varStatus="status1">
                         <tr class="list-roles">
-                            <td>${status.index+1}</td>
-                            <td>${manager.username}</td>
-
-                            <c:if test="${managerStatus == '0'}">
-                                <c:if test="${manager.status == '0'}">
-                                    <td>普通管理员</td>
-                                </c:if>
-
-                                <c:if test="${manager.status == '1'}">
-                                    <td>高级管理员</td>
-                                </c:if>
-
-                                <c:if test="${manager.status == '2'}">
-                                    <td>超级管理员</td>
-                                </c:if>
+                            <c:if test="${manager.status == 2}">
+                                <td><%=++i%></td>
+                                <td>${manager.username}</td>
+                                <td colspan="2" align="center">超级管理员</td>
                             </c:if>
-
-
-                            <c:if test="${managerStatus == '1'}">
-                                <c:if test="${manager.status == '0'}">
-                                    <td>普通管理员</td>
-                                    <td><p>
-                                        <a href="${website}man/delete/${manager.id}">删除</a>
-                                        <a href="${website}man/update/${manager.id}">修改</a>
-                                    </p></td>
-                                </c:if>
-
-                                <c:if test="${manager.status == '1'}">
-                                    <td colspan="2" align="center">高级管理员</td>
-                                </c:if>
-
-                                <c:if test="${manager.status == '2'}">
-                                    <td colspan="2" align="center">超级管理员</td>
-                                </c:if>
-                            </c:if>
-
-
-                            <c:if test="${managerStatus == '2'}">
-                                <c:if test="${manager.status == '0'}">
-                                    <td>普通管理员</td>
-                                    <td><p>
-                                        <a href="${website}man/delete/${manager.id}">删除</a>
-                                        <a href="${website}man/update/${manager.id}">修改</a>
-                                    </p></td>
-                                </c:if>
-
-                                <c:if test="${manager.status == '1'}">
-                                    <td>高级管理员</td>
-                                    <td><p>
-                                        <a href="${website}man/delete/${manager.id}">删除</a>
-                                        <a href="${website}man/update/${manager.id}">修改</a>
-                                    </p></td>
-                                </c:if>
-
-                                <c:if test="${manager.status == '2'}">
-                                    <td colspan="2" align="center">超级管理员</td>
-                                </c:if>
-                            </c:if>
-
                         </tr>
+                            <c:if test="${status1.last eq true}">
+                                <%--再显示高级管理员 --%>
+                                <c:forEach items="${managerList}"  var="manager" varStatus="status2">
+                                    <tr class="list-roles">
+                                        <c:if test="${manager.status == 1}">
+                                            <td><%=++i%></td>
+                                            <td>${manager.username}</td>
 
-                    </c:forEach>
+                                            <c:if test="${managerStatus != '2'}">
+                                                <td>高级管理员</td>
+                                            </c:if>
 
+                                            <c:if test="${managerStatus == '2'}">
+                                                <td>高级管理员</td>
+                                                <td><p>
+                                                    <a href="${website}man/delete/${manager.id}">删除</a>
+                                                    <a href="${website}man/update/${manager.id}">修改</a>
+                                                </p></td>
+                                            </c:if>
+
+                                        </c:if>
+                                    </tr>
+                                    <c:if test="${status2.last eq true}">
+                                        <c:forEach items="${managerList}"  var="manager" varStatus="status3">
+                                            <tr class="list-roles">
+                                                <c:if test="${manager.status == 0}">
+                                                    <td><%=++i%></td>
+                                                    <td>${manager.username}</td>
+
+                                                    <c:if test="${managerStatus == '0'}">
+                                                        <td>普通管理员</td>
+                                                    </c:if>
+
+                                                    <c:if test="${managerStatus != '0'}">
+                                                        <td>普通管理员</td>
+                                                        <td><p>
+                                                            <a href="${website}man/delete/${manager.id}">删除</a>
+                                                            <a href="${website}man/update/${manager.id}">修改</a>
+                                                        </p></td>
+                                                    </c:if>
+                                                </c:if>
+                                            </tr>
+                                        </c:forEach>
+                                    </c:if>
+                                </c:forEach>
+
+                            </c:if>
+                        </c:forEach>
 
                     </tbody>
                 </table>
 
                 ${message}
 
-                <p style="margin-left: 45%;margin-top: 20px;">
+                <p style="margin-left: 40%;margin-top: 20px;">
                     <c:if test="${managerStatus != '0'}">
-                        <%--<a href="${website}man/add"><button style="text-align: center;">添加</button></a>--%>
                         <a class="btn" href="${website}man/add">添加管理员</a>
                     </c:if>
                 </p>

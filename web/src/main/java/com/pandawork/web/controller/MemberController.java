@@ -1,6 +1,6 @@
 package com.pandawork.web.controller;
 
-import com.pandawork.common.entity.Image;
+import com.pandawork.common.entity.CurrentManager;
 import com.pandawork.common.entity.Member;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
@@ -8,10 +8,7 @@ import com.pandawork.core.common.util.Assert;
 import com.pandawork.web.spring.AbstractController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -30,6 +27,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/member")
+@SessionAttributes("currentManager")
 public class MemberController extends AbstractController {
 
     //返回首页
@@ -38,26 +36,14 @@ public class MemberController extends AbstractController {
         return "member/join";
     }
 
-    /**
-     * 主页~~~
-     * @param model model
-     * @return return
-     * @throws SSException 异常
-     */
     @RequestMapping(value = "/join2",method = RequestMethod.GET)
-    public String join2(Model model) throws SSException {
-        //轮播图片的保存
-        List<Image> slImageList = Collections.emptyList();
-        slImageList = imageService.listSlImageAll();
-        model.addAttribute("slImageList",slImageList);
-
-
+    public String join2(){
         return "index_join";
     }
 
     //根据部门查找
     @RequestMapping(value = "/queryByDepartment/{depart}", method = RequestMethod.GET)
-    public String queryByDepartment(@PathVariable("depart") int depart, Model model, RedirectAttributes redirectAttributes) {
+    public String queryByDepartment(@PathVariable("depart") int depart, Model model, RedirectAttributes redirectAttributes,@ModelAttribute("currentManager") CurrentManager currentManager) {
         try {
             if (Assert.isNull(depart)) {
                 redirectAttributes.addAttribute("message", "无成员");
@@ -69,6 +55,8 @@ public class MemberController extends AbstractController {
                 return "member/join";
             }
             model.addAttribute("memberList", memberList);
+            model.addAttribute("managerStatus",currentManager.getCurrentStatus());
+            System.out.println("啊啊啊"+currentManager.getCurrentStatus());
 
             if (depart == 1) {
                 return "member/member_one";
