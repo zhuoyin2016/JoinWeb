@@ -34,7 +34,7 @@
             <a class="brand" href="#">卓音后台管理</a>
             <div class="btn-group pull-right">
                 <a class="btn" href="#">
-                    <i class="icon-user"></i> 管理员
+                    <i class="icon-user"></i> 设置
                     <!-- 放在最右的小图标 -->
                 </a>
                 <!-- 下拉小图标 -->
@@ -42,9 +42,9 @@
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">简况</a></li>
+                    <li><a href="${website}man/single">修改个人资料</a></li>
                     <li class="divider"></li>
-                    <li><a href="index.html">退出</a></li>
+                    <li><a href="${website}man/logout">退出账号</a></li>
                 </ul>
             </div>
 
@@ -54,9 +54,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index-user.html">工作室成员</a></li>
                             <li class="divider"></li>
-                            <li><a href="index-role.html">管理员</a></li>
+                            <li><a href="${website}man/all">管理员</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -64,14 +63,14 @@
                         <ul class="dropdown-menu">
                             <li><a href="${website}activity/listAll">活动</a></li>
                             <li class="divider"></li>
-                            <li><a  href="${website}project/listAllProject">项目</a></li>
-                            <li class="divider">图片
+                            <li class="level1_1"><a class="big-li-of-a">图片</a>
                                 <ul class="level2_1">
-                                    <li><a class="small-li-of-a" href="index-picture.html">全部图片</a></li>
-                                    <li><a class="small-li-of-a" href="index-picture-carousel.html">轮播图片</a></li>
+                                    <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
+                                    <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
                                 </ul>
                             </li>
-                            <li class="divider"><a class="big-li-of-a">部门成员</a>
+                            <li class="divider"></li>
+                            <li class="level1_1"><a class="big-li-of-a">部门成员</a>
                                 <ul class="level2_1">
                                     <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
                                     <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
@@ -84,9 +83,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">报名<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index-entry-form.html">报名表</a></li>
-                            <li class="divider"></li>
-                            <li><a href="index-applicant.html">报名者</a></li>
+                            <li><a href="${website}joiner/list">报名者</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -94,19 +91,17 @@
         </div>
     </div>
 </div>
+
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span3">
             <div class="well sidebar-nav">
                 <ul class="nav nav-list">
                     <li class="nav-header"><i class="icon-wrench"></i>人员</li>
-                        <ul class="level2_1">
-                            <li><a class="small-li-of-a" href="${website}man/all">管理员</a></li>
-                        </ul>
-                    </li>
+                    <li class=""><a href="${website}man/all">管理员</a></li>
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
                     <li><a href="${website}activity/listAll">活动</a></li>
-                    <li><a href="${website}project/listAllProject">项目</a></li>
+                    <li><a href="${website}project/projectAllProject">项目</a></li>
                     <li class="level1_1"><a class="big-li-of-a">图片</a>
                         <ul class="level2_1">
                             <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
@@ -121,14 +116,11 @@
                             <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
                         </ul>
                     </li>
-                    <li class="nav-header"><i class="icon-signal"></i>报名</li>
+                    <li class="nav-header"><i class="icon-signal"></i> 报名</li>
                     <li><a href="${website}joiner/list">报名者</a></li>
                 </ul>
             </div>
         </div>
-
-
-
 
 
 
@@ -346,14 +338,19 @@
                         </c:if>
                     </div>
                     </c:forEach>
-                    <p style="margin-left: 40%;margin-top: 20px;">
-                        <a href="${website}member/addMember"><input type="button" class="btn" name="button"   value="添加" style="text-align: center"></a>
-                        <a href="${website}/member/join"><input type="button" class="btn" name="button"   value="退出" style="text-align: center"></a>
-                    </p>
+                    <tr>
+                        <td colspan="8" style="text-align: center">
+                            <a href="${website}member/addMember" colspan = " 3 ">
+                                <input type="button" class="btn" name="button"   value="添加" style="text-align: center">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
 
 <script src="../../../js/admin/jquery.js"></script>
 <script src="../../../js/admin/bootstrap.min.js"></script>

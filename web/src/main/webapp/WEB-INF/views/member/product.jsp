@@ -21,7 +21,9 @@
     <script src="../../../js/member/mumber-common.js"></script>
 </head>
 <body>
+
 <div class="page">
+    <%--左上角下拉框--%>
     <div class="subNav">
         <div class="sublist">
             <a href="javascript:;" class="sublist-text">成员介绍</a>
@@ -35,11 +37,16 @@
             </ul>
         </div>
     </div>
-    <h1>卓音工作室技术部后端</h1>
+    <h1>卓音工作室技术部产品部</h1>
+        <%--上方图像展示动画效果代码--%>
     <div class="show">
+        <%--用foreach循环遍历内容，主要是图片跟年级等信息--%>
+        <%--先显示产品部负责人，然后是在产品部门并担任主任、副主任职务的，最后是按年级2014、15、16、17顺序遍历成员--%>
         <ul>
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <%--因为是假性删除，所以要判断是否可见--%>
                 <c:if test="${memberList.visible=='1'}">
+                    <%--产品部负责人--%>
                     <c:if test="${memberList.position=='3'}">
                         <li>
                             <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="负责人">
@@ -54,8 +61,10 @@
                     </c:if>
                 </c:if>
             </c:forEach>
+
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
                 <c:if test="${memberList.visible=='1'}">
+                    <%--主任--%>
                     <c:if test="${memberList.position=='1'}">
                         <li>
                             <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="主任">
@@ -70,24 +79,10 @@
                     </c:if>
                 </c:if>
             </c:forEach>
+
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
                 <c:if test="${memberList.visible=='1'}">
-                    <c:if test="${memberList.position=='1'}">
-                        <li>
-                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="副主任">
-                            <div class="tip">
-                                <p class="front" id="big">副主任</p>
-                                <p class="after">
-                                    <span>${memberList.memberName}</span>
-                                    <span>${memberList.grade} ${memberList.major}</span>
-                                </p>
-                            </div>
-                        </li>
-                    </c:if>
-                </c:if>
-            </c:forEach>
-            <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                <c:if test="${memberList.visible=='1'}">
+                    <%--副主任--%>
                     <c:if test="${memberList.position=='2'}">
                         <li>
                             <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="副主任">
@@ -103,9 +98,9 @@
                 </c:if>
             </c:forEach>
 
-
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
                 <c:if test="${memberList.visible=='1'}">
+                    <%--2014级成员--%>
                     <c:if test="${memberList.grade==2014&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                         <li>
                             <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="部员">
@@ -124,6 +119,7 @@
 
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
                 <c:if test="${memberList.visible=='1'}">
+                    <%--2015级成员--%>
                     <c:if test="${memberList.grade==2015&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                         <li>
                             <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="部员">
@@ -141,6 +137,7 @@
 
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
                 <c:if test="${memberList.visible=='1'}">
+                    <%--2016级成员--%>
                     <c:if test="${memberList.grade==2016&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                         <li>
                             <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="部员">
@@ -158,6 +155,7 @@
 
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
                 <c:if test="${memberList.visible=='1'}">
+                    <%--2017级成员--%>
                     <c:if test="${memberList.grade==2017&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                         <li>
                             <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="部员">
@@ -175,11 +173,13 @@
         </ul>
     </div>
 
-
+        <%--成员全部信息展示，先显示产品负责人，成员显示顺序按照 在产品部门并担任主任、副主任职务的，最后是按年级2014、15、16、17顺序遍历成员--%>
     <div class="handler" id="handler">
         <h2>负责人</h2>
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
+            <%--假性删除，可见--%>
             <c:if test="${memberList.visible=='1'}">
+                <%--产品部负责人--%>
                 <c:if test="${memberList.position=='3'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
@@ -196,18 +196,18 @@
                              </span>
                                 <span>
                                     <i class="icomoon">&#xea58;</i>职务：
-                                   <c:if test="${memberList.position == '1'}">
+                                    <c:if test="${memberList.position == '1'}">
                                        主任
-                                   </c:if>
-                        <c:if test="${memberList.position == '2'}">
-                            副主任
-                        </c:if>
-                        <c:if test="${memberList.position == '3'}">
-                            负责人
-                        </c:if>
-                        <c:if test="${memberList.position == '4'}">
-                            成员
-                        </c:if>
+                                    </c:if>
+                                    <c:if test="${memberList.position == '2'}">
+                                     副主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '3'}">
+                                      负责人
+                                    </c:if>
+                                    <c:if test="${memberList.position == '4'}">
+                                      成员
+                                    </c:if>
                              </span>
                             </p>
                             <p class="mumberIntroduce">
@@ -225,6 +225,7 @@
         <h2>部员</h2>
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
             <c:if test="${memberList.visible=='1'}">
+                <%--主任--%>
                 <c:if test="${memberList.position=='1'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
@@ -241,18 +242,18 @@
                              </span>
                                 <span>
                                     <i class="icomoon">&#xea58;</i>职务：
-                                   <c:if test="${memberList.position == '1'}">
-                                       主任
-                                   </c:if>
-                        <c:if test="${memberList.position == '2'}">
-                            副主任
-                        </c:if>
-                        <c:if test="${memberList.position == '3'}">
-                            负责人
-                        </c:if>
-                        <c:if test="${memberList.position == '4'}">
-                            成员
-                        </c:if>
+                                    <c:if test="${memberList.position == '1'}">
+                                        主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '2'}">
+                                        副主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '3'}">
+                                        负责人
+                                    </c:if>
+                                    <c:if test="${memberList.position == '4'}">
+                                        成员
+                                    </c:if>
                              </span>
                             </p>
                             <p class="mumberIntroduce">
@@ -266,6 +267,7 @@
 
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
             <c:if test="${memberList.visible=='1'}">
+                <%--副主任--%>
                 <c:if test="${memberList.position=='2'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
@@ -282,18 +284,18 @@
                              </span>
                                 <span>
                                     <i class="icomoon">&#xea58;</i>职务：
-                                   <c:if test="${memberList.position == '1'}">
-                                       主任
-                                   </c:if>
-                        <c:if test="${memberList.position == '2'}">
-                            副主任
-                        </c:if>
-                        <c:if test="${memberList.position == '3'}">
-                            负责人
-                        </c:if>
-                        <c:if test="${memberList.position == '4'}">
-                            成员
-                        </c:if>
+                                    <c:if test="${memberList.position == '1'}">
+                                        主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '2'}">
+                                        副主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '3'}">
+                                        负责人
+                                    </c:if>
+                                    <c:if test="${memberList.position == '4'}">
+                                        成员
+                                    </c:if>
                              </span>
                             </p>
                             <p class="mumberIntroduce">
@@ -307,6 +309,7 @@
 
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
             <c:if test="${memberList.visible == '1'}">
+                <%--2014级成员--%>
                 <c:if test="${memberList.grade==2014&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
@@ -320,19 +323,18 @@
                                 <span><i class="icomoon">&#xea81;</i>专业：${memberList.major}</span>
                                 <span><i class="icomoon">&#xea04;</i>部门：后端</span>
                                 <span><i class="icomoon">&#xea58;</i>职务：
-                                <c:if test="${memberList.position == '1'}">
-                                         主任
-                                         </c:if>
-                            <c:if test="${memberList.position == '2'}">
-                                副主任
-                            </c:if>
-                            <c:if test="${memberList.position == '3'}">
-                               负责人
-                            </c:if>
-                            <c:if test="${memberList.position == '4'}">
-                               成员
-                            </c:if>
-
+                                    <c:if test="${memberList.position == '1'}">
+                                       主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '2'}">
+                                     副主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '3'}">
+                                      负责人
+                                    </c:if>
+                                    <c:if test="${memberList.position == '4'}">
+                                      成员
+                                    </c:if>
                             </p>
                             <p class="mumberIntroduce">
                                 <i class="icomoon">&#xeac6;</i>个人简介：
@@ -342,12 +344,11 @@
                     </div>
                 </c:if>
             </c:if>
-
         </c:forEach>
 
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
-
             <c:if test="${memberList.visible == '1'}">
+                <%--2015级成员--%>
                 <c:if test="${memberList.grade==2015&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
@@ -361,19 +362,18 @@
                                 <span><i class="icomoon">&#xea81;</i>专业：${memberList.major}</span>
                                 <span><i class="icomoon">&#xea04;</i>部门：后端</span>
                                 <span><i class="icomoon">&#xea58;</i>职务：
-                                <c:if test="${memberList.position == '1'}">
-                                         主任
-                                         </c:if>
-                            <c:if test="${memberList.position == '2'}">
-                                副主任
-                            </c:if>
-                            <c:if test="${memberList.position == '3'}">
-                               负责人
-                            </c:if>
-                            <c:if test="${memberList.position == '4'}">
-                               成员
-                            </c:if>
-
+                                    <c:if test="${memberList.position == '1'}">
+                                       主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '2'}">
+                                     副主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '3'}">
+                                      负责人
+                                    </c:if>
+                                    <c:if test="${memberList.position == '4'}">
+                                      成员
+                                    </c:if>
                             </p>
                             <p class="mumberIntroduce">
                                 <i class="icomoon">&#xeac6;</i>个人简介：
@@ -383,12 +383,11 @@
                     </div>
                 </c:if>
             </c:if>
-
         </c:forEach>
 
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
-
             <c:if test="${memberList.visible == '1'}">
+                2016级成员
                 <c:if test="${memberList.grade==2016&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
@@ -402,19 +401,18 @@
                                 <span><i class="icomoon">&#xea81;</i>专业：${memberList.major}</span>
                                 <span><i class="icomoon">&#xea04;</i>部门：后端</span>
                                 <span><i class="icomoon">&#xea58;</i>职务：
-                                <c:if test="${memberList.position == '1'}">
-                                         主任
-                                         </c:if>
-                            <c:if test="${memberList.position == '2'}">
-                                副主任
-                            </c:if>
-                            <c:if test="${memberList.position == '3'}">
-                               负责人
-                            </c:if>
-                            <c:if test="${memberList.position == '4'}">
-                               成员
-                            </c:if>
-
+                                    <c:if test="${memberList.position == '1'}">
+                                       主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '2'}">
+                                     副主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '3'}">
+                                      负责人
+                                    </c:if>
+                                    <c:if test="${memberList.position == '4'}">
+                                      成员
+                                    </c:if>
                             </p>
                             <p class="mumberIntroduce">
                                 <i class="icomoon">&#xeac6;</i>个人简介：
@@ -424,11 +422,11 @@
                     </div>
                 </c:if>
             </c:if>
-
         </c:forEach>
 
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
             <c:if test="${memberList.visible == '1'}">
+                <%--2017级成员--%>
                 <c:if test="${memberList.grade==2017&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
                     <div class="people">
                         <img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
@@ -442,18 +440,18 @@
                                 <span><i class="icomoon">&#xea81;</i>专业：${memberList.major}</span>
                                 <span><i class="icomoon">&#xea04;</i>部门：后端</span>
                                 <span><i class="icomoon">&#xea58;</i>职务：
-                                <c:if test="${memberList.position == '1'}">
-                                         主任
-                                         </c:if>
-                            <c:if test="${memberList.position == '2'}">
-                                副主任
-                            </c:if>
-                            <c:if test="${memberList.position == '3'}">
-                               负责人
-                            </c:if>
-                            <c:if test="${memberList.position == '4'}">
-                               成员
-                            </c:if>
+                                    <c:if test="${memberList.position == '1'}">
+                                       主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '2'}">
+                                     副主任
+                                    </c:if>
+                                    <c:if test="${memberList.position == '3'}">
+                                      负责人
+                                    </c:if>
+                                    <c:if test="${memberList.position == '4'}">
+                                      成员
+                                    </c:if>
 
                             </p>
                             <p class="mumberIntroduce">
