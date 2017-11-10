@@ -36,14 +36,14 @@ public class MemberController extends AbstractController {
         return "member/join";
     }
 
-    @RequestMapping(value = "/join2",method = RequestMethod.GET)
-    public String join2(){
+    @RequestMapping(value = "/join2", method = RequestMethod.GET)
+    public String join2() {
         return "index_join";
     }
 
     //根据部门查找
     @RequestMapping(value = "/queryByDepartment/{depart}", method = RequestMethod.GET)
-    public String queryByDepartment(@PathVariable("depart") int depart, Model model, RedirectAttributes redirectAttributes,@ModelAttribute("currentManager") CurrentManager currentManager) {
+    public String queryByDepartment(@PathVariable("depart") int depart, Model model, RedirectAttributes redirectAttributes, @ModelAttribute("currentManager") CurrentManager currentManager) {
         try {
             if (Assert.isNull(depart)) {
                 redirectAttributes.addAttribute("message", "无成员");
@@ -55,8 +55,8 @@ public class MemberController extends AbstractController {
                 return "member/join";
             }
             model.addAttribute("memberList", memberList);
-            model.addAttribute("managerStatus",currentManager.getCurrentStatus());
-            System.out.println("啊啊啊"+currentManager.getCurrentStatus());
+            model.addAttribute("managerStatus", currentManager.getCurrentStatus());
+            System.out.println("啊啊啊" + currentManager.getCurrentStatus());
 
             if (depart == 1) {
                 return "member/member_one";
@@ -107,7 +107,6 @@ public class MemberController extends AbstractController {
             return ADMIN_SYS_ERR_PAGE;
         }
     }
-
 
 
     //跳到增加成员界面

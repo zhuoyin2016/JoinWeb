@@ -233,7 +233,7 @@
                     <h4>WELCOME TO REGISTER</h4>
                     <img src="../../../img/index/JoinUs.jpg" />
                     <p>jdlashdoiahdfoiashfoiashfioashfoishfioshfishfiossfhkashfa</p>
-                    <a href="wrap-signIn.html">加入我们</a>
+                    <a href="${website}joiner/toAddJ">加入我们</a>
                 </div>
             </div>
         </div>

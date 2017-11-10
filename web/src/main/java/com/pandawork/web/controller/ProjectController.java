@@ -43,12 +43,7 @@ public class ProjectController extends AbstractController {
         if(!f.exists()){
             f.mkdirs();
         }
-//        ||Assert.isNotNull(project.getContent())||Assert.isNotNull(project.getDate())||Assert.isNotNull(project.getName())||Assert.isNotNull(project.getNotes())
-//        if(Assert.isNotNull(project.getImage())) {
-//            redirectAttributes.addAttribute("message", "请填入完整信息！");
-//            return "redirect:/project/addProject";
-//        }
-//        else {
+
             try {
                 FileOutputStream fos = new FileOutputStream(path + newFileName);
                 InputStream in = file.getInputStream();
@@ -89,8 +84,8 @@ public class ProjectController extends AbstractController {
     /**
      * 修改一个项目
      */
-    @RequestMapping(value = "/update/{projectId}",method = RequestMethod.POST)
-    public String updateProject(Project project, @PathVariable("projectId")int projectId){
+    @RequestMapping(value = "/update/{projectId}",method = RequestMethod.GET)
+    public String updateProject(Project project, @PathVariable("projectId") int projectId){
         if(!Assert.isNotNull(project))return null;
         else {
             try {
@@ -106,6 +101,34 @@ public class ProjectController extends AbstractController {
             }
         }
     }
+
+
+//    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+//    public String update(@PathVariable("id") int id, Model model, HttpServletRequest request) {
+//        try {
+//            String message = request.getParameter("message");
+//            Member member = memberService.queryMemberById(id);
+//            model.addAttribute("message", message);
+//            model.addAttribute("member", member);
+//            return "member/update";
+//        } catch (Exception e) {
+//            LogClerk.errLog.error(e);
+//            sendErrMsg(e.getMessage());
+//            return ADMIN_SYS_ERR_PAGE;
+//        }
+//    }
+
+    @RequestMapping(value = "/update2/{projectId}",method = RequestMethod.GET)
+    public String updateProject2( @PathVariable("projectId")int projectId ,Model model){
+            try {
+                model.addAttribute("projectId",projectId);
+                return "project/index-project-change";
+            } catch (Exception e){
+                e.printStackTrace();
+                return ADMIN_SYS_ERR_PAGE;
+            }
+    }
+
 
     /**
      * 展示一个项目

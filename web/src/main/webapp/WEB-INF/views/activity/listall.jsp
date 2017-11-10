@@ -102,7 +102,7 @@
                     <li class=""><a href="${website}man/all">管理员</a></li>
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
                     <li><a href="${website}activity/listAll">活动</a></li>
-                    <li><a href="${website}project/projectAllProject">项目</a></li>
+                    <li><a href="${website}project/listAllProject">项目</a></li>
                     <li class="level1_1"><a class="big-li-of-a">图片</a>
                         <ul class="level2_1">
                             <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>

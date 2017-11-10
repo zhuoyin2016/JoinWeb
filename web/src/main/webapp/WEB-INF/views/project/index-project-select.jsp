@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,11 +13,13 @@
     <!-- 从Twitter，内容管理员面板开发与引导。 -->
     <meta name="author" content="travis">
 
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/site.css" rel="stylesheet">
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link href="../../../css/project/bootstrap.css" rel="stylesheet">
+    <link href="../../../css/project/site.css" rel="stylesheet">
+    <link href="../../../css/project/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
+<!-- 导航栏 -->
 <!-- 导航栏 -->
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
@@ -41,7 +43,6 @@
 
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li><a href="index.html">首页</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -74,7 +75,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">报名<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="${website}joiner/list">报名者</a></li>
+                            <li><a href="${website}joiner/list/first/1">报名者</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -92,7 +93,7 @@
                     <li class=""><a href="${website}man/all">管理员</a></li>
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
                     <li><a href="${website}activity/listAll">活动</a></li>
-                    <li><a href="${website}project/projectAllProject">项目</a></li>
+                    <li><a href="${website}project/listAllProject">项目</a></li>
                     <li class="level1_1"><a class="big-li-of-a">图片</a>
                         <ul class="level2_1">
                             <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
@@ -108,7 +109,7 @@
                         </ul>
                     </li>
                     <li class="nav-header"><i class="icon-signal"></i> 报名</li>
-                    <li><a href="${website}joiner/list">报名者</a></li>
+                    <li><a href="${website}joiner/list/first/1">报名者</a></li>
                 </ul>
             </div>
         </div>
@@ -129,7 +130,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="eee">时间</label>
+                                <label class="control-label" >时间</label>
                                 <div class="controls">
                                     <input type="text" class="input-xlarge" name="name" required="required" placeholder="${project.date}"/>
                                 </div>
@@ -147,7 +148,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="">介绍</label>
+                                <label class="control-label" >介绍</label>
                                 <div class="controls">
                                     <textarea type="text" class="input-xlarge" id="role"  name="content" required="required" placeholder="${project.content}"></textarea>
                                 </div>
@@ -157,9 +158,8 @@
         </div>
     </div>
 </div>
-
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../../../js/admin/jquery.js"></script>
+<script src="../../../js/admin/bootstrap.min.js"></script>
 <script>
     $(document).ready(function() {
         $('.dropdown-menu li a').hover(
