@@ -1,3 +1,5 @@
+package com.pandawork.test;
+
 import com.pandawork.common.entity.Project;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.service.ProjectService;
@@ -17,8 +19,9 @@ public class ProjectServiceTest extends com.pandawork.test.AbstractTestCase{
     public void testaddProject()throws SSException{
         Project project = new Project();
         project.setId(5);
-        project.setContent("project");
+        project.setContent("豆子");
         project.setImage("project");
+        project.setDate("20160101");
         project.setName("project");
         project.setNotes("project");
         projectService.addProject(project);
