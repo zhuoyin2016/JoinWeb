@@ -1,6 +1,8 @@
 package com.pandawork.web.controller;
 
+import com.pandawork.common.entity.CurrentManager;
 import com.pandawork.common.entity.Joiner;
+import com.pandawork.common.utils.SplitPage;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
@@ -30,7 +32,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/joiner")
-@SessionAttributes("Message")
+@SessionAttributes("currentManager")
 public class JoinerController extends AbstractController {
 
     /**
@@ -39,11 +41,21 @@ public class JoinerController extends AbstractController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String joinerList(Model model) {
+    @RequestMapping(value = "/list/{flag}/{current}", method = RequestMethod.GET)
+    public String joinerList(@PathVariable("flag")String flag,@PathVariable("current")String current,Model model,@ModelAttribute("currentManager") CurrentManager currentManager) {
         try {
             List<Joiner> list = Collections.emptyList();
-            list = joinerService.listAllJoiner();
+            SplitPage splitPage = new SplitPage();
+            int totalRows = pageService.getTotalRows();
+            splitPage.setTotalRows(totalRows);
+            if(current != null){
+                int currentPage = Integer.parseInt(current);
+                splitPage.setCurrentPage(currentPage);
+            }
+            pageService.toNewPage(flag,splitPage);
+            list = pageService.queryByPage(splitPage);
+            model.addAttribute("managerStatus",currentManager.getCurrentStatus());
+            model.addAttribute("splitPage",splitPage);
             model.addAttribute("list", list);
             return "joiner/listAll";
         } catch (SSException e) {
@@ -54,17 +66,26 @@ public class JoinerController extends AbstractController {
     }
 
     /**
-     * 跳转到报名页面
+     * 报名页面
      *
      * @return
      */
     @RequestMapping(value = "/toAddJ", method = RequestMethod.GET)
     public String toAddJ() {
+        return "joiner/toAdd";
+    }
+
+    /**
+     *跳转到报名表
+     * @return
+     */
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String AddJ() {
         return "joiner/addJoiner";
     }
 
     /**
-     * 报名页面
+     * 报名
      *
      * @param joiner
      * @param request
@@ -73,6 +94,7 @@ public class JoinerController extends AbstractController {
 
     @RequestMapping(value = "/addJoiner", method = RequestMethod.POST)
     public String addJoiner(@RequestParam("file") CommonsMultipartFile file, Joiner joiner, HttpServletRequest request) {
+        System.out.println("joiner:" + joiner);
         //获得原始文件名
         String filename = file.getOriginalFilename();
         System.out.println("原始文件名：" + filename);
@@ -106,7 +128,7 @@ public class JoinerController extends AbstractController {
             }
         }
         String message = "提交成功";
-        return "redirect:/joiner/message/" + message;   //method
+        return "joiner/addJoiner";
     }
 
     /**
@@ -156,7 +178,7 @@ public class JoinerController extends AbstractController {
         try {
             joinerService.delJoiner(id);
             model.addAttribute("Message", "删除成功");
-            return "redirect:/joiner/list";
+            return "redirect:/joiner/list/first/1";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -175,7 +197,7 @@ public class JoinerController extends AbstractController {
     public String check(@PathVariable("id") int id, @RequestParam("joinerState") int state) {
         try {
             joinerService.updateState(state, id);
-            return "redirect:/joiner/list";
+            return "redirect:/joiner/list/first/1";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

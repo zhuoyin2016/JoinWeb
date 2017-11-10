@@ -61,41 +61,22 @@
     <link href="../../../css/admin/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
-<!-- 导航栏 -->
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="index.html">卓音后台管理</a>
+            <a class="brand" href="#"></a>
+
 
             <div class="nav-collapse">
-                <ul class="nav">
-                    <li><a href="index.html">首页</a></li>
-                </ul>
+
             </div>
         </div>
     </div>
 </div>
-<!-- 左侧目录栏 -->
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span3">
-            <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                    <li class="nav-header"><i class="icon-wrench"></i> 人员
-                    <li class="level1_1"><a class="big-li-of-a" href="index-role.html">管理员登录</a>
-                    </li>
-                    </li>
-                    <li class="nav-header"><i class="icon-signal"></i>内容</li>
-                    <li class="nav-header"><i class="icon-user"></i>报名</li>
-                </ul>
-            </div>
+
+
         </div>
-        <div class="span9">
+        <div class="span9" style="margin-left: 30%;width: 500px;">
             <div class="row-fluid">
                 <div class="page-header">
                     <h1>管理员登录</h1>
@@ -119,7 +100,7 @@
                                 <input type="password" class="password" id="slug" name = "currentPassword" />
                             </div>
                             <div class="form-actions">
-                                <button class="btn">登录</button>
+                                <button class="btn" style="margin-left: 40px;">登录</button>
                                 <input type="reset" name="reset" value="重置" class="btn">
                                 <%--<a class="btn" href="index.jsp">退出</a>--%>
                             </div>

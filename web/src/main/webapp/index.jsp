@@ -31,11 +31,6 @@
     <div class="navbar-inner">
         <div class="container-fluid">
             <a class="brand" href="index.html">卓音后台管理</a>
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li><a href="index.html">首页</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
