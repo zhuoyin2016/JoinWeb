@@ -252,7 +252,7 @@
                             <c:if test="${manager.status == 2}">
                                 <td><%=++i%></td>
                                 <td>${manager.username}</td>
-                                <td colspan="2" align="center"  style="height: 30px;">超级管理员</td>
+                                <td colspan="2" align="center">超级管理员</td>
                             </c:if>
                         </tr>
                             <c:if test="${status1.last eq true}">
@@ -264,7 +264,7 @@
                                             <td>${manager.username}</td>
 
                                             <c:if test="${managerStatus != '2'}">
-                                                <td>高级管理员</td>
+                                                <td colspan="2" align="center">高级管理员</td>
                                             </c:if>
 
                                             <c:if test="${managerStatus == '2'}">
