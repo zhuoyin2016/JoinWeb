@@ -9,10 +9,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>卓音工作室官网</title>
-    <link rel="stylesheet" href="../../../css/member/reset.css" />
-    <link rel="stylesheet" href="../../../css/member/index.css" />
+    <link rel="stylesheet" href="../../../css/member/reset.css"/>
+    <link rel="stylesheet" href="../../../css/member/index.css"/>
     <link rel="stylesheet" type="text/css" href="../../../css/member/mumberIntroduce.css">
     <script src="../../../js/common/jquery.js"></script>
     <script src="../../../js/member/index.js"></script>
@@ -138,7 +138,7 @@
                 <div class="part" id="part2">
                     <div class="box1"></div>
                     <div class="box2">
-                        <h2>前端</h2>		             <!-- 前端 -->
+                        <h2>前端</h2>                     <!-- 前端 -->
                         <p>web页面开发,学习HTML，css，js等技术</p>
                     </div>
                     <div class="box3"></div>
@@ -177,7 +177,7 @@
                 <h2>JOIN THE STUDIO</h2>
                 <span></span>
                 <h4>WELCOME TO REGISTER</h4>
-                <img src="../../../img/index/JoinUs.jpg" />
+                <img src="../../../img/index/JoinUs.jpg"/>
                 <p>jdlashdoiahdfoiashfoiashfioashfoishfioshfishfiossfhkashfa</p>
                 <a href="#">加入我们</a>
             </div>

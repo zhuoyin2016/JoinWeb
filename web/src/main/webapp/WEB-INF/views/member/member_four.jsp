@@ -96,7 +96,6 @@
             <div class="well sidebar-nav">
                 <ul class="nav nav-list">
                     <li class="nav-header"><i class="icon-wrench"></i>人员</li>
-                    <li class=""><a href="#">工作室成员</a></li>
                     <li class="level1_1"><a class="big-li-of-a" href="#">管理员</a>
                         <ul class="level2_1">
                             <li><a class="small-li-of-a" href="index-all-role.html">显示所有管理员</a></li>
@@ -105,7 +104,12 @@
                     <li class="nav-header"><i class="icon-signal"></i> 内容</li>
                     <li><a href="#">活动</a></li>
                     <li><a href="#">项目</a></li>
-                    <li><a href="#">图片</a></li>
+                    <li class="level1_1"><a class="big-li-of-a">图片</a>
+                        <ul class="level2_1">
+                            <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
+                            <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
+                        </ul>
+                    </li>
                     <li class="level1_1"><a class="big-li-of-a">部门成员</a>
                         <ul class="level2_1">
                             <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
@@ -127,7 +131,7 @@
                 </div>
                 <%--先把负责人列出来--%>
                 <p style="text-align: center;font-weight: 700px;font-size: 30px">成员信息</p>
-                <table class="table table-striped table-bordered table-condensed">
+                <table class="table table-striped table-bordered table-condensed" style="align-content: center">
                     <thead>
                     <tr>
                         <th>头像</th>
@@ -146,7 +150,7 @@
                         <c:if test="${memberList.visible=='1'}">
                             <c:if test="${memberList.position == '1'||memberList.position=='2'||memberList.position=='3'}">
                                 <tbody>
-                                <tr class="list-roles">
+                                <tr class="list-roles" >
                                     <td><img src="../../../image/memberImage/${memberList.memberPhoto}" class="circle">
                                     </td>
                                     <td>${memberList.memberName}</td>
@@ -169,9 +173,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -209,9 +212,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -249,9 +251,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -289,9 +290,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -328,9 +328,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -340,10 +339,8 @@
                     </div>
                     </c:forEach>
                     <p style="margin-left: 40%;margin-top: 20px;">
-                        <button style="text-align: center;"><a href="${website}member/addMember">添加</a>
-                        </button>
-                        <button style="text-align: center;">
-                            <a href="index-role.html">退出</a></button>
+                        <a href="${website}member/addMember"><input type="button" class="btn" name="button"   value="添加" style="text-align: center"></a>
+                        <a href="${website}/member/join"><input type="button" class="btn" name="button"   value="退出" style="text-align: center"></a>
                     </p>
             </div>
         </div>

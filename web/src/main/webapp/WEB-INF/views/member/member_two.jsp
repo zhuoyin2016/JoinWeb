@@ -55,7 +55,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index-user.html">工作室成员</a></li>
+
                             <li class="divider"></li>
                             <li><a href="index-role.html">管理员</a></li>
                         </ul>
@@ -104,8 +104,8 @@
                     <li><a href="#">项目</a></li>
                     <li class="level1_1"><a class="big-li-of-a">图片</a>
                         <ul class="level2_1">
-                            <li><a class="small-li-of-a" href="index-picture.html">全部图片</a></li>
-                            <li><a class="small-li-of-a" href="index-picture-carousel.html">轮播图片</a></li>
+                            <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
+                            <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
                         </ul>
                     </li>
                     <li class="level1_1"><a class="big-li-of-a">部门成员</a>
@@ -171,9 +171,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -214,9 +213,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -255,9 +253,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -266,7 +263,7 @@
                         </c:if>
                     </div>
                     </c:forEach>
-              <%--2016级成员--%>
+                    <%--2016级成员--%>
                     <c:forEach items="${memberList}" var="memberList" varStatus="status">
                     <div class="people">
                         <c:if test="${memberList.visible == '1'}">
@@ -294,9 +291,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -333,9 +329,8 @@
                                     <td><p>：${memberList.introduce}</p></td>
                                     <td>
                                         <p>
-                                            <button><a href="${website}member/delMember/${memberList.id}">删除</a>
-                                            </button>
-                                            <button><a href="${website}member/update/${memberList.id}">修改</a></button>
+                                            <a href="${website}member/delMember/${memberList.id}"><input type="button"  name="button"   value="删除" ></a>
+                                            <a href="${website}member/update/${memberList.id}"><input type="button"  name="button"   value="修改" ></a>
                                         </p>
                                     </td>
                                 </tr>
@@ -346,10 +341,10 @@
                     </c:forEach>
 
                     <p style="margin-left: 40%;margin-top: 20px;">
-                        <button style="text-align: center;"><a href="${website}member/addMember">添加</a>
-                        </button>
-                        <button style="text-align: center;">
-                            <a href="index-role.html">退出</a></button>
+                    <p style="margin-left: 40%;margin-top: 20px;">
+                        <a href="${website}member/addMember"><input type="button" class="btn" name="button"   value="添加" style="text-align: center"></a>
+                        <a href="${website}/member/join"><input type="button" class="btn" name="button"   value="退出" style="text-align: center"></a>
+                    </p>
                     </p>
             </div>
         </div>

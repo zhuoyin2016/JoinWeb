@@ -40,130 +40,130 @@
 
     <h1>卓音工作室技术部前端</h1>
 
-         <div class="show">
-             <ul>
-                 <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                     <c:if test="${memberList.visible=='1'}">
-                         <c:if test="${memberList.position=='3'}">
-                             <li>
-                                 <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="前端负责人">
-                                 <div class="tip">
-                                     <p class="front" id="big">前端负责人</p>
-                                     <p class="after">
-                                         <span>${memberList.memberName}</span>
-                                         <span>${memberList.grade}  ${memberList.major}</span>
-                                     </p>
-                                 </div>
-                             </li>
-                         </c:if>
-                     </c:if>
-                 </c:forEach>
+    <div class="show">
+        <ul>
+            <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <c:if test="${memberList.visible=='1'}">
+                    <c:if test="${memberList.position=='3'}">
+                        <li>
+                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="前端负责人">
+                            <div class="tip">
+                                <p class="front" id="big">前端负责人</p>
+                                <p class="after">
+                                    <span>${memberList.memberName}</span>
+                                    <span>${memberList.grade} ${memberList.major}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:if>
+            </c:forEach>
 
-                 <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                     <c:if test="${memberList.visible=='1'}">
-                         <c:if test="${memberList.position=='1'}">
-                             <li>
-                                 <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="主任">
-                                 <div class="tip">
-                                     <p class="front" id="big">主任</p>
-                                     <p class="after">
-                                         <span>${memberList.memberName}</span>
-                                         <span>${memberList.grade}  ${memberList.major}</span>
-                                     </p>
-                                 </div>
-                             </li>
-                         </c:if>
-                     </c:if>
-                 </c:forEach>
+            <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <c:if test="${memberList.visible=='1'}">
+                    <c:if test="${memberList.position=='1'}">
+                        <li>
+                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="主任">
+                            <div class="tip">
+                                <p class="front" id="big">主任</p>
+                                <p class="after">
+                                    <span>${memberList.memberName}</span>
+                                    <span>${memberList.grade} ${memberList.major}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:if>
+            </c:forEach>
 
-                 <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                     <c:if test="${memberList.visible=='1'}">
-                         <c:if test="${memberList.position=='2'}">
-                             <li>
-                                 <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="副主任">
-                                 <div class="tip">
-                                     <p class="front" id="big">前端负责人</p>
-                                     <p class="after">
-                                         <span>${memberList.memberName}</span>
-                                         <span>${memberList.grade}  ${memberList.major}</span>
-                                     </p>
-                                 </div>
-                             </li>
-                         </c:if>
-                     </c:if>
-                 </c:forEach>
-
-
-                 <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                     <c:if test="${memberList.visible=='1'}">
-                         <c:if test="${memberList.grade==2014&&memberList.position!='3'}">
-                             <li>
-                                 <img src="../../../image/memberImage/${memberList.memberPhoto}"  alt="前端部员">
-                                 <div class="tip">
-                                     <p class="front" >14级部员</p>
-                                     <p class="after">
-                                         <span>${memberList.memberName}</span>
-                                         <span>${memberList.grade}  ${memberList.major}</span>
-                                     </p>
-                                 </div>
-                             </li>
-                         </c:if>
-                     </c:if>
-                 </c:forEach>
+            <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <c:if test="${memberList.visible=='1'}">
+                    <c:if test="${memberList.position=='2'}">
+                        <li>
+                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="副主任">
+                            <div class="tip">
+                                <p class="front" id="big">前端负责人</p>
+                                <p class="after">
+                                    <span>${memberList.memberName}</span>
+                                    <span>${memberList.grade} ${memberList.major}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:if>
+            </c:forEach>
 
 
-                 <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                     <c:if test="${memberList.visible=='1'}">
-                         <c:if test="${memberList.grade==2015&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
-                             <li>
-                                 <img src="../../../image/memberImage/${memberList.memberPhoto}"  alt="前端部员">
-                                 <div class="tip">
-                                     <p class="front" >15级部员</p>
-                                     <p class="after">
-                                         <span>${memberList.memberName}</span>
-                                         <span>${memberList.grade}  ${memberList.major}</span>
-                                     </p>
-                                 </div>
-                             </li>
-                         </c:if>
-                     </c:if>
-                 </c:forEach>
+            <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <c:if test="${memberList.visible=='1'}">
+                    <c:if test="${memberList.grade==2014&&memberList.position!='3'}">
+                        <li>
+                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="前端部员">
+                            <div class="tip">
+                                <p class="front">14级部员</p>
+                                <p class="after">
+                                    <span>${memberList.memberName}</span>
+                                    <span>${memberList.grade} ${memberList.major}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:if>
+            </c:forEach>
 
-                 <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                     <c:if test="${memberList.visible=='1'}">
-                         <c:if test="${memberList.grade==2016&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
-                             <li>
-                                 <img src="../../../image/memberImage/${memberList.memberPhoto}"  alt="前端部员">
-                                 <div class="tip">
-                                     <p class="front" >16级部员</p>
-                                     <p class="after">
-                                         <span>${memberList.memberName}</span>
-                                         <span>${memberList.grade}  ${memberList.major}</span>
-                                     </p>
-                                 </div>
-                             </li>
-                         </c:if>
-                     </c:if>
-                 </c:forEach>
 
-                 <c:forEach items="${memberList}" var="memberList" varStatus="status">
-                     <c:if test="${memberList.visible=='1'}">
-                         <c:if test="${memberList.grade==2017&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
-                             <li>
-                                 <img src="../../../image/memberImage/${memberList.memberPhoto}"  alt="前端部员">
-                                 <div class="tip">
-                                     <p class="front" >17级部员</p>
-                                     <p class="after">
-                                         <span>${memberList.memberName}</span>
-                                         <span>${memberList.grade}  ${memberList.major}</span>
-                                     </p>
-                                 </div>
-                             </li>
-                         </c:if>
-                     </c:if>
-                 </c:forEach>
-             </ul>
-         </div>
+            <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <c:if test="${memberList.visible=='1'}">
+                    <c:if test="${memberList.grade==2015&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
+                        <li>
+                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="前端部员">
+                            <div class="tip">
+                                <p class="front">15级部员</p>
+                                <p class="after">
+                                    <span>${memberList.memberName}</span>
+                                    <span>${memberList.grade} ${memberList.major}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:if>
+            </c:forEach>
+
+            <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <c:if test="${memberList.visible=='1'}">
+                    <c:if test="${memberList.grade==2016&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
+                        <li>
+                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="前端部员">
+                            <div class="tip">
+                                <p class="front">16级部员</p>
+                                <p class="after">
+                                    <span>${memberList.memberName}</span>
+                                    <span>${memberList.grade} ${memberList.major}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:if>
+            </c:forEach>
+
+            <c:forEach items="${memberList}" var="memberList" varStatus="status">
+                <c:if test="${memberList.visible=='1'}">
+                    <c:if test="${memberList.grade==2017&&memberList.position!='1'&&memberList.position!='2'&&memberList.position!='3'}">
+                        <li>
+                            <img src="../../../image/memberImage/${memberList.memberPhoto}" alt="前端部员">
+                            <div class="tip">
+                                <p class="front">17级部员</p>
+                                <p class="after">
+                                    <span>${memberList.memberName}</span>
+                                    <span>${memberList.grade} ${memberList.major}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:if>
+            </c:forEach>
+        </ul>
+    </div>
 
     <div class="handler" id="handler">
         <h2>前端负责人</h2>
@@ -328,9 +328,6 @@
         </c:forEach>
 
 
-
-
-
         <c:forEach items="${memberList}" var="memberList" varStatus="status">
 
             <c:if test="${memberList.visible == '1'}">
@@ -479,17 +476,17 @@
         </div>
     </div>
     <div class="foot-right">
-        <img src="../../../img/nav/join.jpg" class="saoma" />
-        <img src="../../../img/nav/tubiao.jpg" class="tubiao" />
+        <img src="../../../img/nav/join.jpg" class="saoma"/>
+        <img src="../../../img/nav/tubiao.jpg" class="tubiao"/>
     </div>
     <div class="copyright">
         <span>Copyright &copy; 卓音工作室</span>
     </div>
 </div>
 <div class="fix-nav">
-    <img src="../../../img/nav/right.jpg" class="close" />
-    <img src="../../../img/nav/side.jpg"  class="side">
-    <img src="../../../img/nav/left.jpg" class="open" />
+    <img src="../../../img/nav/right.jpg" class="close"/>
+    <img src="../../../img/nav/side.jpg" class="side">
+    <img src="../../../img/nav/left.jpg" class="open"/>
 </div>
 </body>
 </html>

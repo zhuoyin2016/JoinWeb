@@ -14,8 +14,8 @@
     <title>卓音工作室研究生</title>
     <%--<link rel="stylesheet" type="text/css" href="../../../css/member/postgraduate.css">--%>
     <link rel="stylesheet" type="text/css" href="../../../css/member/icomoon.css">
-    <link rel="stylesheet" href="../../../css/member/foot.css" />
-    <link rel="stylesheet" href="../../../css/member/side.css" />
+    <link rel="stylesheet" href="../../../css/member/foot.css"/>
+    <link rel="stylesheet" href="../../../css/member/side.css"/>
     <link rel="stylesheet" type="text/css" href="../../../css/member/reset.css">
     <script src="../../../js/common/jquery.js"></script>
     <script src="../../../js/member/mumber-common.js"></script>
@@ -26,12 +26,12 @@
         <div class="sublist">
             <a href="javascript:;" class="sublist-text">成员介绍</a>
             <ul class="sublevel1">
-            <li><a href="${website}member/queryByDepartment2/${2}" target="_blank">前端成员</a></li>
-            <li><a href="${website}member/queryByDepartment2/${3}" target="_blank">后端成员</a></li>
-            <li><a href="${website}member/queryByDepartment2/${4}" target="_blank">产品部</a></li>
-        </ul>
+                <li><a href="${website}member/queryByDepartment2/${2}" target="_blank">前端成员</a></li>
+                <li><a href="${website}member/queryByDepartment2/${3}" target="_blank">后端成员</a></li>
+                <li><a href="${website}member/queryByDepartment2/${4}" target="_blank">产品部</a></li>
+            </ul>
+        </div>
     </div>
-</div>
 
     <c:forEach items="${memberList}" var="memberList" varStatus="status">
         <c:if test="${memberList.visible=='1'}">
@@ -250,17 +250,17 @@
         </div>
     </div>
     <div class="foot-right">
-        <img src="../../../img/nav/join.jpg" class="saoma" />
-        <img src="../../../img/nav/tubiao.jpg" class="tubiao" />
+        <img src="../../../img/nav/join.jpg" class="saoma"/>
+        <img src="../../../img/nav/tubiao.jpg" class="tubiao"/>
     </div>
     <div class="copyright">
         <span>Copyright &copy; 卓音工作室</span>
     </div>
 </div>
 <div class="fix-nav">
-    <img src="../../../img/nav/right.jpg" class="close" />
-    <img src="../../../img/nav/side.jpg"  class="side">
-    <img src="../../../img/nav/left.jpg" class="open" />
+    <img src="../../../img/nav/right.jpg" class="close"/>
+    <img src="../../../img/nav/side.jpg" class="side">
+    <img src="../../../img/nav/left.jpg" class="open"/>
 </div>
 </body>
 </html>
