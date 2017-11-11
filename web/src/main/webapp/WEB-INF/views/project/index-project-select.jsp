@@ -123,6 +123,12 @@
                 </div>
                 <p style="text-align: center;font-size: 25px">项目管理</p>
                 <div class="container-fluid">
+                    <div class="control-group">
+                        <label class="control-label">图片</label>
+                        <div class="controls">
+                            <img  style="width: 300px;height: 200px;" src="../../../image/projectImage/${project.image}"/>
+                        </div>
+                    </div>
                             <div class="control-group">
                                 <label class="control-label">标题</label>
                                 <div class="controls">
@@ -139,12 +145,6 @@
                                 <label class="control-label">备注</label>
                                 <div class="controls">
                                     <input type="text" class="input-xlarge" name="notes" required="required" placeholder="${project.notes}"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">图片</label>
-                                <div class="controls">
-                                   <img src="../../../image/projectImage/${project.image}"/>
                                 </div>
                             </div>
                             <div class="control-group">
