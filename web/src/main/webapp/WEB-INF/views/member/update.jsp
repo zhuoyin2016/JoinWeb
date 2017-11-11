@@ -162,6 +162,9 @@
                 </ul>
             </div>
         </div>
+
+
+        <%--先显示原先的信息，然后修改--%>
         <div class="span9">
             <div class="row-fluid">
                 <div class="page-header">
@@ -175,10 +178,12 @@
                         </p>
                         <div class="control-group">
                             <label class="control-label" for="role">头像</label>
+                            <%--//显示头像--%>
                             <div class="controls">
                                 <img type="text" class="input-xlarge" id="i"
                                      src="../../../image/memberImage/${member.memberPhoto}"> </img>
                             </div>
+                            <%--实现修改图像预览功能--%>
                             <div id="localImag" class="controls">
                                 <img id="preview" class="input-xlarge" width=-1 height=-1 style="diplay:none"/>
                             </div>
@@ -186,9 +191,7 @@
                         <p hidden>
                             <input type="text" name="memberPhoto" value="${member.memberPhoto}"/>
                         </p>
-
-
-
+                        <%--修改头像--%>
                         <p>
                             <input type="file" name="file" class="file" id="doc" size="28" value="修改头像"
                                    onchange="javascript:setImagePreview();"/>
@@ -238,6 +241,7 @@
                                 </select>
                             </div>
                         </div>
+
 
                         <div class="control-group">
                             <label class="control-label" for="eee">部门</label>

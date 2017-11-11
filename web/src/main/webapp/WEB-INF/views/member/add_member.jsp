@@ -29,6 +29,7 @@
     <link href=".../../../css/admin/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <script>
+    //预览功能
     function setImagePreview() {
         var docObj = document.getElementById("doc");
         var imgObjPreview = document.getElementById("preview");
@@ -63,7 +64,7 @@
     }
 </script>
 <body>
-
+      <%--头部跟侧栏--%>
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -168,14 +169,17 @@
                 </div>
 
 
+                <%--增加成员--%>
                 <form action="${website}member/toaddMember" method="POST" enctype="multipart/form-data"
                       class="form-horizontal">
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="role">头像</label>
+                            <%--实现图片上传预览功能--%>
                             <div id="localImag">
                                 <img id="preview" width=-1 height=-1 style="diplay:none"/>
                             </div>
+                            <%--上传头像--%>
                             <div class="controls">
                                 <input type='text' name='memberPhoto' id='textfield' class='txt'/>
                                 <input type="file" name="file" class="file" id="doc" size="28" value="上传头像"

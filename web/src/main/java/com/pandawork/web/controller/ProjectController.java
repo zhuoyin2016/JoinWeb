@@ -188,7 +188,7 @@ public class ProjectController extends AbstractController {
      */
     @RequestMapping(value = "/toProject",method = RequestMethod.GET)
     public String toProject(){
-        return "project/Project introduction";
+        return "redirect:/project/toProjectList";
     }
     /**
      * 前端页面展示
@@ -199,7 +199,7 @@ public class ProjectController extends AbstractController {
             List<Project> list = Collections.emptyList();
             list = projectService.listAllProject();
             model.addAttribute("projectList1",list);
-            return "project/Project introduction";
+            return "project/Projectintroduction";
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

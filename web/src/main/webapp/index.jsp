@@ -27,43 +27,44 @@
 </head>
 <body>
 <%--<!-- 导航栏 -->--%>
-<%--<div class="navbar navbar-fixed-top">--%>
-    <%--<div class="navbar-inner">--%>
-        <%--<div class="container-fluid">--%>
-            <%--<a class="brand" href="index.html">卓音后台管理</a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="index.html">卓音后台管理</a>
+        </div>
+    </div>
+</div>
 
-<%--<div class="span9" style="width:80%;margin-left:5%;margin-top:50px;">--%>
+<div class="span9" style="width:80%;margin-left:5%;margin-top:50px;">
 
-    <%--<div class="well hero-unit" style="margin-left:20%;text-align:center;">--%>
-        <%--<h1>欢迎，管理员</h1>--%>
-        <%--<p>欢迎您来到卓音工作室后台用户管理界面 </p>--%>
-        <%--<p><a class="btn btn-success btn-large" href="man/login">管理员登录 &raquo;</a></p>--%>
-    <%--</div>--%>
+    <div class="well hero-unit" style="margin-left:20%;text-align:center;">
+        <h1>欢迎，管理员</h1>
+        <p>欢迎您来到卓音工作室后台用户管理界面 </p>
+        <p><a class="btn btn-success btn-large" href="man/login">管理员登录 &raquo;</a></p>
+    </div>
 
-<%--</div>--%>
-
-
-<%--<script src="../../../js/admin/jquery.js"></script>--%>
-<%--<script src="../../../js/admin/bootstrap.min.js"></script>--%>
-<%--<script>--%>
-    <%--$(document).ready(function() {--%>
-        <%--$('.dropdown-menu li a').hover(--%>
-                <%--function() {--%>
-                    <%--$(this).children('i').addClass('icon-white');--%>
-                <%--},--%>
-                <%--function() {--%>
-                    <%--$(this).children('i').removeClass('icon-white');--%>
-                <%--});--%>
-    <%--});--%>
-<%--</script>--%>
+</div>
 
 
+<script src="../../../js/admin/jquery.js"></script>
+<script src="../../../js/admin/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.dropdown-menu li a').hover(
+                function() {
+                    $(this).children('i').addClass('icon-white');
+                },
+                function() {
+                    $(this).children('i').removeClass('icon-white');
+                });
+    });
+</script>
 
-<%
-    response.sendRedirect("/member/join2");
-%>
+
+
+<%--<%--%>
+    <%--response.sendRedirect("/member/join2");--%>
+<%--%>--%>
+
 </body>
 </html>

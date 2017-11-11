@@ -117,6 +117,7 @@
                 </c:if>
             </c:forEach>
 
+
             <c:forEach items="${memberList}" var="memberList" varStatus="status">
                 <c:if test="${memberList.visible=='1'}">
                     <%--15级成员--%>

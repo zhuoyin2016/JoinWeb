@@ -53,17 +53,6 @@
             <div class="section" id="sec-banner">
                 <div class="banner">
                     <div class="banner-list">
-
-                        <c:forEach items="${slImageList}" var="slImage" varStatus="status" begin="2">
-                            <div>
-                            <%--<c:if test="${status.index == 2}">--%>
-                                <img src="${slImage.imgName}" />
-                                <p>Information to create competitiveness</p>
-                                <p class="txt2">信息创造竞争力</p>
-                            <%--</c:if>--%>
-                            </div>
-                        </c:forEach>
-
                         <c:forEach items="${slImageList}" var="slImage" varStatus="status">
                             <div>
                                 <img src="${slImage.imgName}" />
@@ -85,14 +74,13 @@
                         </c:forEach>
 
                         <c:forEach items="${slImageList}" var="slImage" varStatus="status" begin="0" end="0">
-                        <div>
-                            <%--<c:if test="${status.index == 0}">--%>
-                                <img src="${slImage.imgName}" />
-                                <p>JOIN STUDIO</p>
-                            <%--</c:if>--%>
-                        </div>
+                            <div>
+                                <c:if test="${status.index == 0}">
+                                    <img src="${slImage.imgName}" />
+                                    <p>JOIN STUDIO</p>
+                                </c:if>
+                            </div>
                         </c:forEach>
-
                         <%--<div class="img03">--%>
                             <%--<img src="../resource/img/index/banner03.jpg" />--%>
                             <%--<div class="banner-txt">--%>
@@ -166,7 +154,7 @@
                 </div>
                 <div class="sec-content">
                     <a class="work-content">
-                        <a class="work-item" href="project introduction.html">
+                        <a class="work-item" href="${website}project/toProject">
                             <h4>1</h4>
                             <h6>PROJECT-1</h6>
                             <p>项目一：东北高师就业联盟网是东北高师就业联盟高校就业协作的网络平台。</p>
@@ -272,7 +260,6 @@
             </div>
         </div>
     </div>
-
     <!--#include file="foot.html"-->
 </div>
 </body>
