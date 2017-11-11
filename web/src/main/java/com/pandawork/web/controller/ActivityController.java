@@ -35,7 +35,7 @@ import java.util.UUID;
 public class ActivityController extends AbstractController{
 
     /**
-     * 列出全部
+     * 列出全部，跳转到后台管理页面
      * @param model
      * @return
      */
@@ -54,9 +54,29 @@ public class ActivityController extends AbstractController{
             return ADMIN_SYS_ERR_PAGE;
         }
     }
+
+    /**
+     * 列出全部，跳转到前台页面
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/listAll2" ,method = RequestMethod.GET)
+    public  String listAll2(Model model){
+        try{
+            List<Activity> activityList = activityService.listActivityAll();
+            model.addAttribute("activityList" , activityList);
+            return "activity/listall2";
+        } catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
     /**
      * 根据选择的id列出活动
-     * 活动首页
      * @param model
      * @return
      */
@@ -67,7 +87,7 @@ public class ActivityController extends AbstractController{
             Activity activity = new Activity();
             activity = activityService.queryActivityById(id);
             model.addAttribute("activity",activity);
-            return "/activity/selact";
+            return "/activity/selact";         //jsp
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

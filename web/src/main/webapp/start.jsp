@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-    response.sendRedirect("/joiner/list/first/1");
+    response.sendRedirect("/activity/listAll2");
 %>
 </body>
 </html>
