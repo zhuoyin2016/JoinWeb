@@ -31,6 +31,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/activity")
+//@SessionAttributes注解就可以使得模型中的数据存储一份到session域中。
 @SessionAttributes("activity")
 public class ActivityController extends AbstractController{
 
@@ -87,7 +88,7 @@ public class ActivityController extends AbstractController{
             Activity activity = new Activity();
             activity = activityService.queryActivityById(id);
             model.addAttribute("activity",activity);
-            return "/activity/selact";         //jsp
+            return "/activity/selact";                   //jsp
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
