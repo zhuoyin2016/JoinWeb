@@ -94,7 +94,11 @@ public class ActivityController extends AbstractController {
             Activity activity = new Activity();
             activity = activityService.queryActivityById(id);
             if (Assert.isNull(activity)) {
-                redirectAttributes.addAttribute("message", "没有相关活动");
+                Activity activity2 = activityService.queryActivityById(id+1);
+                if (Assert.isNull(activity2)){
+                    activity2 = activityService.queryActivityById(id-2);
+                }
+                model.addAttribute("activity", activity2);
                 return "/activity/selact";
             } else {
                 model.addAttribute("activity", activity);

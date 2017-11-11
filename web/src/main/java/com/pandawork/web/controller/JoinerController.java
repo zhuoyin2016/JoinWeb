@@ -126,7 +126,7 @@ public class JoinerController extends AbstractController {
             }
         }
         String message = "提交成功";
-        return "joiner/addJoiner";
+        return "redirect:/member/join2";
     }
 
     /**

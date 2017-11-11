@@ -1,0 +1,96 @@
+.head,
+.footer {
+	line-height: 24px;
+	font-family: 'Helvetica Neue', sans-serif;
+}
+
+.header {
+	position: fixed;
+	height: 60px;
+	width: 100%;
+	margin: 0 auto;
+	background-color: rgba(79, 148, 223, 1);
+	z-index: 10;
+	min-width: 1300px;
+}
+
+.head {
+	color: #05451C;
+}
+
+.logo {
+	display: inline-block;
+	height: 60px;
+	width: 36%;
+	padding: 0 20px;
+	margin: 0 auto;
+	font-size: 30px;
+	color: #222222;
+}
+
+.logo-img {
+	display: inline-block;
+	width: 14%;
+	height: 60px;
+	padding-left: 40px;
+}
+
+.logo-school {
+	display: inline-block;
+	width: 53%;
+	height: 55px;
+	padding-left: 50px;
+}
+
+.header h1 {
+	float: left;
+	position: absolute;
+	top: 15px;
+	left: 200px;
+	height: 60px;
+	display: inline-block;
+	color: #05451C;
+}
+
+#nav {
+	width: 60%;
+	display: inline-block;
+	float: right;
+}
+
+#nav li {
+	display: inline-block;
+	float: left;
+	font-size: large;
+	padding: 18px 25px;
+}
+
+#nav a {
+	color: #FFFFFF;
+}
+
+.hover {
+	color: #FFFFFF;
+	border-bottom: solid 4px white
+}
+
+#last {
+	margin-right: 100px;
+}
+
+.current {
+	display: inline-block;
+	float: right;
+	font-size: large;
+	padding: 15px 25px;
+	background-color: rgba(24, 108, 119, 0.67);
+}
+
+.cur {
+	background-color: rgba(79, 148, 223, 1);
+	/*	z-index: -1;*/
+	position: fixed;
+	top: 0px;
+	z-index: 2;
+	width: 100%;
+}

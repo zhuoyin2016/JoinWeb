@@ -25,6 +25,10 @@
 
 <body>
 <div class="wrap">
+
+
+
+
     <!--#include file="head.html"
     #include file="side.html"-->
     <%--<c:forEach items="${slImageList}" var="slImage" varStatus="status">--%>
@@ -175,6 +179,8 @@
                             <h6>PROJECT-6</h6>
                             <p>Aliquam volutpat sapien vitae elit porta fermentum. Nam condimentum rhoncus nisl.</p>
                         </a>
+
+               </a>
                 </div>
             </div>
         </div>
