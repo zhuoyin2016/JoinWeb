@@ -4,10 +4,12 @@
 
 <mapper namespace="com.pandawork.mapper.PageMapper">
 
+    <!--查找当前页面内容-->
     <select id="queryByPage" resultMap="pw.Joiner">
         SELECT *
         FROM `t_joiner` limit #{a},#{b}
     </select>
+    <!--查询总条数-->
     <select id="getTotalRows" resultType="int">
         SELECT COUNT(*)
         FROM `t_joiner`

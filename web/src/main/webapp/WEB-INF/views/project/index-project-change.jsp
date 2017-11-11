@@ -133,7 +133,7 @@
                     <div class="control-group">
                       <label class="control-label" >时间</label>
                       <div class="controls">
-                          <input type="text" class="input-xlarge" name="date"/>
+                          <input type="text" class="input-xlarge"  value="" name="date"/>
                       </div>
                     </div>
                     <div class="control-group">

@@ -121,6 +121,9 @@ public class ProjectController extends AbstractController {
     @RequestMapping(value = "/update2/{projectId}",method = RequestMethod.GET)
     public String updateProject2( @PathVariable("projectId")int projectId ,Model model){
             try {
+                Project project = new Project();
+                project = projectService.selectProject(projectId);
+                model.addAttribute("project",project);
                 model.addAttribute("projectId",projectId);
                 return "project/index-project-change";
             } catch (Exception e){

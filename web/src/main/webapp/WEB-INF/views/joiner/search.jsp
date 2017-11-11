@@ -37,7 +37,7 @@
                     <!-- 放在最右的小图标 -->
                 </a>
                 <!-- 下拉小图标 -->
-                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="height:18px">
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
