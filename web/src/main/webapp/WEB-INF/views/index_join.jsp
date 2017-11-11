@@ -28,14 +28,6 @@
     <!--#include file="head.html"
     #include file="side.html"-->
     <%--<c:forEach items="${slImageList}" var="slImage" varStatus="status">--%>
-    <%--<div style="float: left;padding: 20px;margin: 2%;text-align: center;">--%>
-    <%--<h2>${status.index+1}</h2>--%>
-    <%--<img style="width: 240px;height: 150px;" src="${slImage.imgName}" />--%>
-    <%--<p>${image.uploadImgTime}</p>--%>
-    <%--</div>--%>
-    <%--</c:forEach>--%>
-
-    <%--<c:forEach items="${slImageList}" var="slImage" varStatus="status">--%>
         <%--<div class="img03">--%>
             <%--<img src="${slImage.imgName}" />--%>
             <%--<div class="banner-txt">--%>
