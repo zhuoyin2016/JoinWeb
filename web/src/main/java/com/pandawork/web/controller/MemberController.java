@@ -41,7 +41,6 @@ public class MemberController extends AbstractController {
     public String join2(Model model) throws SSException {
         List<Image> slImageList = Collections.emptyList();
         slImageList = imageService.listSlImageAll();
-        System.out.println(slImageList);
         model.addAttribute("slImageList",slImageList);
         return "index_join";
     }

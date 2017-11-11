@@ -5,6 +5,7 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
 import com.pandawork.service.ActivityService;
+import com.sun.xml.internal.ws.org.objectweb.asm.Attribute;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,19 +34,20 @@ import java.util.UUID;
 @RequestMapping("/activity")
 //@SessionAttributes注解就可以使得模型中的数据存储一份到session域中
 @SessionAttributes("activity")
-public class ActivityController extends AbstractController{
+public class ActivityController extends AbstractController {
 
     /**
      * 列出全部，跳转到后台管理页面
+     *
      * @param model
      * @return
      */
-    @RequestMapping(value = "/listAll" ,method = RequestMethod.GET)
+    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     //Model只是用来传输数据的，并不会进行业务的寻址
-    public  String listAll(Model model){
-        try{
+    public String listAll(Model model) {
+        try {
             List<Activity> activityList = activityService.listActivityAll();
-            model.addAttribute("activityList" , activityList);
+            model.addAttribute("activityList", activityList);
             return "activity/listall";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
@@ -59,14 +61,15 @@ public class ActivityController extends AbstractController{
 
     /**
      * 列出全部，跳转到前台页面
+     *
      * @param model
      * @return
      */
-    @RequestMapping(value = "/listAll2" ,method = RequestMethod.GET)
-    public  String listAll2(Model model){
-        try{
+    @RequestMapping(value = "/listAll2", method = RequestMethod.GET)
+    public String listAll2(Model model) {
+        try {
             List<Activity> activityList = activityService.listActivityAll();
-            model.addAttribute("activityList" , activityList);
+            model.addAttribute("activityList", activityList);
             return "activity/listall2";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
@@ -77,19 +80,26 @@ public class ActivityController extends AbstractController{
             return ADMIN_SYS_ERR_PAGE;
         }
     }
+
     /**
      * 根据选择的id列出活动
+     *
      * @param model
      * @return
      */
 
-    @RequestMapping(value = "/select/{id}" ,method = RequestMethod.GET)
-    public  String selectActivity(@PathVariable("id")int id, Model model){
-        try{
+    @RequestMapping(value = "/select/{id}", method = RequestMethod.GET)
+    public String selectActivity(@PathVariable("id") int id, Model model, RedirectAttributes redirectAttributes) {
+        try {
             Activity activity = new Activity();
             activity = activityService.queryActivityById(id);
-            model.addAttribute("activity",activity);
-            return "/activity/selact";                   //jsp
+            if (Assert.isNull(activity)) {
+                redirectAttributes.addAttribute("message", "没有相关活动");
+                return "/activity/selact";
+            } else {
+                model.addAttribute("activity", activity);
+                return "/activity/selact";
+            }//jsp
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

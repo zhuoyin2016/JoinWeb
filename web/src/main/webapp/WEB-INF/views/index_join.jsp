@@ -221,7 +221,7 @@
                         <div class="box3"></div>
                     </div>
                 </a>
-                <a href="activity.html" target="_blank">
+                <a href="${website}activity/listAll2" target="_blank">
                     <div class="part" id="part5">
                         <div class="box1"></div>
                         <div class="box2">

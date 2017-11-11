@@ -1,11 +1,18 @@
 body{
-	background-image: url(../../../img/home/bg4.jpg);
+	background-image: url(../../../img/home/bg3.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 input,textarea,select{
-	background: transparent;
+	background-color: transparent;
 }
+.warning{
+	color: red;
+	margin-left: 20px;
+	font-weight: 600;
+}
+
+
 
 
 
@@ -27,6 +34,7 @@ input,textarea,select{
 	margin: 50px auto;
 	padding: 10px;
 	border-radius: 5px;
+	background-color: rgba(255,255,255,0.8);
 }
 .sub-content{
 	width: 800;
@@ -43,6 +51,7 @@ input,textarea,select{
 	display: inline-block;
 	width: 350px;
 	margin-right: 100px;
+	font-weight: 600;
 	
 }
 .topLeft input,select{
@@ -78,8 +87,14 @@ input,textarea,select{
 	display: none;
 	margin-bottom: 20px;
 	color: red;
+	margin-left: 105px;
 }
-
+.imp{
+	display: none;
+	margin-bottom: 20px;
+	color: red;
+	margin-left: 105px;
+}
 
 .mid{
 	margin-top: 60px;

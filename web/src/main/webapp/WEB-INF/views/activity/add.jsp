@@ -147,7 +147,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="">内容</label>
+                                <label class="control-label">内容</label>
                                 <div class="controls">
                                     <textarea type="text" class="input-xlarge" id="role" name="activityContent" required="required"></textarea>
                                 </div>

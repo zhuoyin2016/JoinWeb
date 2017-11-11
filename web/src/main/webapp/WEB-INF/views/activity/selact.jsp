@@ -13,10 +13,10 @@
 <head>
     <title>卓音</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../../css/base/reset.css">
-    <link rel="stylesheet" href="../../../css/page/style2.css">
-    <link rel="stylesheet" href="../../../css/page/activity-one.css">
-    <link rel="stylesheet" href="../../../css/page/evenZoom.css">
+    <link rel="stylesheet" href="../../../css/activity/reset.css">
+    <link rel="stylesheet" href="../../../css/activity/style2.css">
+    <link rel="stylesheet" href="../../../css/activity/activity-one.css">
+    <link rel="stylesheet" href="../../../css/activity/evenZoom.css">
     <script src="../../../js/common/jquery.js"></script>
     <script src="../../../js/page/index.js"></script>
     <script src="../../../js/page/activity-one.js"></script>
@@ -35,27 +35,29 @@
 <!--#include file="side.html"-->
 <div class="center">
     <div class="left">
-        <c:forEach items="${activityList}" var="activity" varStatus="status">
         <h1>活动简述</h1>
         <div class="content">
             <p class="para">
                     ${activity.activityContent}
             </p>
         </div>
-    </div>
-    <div class="right">
+      </div>
+       <div class="right">
         <h2> ${activity.activityTitle}</h2>
         <p>发布时间： ${activity.activityTime}</p>
-        </c:forEach>
+
         <!-- <div class="bord  <button type="button"></button>"> -->
         <div class="wrap">
-            <div class="dowebok" data-zoomed="../resource/img/activity-one/big.jpg">
-                <img src="../../../image/activity_img/${activity.activityImg1}" class="big-pic">
+            <div class="dowebok" data-zoomed="../resource/img/activity-one/big.jpg" >
+                <img src="../../../image/activity_img/${activity.activityImg1}" class="big-pic"  >
             </div>
         </div>
-        <!-- </div> -->
+        <a  href="${website}activity/select/${activity.id-1}"> <input type="button"value="上一篇"></a>
+           <a  href="${website}activity/select/${activity.id+1}"> <input type="button"value="下一篇"></a>
     </div>
 </div>
+
+
 
 <!--#include file="foot.html"-->
 </body>
