@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/man")
-@SessionAttributes("currentManager")
+@SessionAttributes("currentManager")  //注解@SessionAttributes将ModelMap中的数据同步到HttpSession中
 public class ManagerController extends AbstractController {
 
     /**
@@ -67,7 +67,7 @@ public class ManagerController extends AbstractController {
                 model.addAttribute("managerList",managerList);
                 currentManager.setCurrentStatus(manager1.getStatus());
                 currentManager.setCurrentId(manager1.getId());
-                modelMap.addAttribute("currentManager",currentManager);
+                modelMap.addAttribute("currentManager",currentManager); //将ModelMap的属性存到session中，即当前管理员存入session
                 model.addAttribute("currentManager",currentManager);
                 model.addAttribute("managerStatus",currentManager.getCurrentStatus());
                 return "manager/manager_main";
@@ -144,7 +144,7 @@ public class ManagerController extends AbstractController {
 
 
     /**
-     * 删除管理员.
+     * 删除管理员
      * @param currentManager
      * @param id
      * @param model
@@ -303,7 +303,7 @@ public class ManagerController extends AbstractController {
     public String logout(HttpSession httpSession, SessionStatus sessionStatus,Model model) throws SSException {
         httpSession.removeAttribute("currentManager"); //清除HttpSession的数据
         System.out.println("退出："+httpSession.getAttribute("currentManager"));
-        sessionStatus.setComplete(); //清除@SessionAttributes的session,不会清除HttpSession的数据
+        sessionStatus.setComplete(); //清除@SessionAttributes的session,不会清除HttpSession的数据.在清除Session中的数据时不能调用HttpSession中的removeAttribute("attributeName")方法，需要调用接口SessionStatus中的setComplete方法。
         List<Manager> managerList = managerService.listAll();
         model.addAttribute("managerList",managerList);
         model.addAttribute("message","退出成功！！！");
