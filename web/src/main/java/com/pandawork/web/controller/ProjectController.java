@@ -183,4 +183,30 @@ public class ProjectController extends AbstractController {
     public String tolistAll(){
         return "redirect:/project/listAllProject";
     }
+    /**
+     * 跳转至前端页面
+     */
+    @RequestMapping(value = "/toProject",method = RequestMethod.GET)
+    public String toProject(){
+        return "project/Project introduction";
+    }
+    /**
+     * 前端页面展示
+     */
+    @RequestMapping(value = "/toProjectList",method = RequestMethod.GET)
+    public String toProjectList(Model model){
+        try{
+            List<Project> list = Collections.emptyList();
+            list = projectService.listAllProject();
+            model.addAttribute("projectList1",list);
+            return "project/Project introduction";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }catch (Exception e){
+            e.printStackTrace();
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
 }
