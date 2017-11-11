@@ -47,7 +47,7 @@
         <h2> ${activity.activityTitle}</h2>
         <p>发布时间： ${activity.activityTime}</p>
         </c:forEach>
-        <!-- <div class="bord"> -->
+        <!-- <div class="bord  <button type="button"></button>"> -->
         <div class="wrap">
             <div class="dowebok" data-zoomed="../resource/img/activity-one/big.jpg">
                 <img src="../../../image/activity_img/${activity.activityImg1}" class="big-pic">

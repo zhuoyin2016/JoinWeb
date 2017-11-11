@@ -31,7 +31,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/activity")
-//@SessionAttributes注解就可以使得模型中的数据存储一份到session域中。
+//@SessionAttributes注解就可以使得模型中的数据存储一份到session域中
 @SessionAttributes("activity")
 public class ActivityController extends AbstractController{
 
@@ -41,6 +41,7 @@ public class ActivityController extends AbstractController{
      * @return
      */
     @RequestMapping(value = "/listAll" ,method = RequestMethod.GET)
+    //Model只是用来传输数据的，并不会进行业务的寻址
     public  String listAll(Model model){
         try{
             List<Activity> activityList = activityService.listActivityAll();

@@ -23,7 +23,7 @@
 
 <body>
 
-<!--#include file="head-page.html"-->
+<!--#include nnn="head-page.html"-->
 <!--#include file="side.html"-->
 <div class="center">
     <h2 class="smatitle">活动信息</h2>
