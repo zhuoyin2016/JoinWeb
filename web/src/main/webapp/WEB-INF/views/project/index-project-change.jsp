@@ -121,12 +121,19 @@
           	</div>
           	<p style="text-align: center;font-size: 25px;margin-bottom: 3%;">项目管理</p>
           	<div class="container-fluid">
-          		<form class="form-horizontal" action="" method="post">
+          		<form class="form-horizontal" action="${website}/project/updateProject" method="post">
           		<fieldset>
                     <div class="control-group">
                         <label class="control-label">标题</label>
                         <div class="controls">
                             <input type="text" class="input-xlarge" name="name" value="${project.name}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">图片</label>
+                        <div class="controls">
+                            <img  style="width: 300px;height: 200px;" src="../../../image/projectImage/${project.image}"/>
+                            <input type="file" class="input-xlarge" name="file" required="required" onchange="document.getElementById('textfield').value=this.value" />
                         </div>
                     </div>
                     <div class="control-group">

@@ -137,6 +137,7 @@
                         <td width="10%" style="text-align: center;">
                             <a class="btn" href="${website}project/select/${project.id}">详细</a>
                             <a class="btn" href="${website}project/update2/${project.id}">修改</a>
+                            <a class="btn" href="${website}project/delProject/${project.id}">删除</a>
                         </td>
                     </tr>
                 </c:forEach>

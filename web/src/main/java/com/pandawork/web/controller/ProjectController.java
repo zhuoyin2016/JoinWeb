@@ -43,24 +43,22 @@ public class ProjectController extends AbstractController {
         if(!f.exists()){
             f.mkdirs();
         }
-
-            try {
-                FileOutputStream fos = new FileOutputStream(path + newFileName);
-                InputStream in = file.getInputStream();
-                int b = 0;
-                while ((b = in.read()) != -1) {
-                    fos.write(b);
-                }
-                fos.close();
-                in.close();
-                project.setImage(newFileName);
-                projectService.addProject(project);
-                return "redirect:/project/listAllProject";
-                } catch(Exception e){
-                    e.printStackTrace();
-                    return ADMIN_SYS_ERR_PAGE;
-                }
-//            }
+        try {
+            FileOutputStream fos = new FileOutputStream(path + newFileName);
+            InputStream in = file.getInputStream();
+            int b = 0;
+            while ((b = in.read()) != -1) {
+                fos.write(b);
+            }
+            fos.close();
+            in.close();
+            project.setImage(newFileName);
+            projectService.addProject(project);
+            return "redirect:/project/listAllProject";
+        } catch(Exception e){
+            e.printStackTrace();
+            return ADMIN_SYS_ERR_PAGE;
+        }
     }
 
     /**
@@ -84,39 +82,37 @@ public class ProjectController extends AbstractController {
     /**
      * 修改一个项目
      */
-    @RequestMapping(value = "/update/{projectId}",method = RequestMethod.GET)
-    public String updateProject(Project project, @PathVariable("projectId") int projectId){
-        if(!Assert.isNotNull(project))return null;
-        else {
-            try {
-                projectService.updateProject(project);
-                return "redirect:project/listAllProject";
-            }catch (SSException e){
-                LogClerk.errLog.error(e);
-                sendErrMsg(e.getMessage());
-                return ADMIN_SYS_ERR_PAGE;
-            }catch (Exception e){
-                e.printStackTrace();
-                return ADMIN_SYS_ERR_PAGE;
+    @RequestMapping(value = "/updateProject",method = RequestMethod.POST)
+    public String updateProject(Project project, @RequestParam("file") CommonsMultipartFile file, RedirectAttributes redirectAttributes, HttpServletRequest request){
+        String  filename = file.getOriginalFilename();
+        String newFileName =  UUID.randomUUID()+ filename;
+        ServletContext sc = request.getSession().getServletContext();
+        String path = sc.getRealPath("image/projectImage")+"/";
+        File f = new File(path);
+        if(!f.exists()){
+            f.mkdirs();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(path + newFileName);
+            InputStream in = file.getInputStream();
+            int b = 0;
+            while ((b = in.read()) != -1) {
+                fos.write(b);
             }
+            fos.close();
+            in.close();
+            projectService.updateProject(project);
+            return "redirect:project/listAllProject";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }catch (Exception e){
+            e.printStackTrace();
+            return ADMIN_SYS_ERR_PAGE;
         }
     }
 
-
-//    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
-//    public String update(@PathVariable("id") int id, Model model, HttpServletRequest request) {
-//        try {
-//            String message = request.getParameter("message");
-//            Member member = memberService.queryMemberById(id);
-//            model.addAttribute("message", message);
-//            model.addAttribute("member", member);
-//            return "member/update";
-//        } catch (Exception e) {
-//            LogClerk.errLog.error(e);
-//            sendErrMsg(e.getMessage());
-//            return ADMIN_SYS_ERR_PAGE;
-//        }
-//    }
 
     @RequestMapping(value = "/update2/{projectId}",method = RequestMethod.GET)
     public String updateProject2( @PathVariable("projectId")int projectId ,Model model){
