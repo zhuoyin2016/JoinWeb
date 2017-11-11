@@ -137,6 +137,20 @@
                             <%--<td><a href="${website}image/select/${image.id}">选择/取消</a></td>--%>
                         <%--</tr>--%>
                     <%--</c:forEach>--%>
+                        <div style="text-align: center;margin: 20px;">
+                            <h3>已选中图片</h3>
+                            <c:forEach items="${slImageList}" var="slImage" varStatus="status">
+                                <img style="width: 120px;height: 70px;" src="${slImage.imgName}"/>
+                            </c:forEach>
+                            <br />
+                            <c:if test="${fn:length(slImageList) != 3}">
+                                当前共${fn:length(slImageList)}张，请选择3张图片！
+                            </c:if>
+                            <c:if test="${fn:length(slImageList) == 3}">
+                                已选择3张，请点击确定！
+                            </c:if>
+                        </div>
+                        <a href="${website}image/select_ok"><button style="margin-left: 45%;border-radius: 6px;font-size: 16px;padding: 10px 26px;">确定</button></a>
                     <div style="overflow: hidden;">
                         <c:forEach items="${imageList}" var="image" varStatus="status">
                             <div style="float: left;padding: 20px;margin: 2%;text-align: center;">
@@ -147,23 +161,6 @@
                             </div>
                         </c:forEach>
                     </div>
-                        <%--<c:forEach items="${slImageList}" var="slImage" varStatus="status">--%>
-                            <%--<img src="${slImage.imgName}" width="80px" height="60px">--%>
-                        <%--</c:forEach>--%>
-                    <div style="text-align: center;margin: 20px;">
-                        <h3>已选中图片</h3>
-                        <c:forEach items="${slImageList}" var="slImage" varStatus="status">
-                            <img style="width: 120px;height: 70px;" src="${slImage.imgName}"/>
-                        </c:forEach>
-                        <br />
-                        <c:if test="${fn:length(slImageList) != 3}">
-                            当前共${fn:length(slImageList)}张，请选择3张图片！
-                        </c:if>
-                        <c:if test="${fn:length(slImageList) == 3}">
-                            已选择3张，请点击确定！
-                        </c:if>
-                    </div>
-                    <a href="${website}image/select_ok"><button style="margin-left: 45%;border-radius: 6px;font-size: 16px;padding: 10px 26px;">确定</button></a>
                 </div>
             </div>
         </div>

@@ -53,11 +53,22 @@
             <div class="section" id="sec-banner">
                 <div class="banner">
                     <div class="banner-list">
+
+                        <c:forEach items="${slImageList}" var="slImage" varStatus="status" begin="2">
+                            <div>
+                            <%--<c:if test="${status.index == 2}">--%>
+                                <img src="${slImage.imgName}" />
+                                <p>Information to create competitiveness</p>
+                                <p class="txt2">信息创造竞争力</p>
+                            <%--</c:if>--%>
+                            </div>
+                        </c:forEach>
+
                         <c:forEach items="${slImageList}" var="slImage" varStatus="status">
-                            <div class="img03">
+                            <div>
                                 <img src="${slImage.imgName}" />
                                 <div class="banner-txt">
-                                    <c:if test="${status.index == 0}">
+                                    <c:if test="${(status.index == 0)}">
                                         <p>JOIN STUDIO</p>
                                     </c:if>
                                     <c:if test="${status.index == 1}">
@@ -72,6 +83,16 @@
                                 </div>
                             </div>
                         </c:forEach>
+
+                        <c:forEach items="${slImageList}" var="slImage" varStatus="status" begin="0" end="0">
+                        <div>
+                            <%--<c:if test="${status.index == 0}">--%>
+                                <img src="${slImage.imgName}" />
+                                <p>JOIN STUDIO</p>
+                            <%--</c:if>--%>
+                        </div>
+                        </c:forEach>
+
                         <%--<div class="img03">--%>
                             <%--<img src="../resource/img/index/banner03.jpg" />--%>
                             <%--<div class="banner-txt">--%>

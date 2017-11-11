@@ -34,10 +34,13 @@ import java.util.UUID;
 public class ImagesController extends AbstractController{
 
     /**
-     * 上传图片处理
+     * 上传图片前的处理
      * @param num num
-
-     * @return 返回
+     * @param number number
+     * @param modelMap modelMap
+     * @param model model
+     * @return return
+     * @throws SSException 异常
      */
     @RequestMapping(value ="/to_add_image/{num}/{number}", method = RequestMethod.GET)
     public String toAddImage(@PathVariable("num") int num, @PathVariable("number") int number,ModelMap modelMap,Model model) throws SSException {
@@ -61,7 +64,7 @@ public class ImagesController extends AbstractController{
         //使用springMVC提供的CommonsMultipartFile类进行读取文件
         //获取原文件名，并在后台输出
         String filename = file.getOriginalFilename();
-        System.out.println(filename);
+//        System.out.println(filename);
 
         //UUID.randomUUID()局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的
         String newFileName = UUID.randomUUID() + filename;
@@ -114,7 +117,7 @@ public class ImagesController extends AbstractController{
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String delImageById(@PathVariable("id") int id,HttpServletRequest request) {
         try {
-//            删除文件夹中的图片
+            //删除文件夹中的图片
             Image image = imageService.queryImageById(id);
             String name = image.getImgName();
             System.out.println(name);
@@ -149,8 +152,8 @@ public class ImagesController extends AbstractController{
         try {
             List<Image> imageList = Collections.emptyList();
             imageList = imageService.listImageAll();
-            int number = 0;
-            int num = 0;
+            int number = 0;//number 控制显示"添加图片按钮"
+            int num = 0;//num 控制添加文件的显示
             model.addAttribute("imageList", imageList);
             model.addAttribute("number", number);
             model.addAttribute("num", num);
