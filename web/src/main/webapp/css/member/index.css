@@ -250,16 +250,16 @@ body{
 
 .work-item{
 	background: #FFF;
-    padding: 30px 20px 20px;
-    margin-left: 80px;
-    margin-top: 40px;
-    position: relative;
-    overflow: hidden;
-    -webkit-transition: background .5s ease-in-out;
-    -moz-transition: background .5s ease-in-out;
-    transition: background .5s ease-in-out;
-    width: 200px;
-    height: 180px;
+	padding: 30px 20px 20px;
+	margin-left: 80px;
+	margin-top: 40px;
+	position: relative;
+	overflow: hidden;
+	-webkit-transition: background .5s ease-in-out;
+	-moz-transition: background .5s ease-in-out;
+	transition: background .5s ease-in-out;
+	width: 200px;
+	height: 180px;
 	border: 2px solid #e3e3e3;
 	display: inline-block;
 	text-align: center;
@@ -344,7 +344,7 @@ body{
 }
 
 #sec-joinus .joinus{
-	
+
 	width: 1100px;
 	margin: 0 auto;
 	color: #FFF;

@@ -1,6 +1,7 @@
 package com.pandawork.web.controller;
 
 import com.pandawork.common.entity.CurrentManager;
+import com.pandawork.common.entity.Image;
 import com.pandawork.common.entity.Member;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
@@ -37,7 +38,11 @@ public class MemberController extends AbstractController {
     }
 
     @RequestMapping(value = "/join2", method = RequestMethod.GET)
-    public String join2() {
+    public String join2(Model model) throws SSException {
+        List<Image> slImageList = Collections.emptyList();
+        slImageList = imageService.listSlImageAll();
+        System.out.println(slImageList);
+        model.addAttribute("slImageList",slImageList);
         return "index_join";
     }
 

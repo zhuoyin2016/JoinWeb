@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,41 +61,60 @@
             <div class="section" id="sec-banner">
                 <div class="banner">
                     <div class="banner-list">
-                        <div class="img03">
-                            <img src="../../../img/index/banner03.jpg" />
-                            <div class="banner-txt">
-                                <p>JOIN STUDIO</p>
+                        <c:forEach items="${slImageList}" var="slImage" varStatus="status">
+                            <div class="img03">
+                                <img src="${slImage.imgName}" />
+                                <div class="banner-txt">
+                                    <c:if test="${status.index == 0}">
+                                        <p>JOIN STUDIO</p>
+                                    </c:if>
+                                    <c:if test="${status.index == 1}">
+                                        <p>JOIN STUDIO</p>
+                                        <p class="txt2">卓音工作室</p>
+                                        <p>Information to create competitiveness</p>
+                                    </c:if>
+                                    <c:if test="${status.index == 2}">
+                                        <p>Information to create competitiveness</p>
+                                        <p class="txt2">信息创造竞争力</p>
+                                    </c:if>
+                                </div>
                             </div>
-                        </div>
-                        <div class="img01">
-                            <img src="../../../img/index/banner01.jpg" />
-                            <div class="banner-txt">
-                                <p>JOIN STUDIO</p>
-                                <p class="txt2">卓音工作室</p>
-                                <p>Information to create competitiveness</p>
-                            </div>
-                        </div>
-                        <div class="img02">
-                            <img src="../../../img/index/banner02.jpg" />
-                            <div class="banner-txt">
-                                <p>Information to create competitiveness</p>
-                                <p class="txt2">信息创造竞争力</p>
-                            </div>
-                        </div>
-                        <div class="img03">
-                            <img src="../../../img/index/banner03.jpg" />
-                            <div class="banner-txt">
-                                <p>JOIN STUDIO</p>
-                            </div>
-                        </div>
-                        <div class="img01">
-                            <img src="../../../img/index/banner01.jpg" />
-                            <div class="banner-txt">
-                                <p>JOIN STUDIO</p>
-                                <p class="txt2">卓音工作室</p>
-                                <p>Information to create competitiveness</p>
-                            </div>
-                        </div>
+                        </c:forEach>
+                        <%--<div class="img03">--%>
+                            <%--<img src="../resource/img/index/banner03.jpg" />--%>
+                            <%--<div class="banner-txt">--%>
+                                <%--<p>JOIN STUDIO</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="img01">--%>
+                            <%--<img src="../resource/img/index/banner01.jpg" />--%>
+                            <%--<div class="banner-txt">--%>
+                                <%--<p>JOIN STUDIO</p>--%>
+                                <%--<p class="txt2">卓音工作室</p>--%>
+                                <%--<p>Information to create competitiveness</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="img02">--%>
+                            <%--<img src="../resource/img/index/banner02.jpg" />--%>
+                            <%--<div class="banner-txt">--%>
+                                <%--<p>Information to create competitiveness</p>--%>
+                                <%--<p class="txt2">信息创造竞争力</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="img03">--%>
+                            <%--<img src="../resource/img/index/banner03.jpg" />--%>
+                            <%--<div class="banner-txt">--%>
+                                <%--<p>JOIN STUDIO</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="img01">--%>
+                            <%--<img src="../resource/img/index/banner01.jpg" />--%>
+                            <%--<div class="banner-txt">--%>
+                                <%--<p>JOIN STUDIO</p>--%>
+                                <%--<p class="txt2">卓音工作室</p>--%>
+                                <%--<p>Information to create competitiveness</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                     </div>
                     <div class="dots">
                         <span class="on"></span>
