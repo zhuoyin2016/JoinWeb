@@ -121,32 +121,31 @@
           	</div>
           	<p style="text-align: center;font-size: 25px;margin-bottom: 3%;">项目管理</p>
           	<div class="container-fluid">
-          		<form class="form-horizontal"  method="GET">
+          		<form class="form-horizontal" action="" method="post">
           		<fieldset>
-                   <input type="text" value="${projectId}" hidden />
                     <div class="control-group">
                         <label class="control-label">标题</label>
                         <div class="controls">
-                            <input type="text" class="input-xlarge" name="name"/>
+                            <input type="text" class="input-xlarge" name="name" value="${project.name}"/>
                         </div>
                     </div>
                     <div class="control-group">
-                      <label class="control-label" >时间</label>
-                      <div class="controls">
-                          <input type="text" class="input-xlarge"  value="" name="date"/>
-                      </div>
+                        <label class="control-label" >时间</label>
+                        <div class="controls">
+                            <input type="text" class="input-xlarge" name="name"  value="${project.date}"/>
+                        </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">备注</label>
                         <div class="controls">
-                            <input type="text" class="input-xlarge" name="notes"/>
+                            <input type="text" class="input-xlarge" name="notes"  value="${project.notes}"/>
                         </div>
                     </div>
                     <div class="control-group">
-                      <label class="control-label" for="">介绍</label>
-                      <div class="controls">
-                        <textarea type="text" class="input-xlarge" id="role" name="content"></textarea>
-                      </div>
+                        <label class="control-label" >介绍</label>
+                        <div class="controls">
+                            <textarea type="text" class="input-xlarge" id="role"  name="content">${project.content}</textarea>
+                        </div>
                     </div>
                     <p style="margin-left: 20%;margin-top: 20px;"><a class="btn" href="${website}project/update/${projectId}">确认修改</a><a class="btn" href="index-project.html">取消</a><a class="btn" href="index-project.html">删除项目</a></p>
                 </fieldset>
