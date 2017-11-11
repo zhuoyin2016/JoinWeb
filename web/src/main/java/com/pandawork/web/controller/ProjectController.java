@@ -82,8 +82,8 @@ public class ProjectController extends AbstractController {
     /**
      * 修改一个项目
      */
-    @RequestMapping(value = "/updateProject",method = RequestMethod.POST)
-    public String updateProject(Project project, @RequestParam("file") CommonsMultipartFile file, RedirectAttributes redirectAttributes, HttpServletRequest request){
+    @RequestMapping(value = "/updateProject/{id}",method = RequestMethod.POST)
+    public String updateProject(@PathVariable("id")int id, Project project, @RequestParam("file") CommonsMultipartFile file, HttpServletRequest request){
         String  filename = file.getOriginalFilename();
         String newFileName =  UUID.randomUUID()+ filename;
         ServletContext sc = request.getSession().getServletContext();
@@ -101,8 +101,10 @@ public class ProjectController extends AbstractController {
             }
             fos.close();
             in.close();
+            project.setId(id);
+            project.setImage(newFileName);
             projectService.updateProject(project);
-            return "redirect:project/listAllProject";
+            return "redirect:/project/listAllProject";
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

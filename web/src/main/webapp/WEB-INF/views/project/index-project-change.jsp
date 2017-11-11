@@ -121,7 +121,7 @@
           	</div>
           	<p style="text-align: center;font-size: 25px;margin-bottom: 3%;">项目管理</p>
           	<div class="container-fluid">
-          		<form class="form-horizontal" action="${website}/project/updateProject" method="post">
+          		<form class="form-horizontal" action="${website}/project/updateProject/${project.id}" method="post" enctype="multipart/form-data">
           		<fieldset>
                     <div class="control-group">
                         <label class="control-label">标题</label>
@@ -132,14 +132,14 @@
                     <div class="control-group">
                         <label class="control-label">图片</label>
                         <div class="controls">
-                            <img  style="width: 300px;height: 200px;" src="../../../image/projectImage/${project.image}"/>
+                            <img  style="width: 300px;height: 200px;" src="../../../image/projectImage/${project.image}"/><br>
                             <input type="file" class="input-xlarge" name="file" required="required" onchange="document.getElementById('textfield').value=this.value" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" >时间</label>
                         <div class="controls">
-                            <input type="text" class="input-xlarge" name="name"  value="${project.date}"/>
+                            <input type="text" class="input-xlarge" name="date"  value="${project.date}"/>
                         </div>
                     </div>
                     <div class="control-group">
@@ -154,7 +154,9 @@
                             <textarea type="text" class="input-xlarge" id="role"  name="content">${project.content}</textarea>
                         </div>
                     </div>
-                    <p style="margin-left: 20%;margin-top: 20px;"><a class="btn" href="${website}project/update/${projectId}">确认修改</a><a class="btn" href="index-project.html">取消</a><a class="btn" href="index-project.html">删除项目</a></p>
+                    <p style="margin-left: 20%;margin-top: 20px;">
+                        <input class="btn" type="submit" value="确认修改">
+                        <a class="btn" href="${website}project/tolistAll">取消</a>
                 </fieldset>
           	    </form>
           	</div>
@@ -163,8 +165,8 @@
       </div>
     </div>
 
-    <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+<script src="../../../js/admin/jquery.js"></script>
+<script src="../../../js/admin/bootstrap.min.js"></script>
   <script>
   $(document).ready(function() {
     $('.dropdown-menu li a').hover(
