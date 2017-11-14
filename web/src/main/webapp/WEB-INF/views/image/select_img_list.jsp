@@ -148,6 +148,7 @@
                             </c:if>
                             <c:if test="${fn:length(slImageList) == 3}">
                                 已选择3张，请点击确定！
+                                <a href="${website}image/select_ok"><button style="margin-left: 45%;border-radius: 6px;font-size: 16px;padding: 10px 26px;">确定</button></a>
                             </c:if>
                         </div>
                         <a href="${website}image/select_ok"><button style="margin-left: 45%;border-radius: 6px;font-size: 16px;padding: 10px 26px;">确定</button></a>

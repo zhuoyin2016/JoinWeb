@@ -143,6 +143,7 @@ public class ImagesController extends AbstractController{
     }
 
     /**
+     * 第一次，初始化
      * 列出全部图片
      * @param model model
      * @return 返回
@@ -166,7 +167,8 @@ public class ImagesController extends AbstractController{
     }
 
     /**
-     * 文件删除后跳转回本页面
+     * 后继
+     * 列出全部图片
      * @param model model
      * @param num num
      * @param number number
@@ -254,24 +256,6 @@ public class ImagesController extends AbstractController{
         }
     }
 
-    /**
-     * 跳转到后台首页
-     * @param model model
-     * @return return
-     */
-    @RequestMapping(value = "/...",method = RequestMethod.POST)
-    public String toReturn(Model model){
-        try{
-            List<Image> slImageList = Collections.emptyList();
-            slImageList = imageService.listSlImageAll();
-            model.addAttribute("slImageList", slImageList);
-            return "index";//跳转到后台首页
-        }catch (SSException e){
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
-    }
 
 
 //    /**
