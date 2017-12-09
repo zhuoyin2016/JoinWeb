@@ -13,7 +13,7 @@
     <div class="header">
         <div class="logo">
             <img src="../../img/nav/join.jpg" class="logo-img">
-            <img src="../..//img/nav/logo-school.png" class="logo-school">
+            <img src="../../img/nav/logo-school.png" class="logo-school">
         </div>
         <div id="nav">
             <ul>
