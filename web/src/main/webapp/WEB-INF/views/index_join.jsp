@@ -53,6 +53,15 @@
             <div class="section" id="sec-banner">
                 <div class="banner">
                     <div class="banner-list">
+                        <c:forEach items="${slImageList}" var="slImage" varStatus="status" begin="2">
+                            <div>
+                                <c:if test="${status.index == 0}">
+                                    <img src="${slImage.imgName}" />
+                                    <p>Information to create competitiveness</p>
+                                    <p class="txt2">信息创造竞争力</p>
+                                </c:if>
+                            </div>
+                        </c:forEach>
                         <c:forEach items="${slImageList}" var="slImage" varStatus="status">
                             <div>
                                 <img src="${slImage.imgName}" />

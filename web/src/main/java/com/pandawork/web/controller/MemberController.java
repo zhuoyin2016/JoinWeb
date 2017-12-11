@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * newframework陈芳,
+ * 陈芳,
  * Created by TestUser on 2017/10/19.
  * 部门成员控制层
  */
@@ -81,13 +81,18 @@ public class MemberController extends AbstractController {
             model.addAttribute("managerStatus", currentManager.getCurrentStatus());
             //如果是1代表研究生，跳到研究生管理页面
             if (depart == 1) {
+//                redirectAttributes.addAttribute("depart", "研究生");
                 return "member/member_one";
-            } else if (depart == 2) {       //如果是2代表前端，跳到前端管理页面
-                return "member/member_two";
-            } else if (depart == 3) {          //如果是3代表后端，跳到后端管理页面
-                return "member/member_three";
-            } else {                           //如果是4代表产品部，跳到产品部管理页面
-                return "member/member_four";
+            } else if (depart == 2) {
+//                redirectAttributes.addAttribute("depart", "前端");
+               //如果是2代表前端，跳到前端管理页面
+                return "member/member_one";
+            } else if (depart == 3) {
+//                redirectAttributes.addAttribute("depart", "后端");//如果是3代表后端，跳到后端管理页面
+                return "member/member_one";
+            } else {
+//                redirectAttributes.addAttribute("depart", "产品部");//如果是4代表产品部，跳到产品部管理页面
+                return "member/member_one";
             }
         } catch (Exception e) {
             LogClerk.errLog.error(e);
@@ -168,6 +173,7 @@ public class MemberController extends AbstractController {
         ServletContext sc = request.getSession().getServletContext();
         //将上传的图片加到文件夹下。若没有，自动创建
         String path = sc.getRealPath("image/memberImage") + "/";
+
         File f = new File(path);
         if (!f.exists()) {
             f.mkdirs();
@@ -207,27 +213,6 @@ public class MemberController extends AbstractController {
     }
 
 
-//    /**
-//     * 列出全部去信息
-//     * @param model
-//     * @return
-//     */
-//    @RequestMapping(value = "/listAllMember", method = RequestMethod.GET)
-//    public String listAllMember(Model model) {
-//        try {
-//            List<Member> memberList = Collections.emptyList();
-//            memberList = memberService.listAll();
-//            model.addAttribute("memberList", memberList);
-//            return "member/listAll";
-//        } catch (SSException e) {
-//            LogClerk.errLog.error(e);
-//            sendErrMsg(e.getMessage());
-//            return ADMIN_SYS_ERR_PAGE;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return ADMIN_SYS_ERR_PAGE;
-//        }
-//    }
 
     /**
      * 删除图片，假性删除 //假性删除，执行的是修改方法
@@ -299,14 +284,14 @@ public class MemberController extends AbstractController {
             String filename = file.getOriginalFilename();
             //判断文件名是否为空，若为空，则成员头像名称不用改变
             if (Assert.isNull(filename)) {
-                System.out.println("啊啊啊啊啊啊啊啊啊啊啊啊啊" + filename);
+
                 memberService.updateMember(member);
                 return "redirect:/member/queryByDepartment/" + depart;
             } else {
 
                 //若不为空，则将成员头像上传到服务器并将  数据库中成员头像的信息改变，与上传到服务器的头像名称保持一致。
                 String newFileName = UUID.randomUUID() + filename;
-                System.out.println("啦啦啦啦啦绿少时诵诗书" + filename);
+
                 ServletContext sc = request.getSession().getServletContext();
                 String path = sc.getRealPath("image/memberImage") + "/";
                 File f = new File(path);
@@ -314,6 +299,7 @@ public class MemberController extends AbstractController {
                     f.mkdirs();
                 }
                 FileOutputStream fos = new FileOutputStream(path + newFileName);
+                System.out.println("顶顶顶顶顶顶顶顶顶顶顶顶"+path+newFileName);
                 InputStream in = file.getInputStream();
                 int b = 0;
                 while ((b = in.read()) != -1) {

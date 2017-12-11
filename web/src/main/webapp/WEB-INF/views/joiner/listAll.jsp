@@ -212,17 +212,17 @@
                 </table>
                 <%--分页--%>
             <div id="page">
-            <span style="font-size: 13px;">共<span class="all">${splitPage.totalRows}</span>人</span>
-            <span class="now">${splitPage.currentPage}/</span><span class="total">${splitPage.totalPage}</span>&nbsp;
-            <c:if test="${splitPage.currentPage != '1'}">
-            <a href="${website}joiner/list/first/${splitPage.currentPage}">首页</a>
-            <a href="${website}joiner/list/previous/${splitPage.currentPage}">上一页</a>&nbsp;&nbsp;
-            </c:if>
-            <c:forEach begin="${splitPage.firstPage}" end="${splitPage.totalPage}" var="page">
-            <a href="${website}joiner/list/${page}/${splitPage.currentPage}">${page}</a>
-            </c:forEach>
+                <span style="font-size: 13px;">共<span class="all">${splitPage.totalRows}</span>人</span>
+                <span class="now">${splitPage.currentPage}/</span><span class="total">${splitPage.totalPage}</span>&nbsp;
+                <c:if test="${splitPage.currentPage != '1'}">
+                    <a href="${website}joiner/list/first/${splitPage.currentPage}">首页</a>
+                    <a href="${website}joiner/list/previous/${splitPage.currentPage}">上一页</a>&nbsp;&nbsp;
+                </c:if>
+                <c:forEach begin="${splitPage.firstPage}" end="${splitPage.totalPage}" var="page">
+                    <a href="${website}joiner/list/${page}/${splitPage.currentPage}">${page}</a>
+                </c:forEach>
                 &nbsp;&nbsp;<a href="${website}joiner/list/next/${splitPage.currentPage}">下一页</a>
-            <a href="${website}joiner/list/last/${splitPage.currentPage}">尾页</a>
+                <a href="${website}joiner/list/last/${splitPage.currentPage}">尾页</a>
             </div>
             </div>
         </div>
