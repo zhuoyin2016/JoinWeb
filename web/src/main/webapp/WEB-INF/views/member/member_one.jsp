@@ -81,7 +81,7 @@
                 <li><a href="${website}man/all"><i class="fa fa-home"></i> <span>管理员管理</span></a></li>
                 <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>页面内容管理</span></a>
                     <ul class="sub-menu-list">
-                        <li class="active"><a href="main-page.html"> 首页管理</a></li>
+                        <li class="active"><a href="#"> 首页管理</a></li>
                         <li><a href="${website}activity/listAll"> 活动</a></li>
                         <li><a href="${website}image/list">图片</a></li>
                         <li><a href="${website}project/listAllProject"> 项目</a></li>
@@ -113,6 +113,12 @@
             <!--toggle button start-->
             <a class="toggle-btn"><i class="fa fa-bars"></i></a>
             <!--toggle button end-->
+
+            <%--<!--search start-->--%>
+            <%--<form class="searchform" action="${website}image/list" method="post">--%>
+                <%--<input type="text" class="form-control" name="keyword" placeholder="Search here..." />--%>
+            <%--</form>--%>
+            <%--<!--search end-->--%>
 
             <!--notification menu start -->
             <div class="menu-right">
