@@ -18,9 +18,9 @@
 
     <title>管理员管理</title>
 
-    <link href="../../../css/style.css" rel="stylesheet">
-    <link href="../../../css/style-responsive.css" rel="stylesheet">
-    <link href="../../../css/administratorManage.css" rel="stylesheet" />
+    <link href="../../../css/admin/style.css" rel="stylesheet">
+    <link href="../../../css/admin/style-responsive.css" rel="stylesheet">
+    <link href="../../../css/admin/administratorManage.css" rel="stylesheet" />
     <!--<link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />-->
 
 
@@ -88,7 +88,7 @@
                         <li><a  href="${website}member/queryByDepartment/${4}">产品部</a></li>
                     </ul>
                 </li>
-                <li><a href="${website}joiner/list/first/1"><i class="fa fa-bullhorn"></i> <span>报名者</span></a></li>
+                <li><a href="${website}joiner/list"><i class="fa fa-bullhorn"></i> <span>报名者</span></a></li>
             </ul>
             <!--sidebar nav end-->
 
