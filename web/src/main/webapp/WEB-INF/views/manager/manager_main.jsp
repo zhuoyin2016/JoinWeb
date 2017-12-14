@@ -70,17 +70,25 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="administratorManage.html"><i class="fa fa-user"></i> <span>管理员管理</span></a></li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>页面管理</span></a>
+                <li><a href="${website}man/all"><i class="fa fa-home"></i> <span>管理员管理</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i><span>页面内容管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="index.html"> 首页管理</a></li>
-                        <li><a href="activity.html"> 活动</a></li>
-                        <li><a href="item.html"> 项目</a></li>
-                        <li><a href="mumber.html"> 团队成员</a></li>
-
+                        <li class="active"><a href="#"> 首页管理</a></li>
+                        <li><a href="${website}activity/listAll"> 活动</a></li>
+                        <li><a href="${website}image/list">图片</a></li>
+                        <li><a href="${website}project/listAllProject"> 项目</a></li>
                     </ul>
                 </li>
-                <li><a href="applicant.html"><i class="fa fa-bullhorn"></i> <span>审核报名</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>成员管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li  class="active">
+                            <a  href="${website}member/queryByDepartment/${1}">研究生</a></li>
+                        <li><a  href="${website}member/queryByDepartment/${2}">前端</a></li>
+                        <li><a  href="${website}member/queryByDepartment/${3}">后端</a></li>
+                        <li><a  href="${website}member/queryByDepartment/${4}">产品部</a></li>
+                    </ul>
+                </li>
+                <li><a href="${website}joiner/list/first/1"><i class="fa fa-bullhorn"></i> <span>报名者</span></a></li>
             </ul>
             <!--sidebar nav end-->
 

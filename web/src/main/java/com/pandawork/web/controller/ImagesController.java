@@ -49,7 +49,7 @@ public class ImagesController extends AbstractController{
             slImageList = imageService.listSlImageAll();
             model.addAttribute("imageList", imageList);
             model.addAttribute("slImageList",slImageList);
-            return "content";
+            return "image/content";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
