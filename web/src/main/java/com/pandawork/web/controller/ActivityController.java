@@ -99,7 +99,7 @@ public class ActivityController extends AbstractController {
                     activity2 = activityService.queryActivityById(id-2);
                 }
                 model.addAttribute("activity", activity2);
-                return "/activity/selact";
+                return "/activity/listall2";
             } else {
                 model.addAttribute("activity", activity);
                 return "/activity/selact";

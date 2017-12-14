@@ -40,7 +40,6 @@
                       <li><a href="${website}man/logout">退出账号</a></li>
                   </ul>
               </div>
-
               <div class="nav-collapse">
                   <ul class="nav">
                       <li class="dropdown">

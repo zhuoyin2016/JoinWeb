@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /**
@@ -97,7 +98,7 @@ public class JoinerServiceImpl implements JoinerService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public List<Joiner> listAllJoiner() throws SSException {
-        List<Joiner> joinerList = Collections.emptyList();
+        List<Joiner> joinerList = new ArrayList<Joiner>();
         try {
             joinerList = joinerMapper.listAllJoiner();
         } catch (Exception e) {

@@ -6,6 +6,8 @@ import com.pandawork.common.utils.SplitPage;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.service.JoinerService;
+import com.pandawork.service.impl.JoinerServiceImpl;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +34,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/joiner")
-@SessionAttributes("currentManager")
+//@SessionAttributes("currentManager")
 public class JoinerController extends AbstractController {
 
     /**
@@ -41,21 +43,12 @@ public class JoinerController extends AbstractController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/list/{flag}/{current}", method = RequestMethod.GET)
-    public String joinerList(@PathVariable("flag")String flag,@PathVariable("current")String current,Model model,@ModelAttribute("currentManager") CurrentManager currentManager) {
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String joinerList(Model model) {
         try {
             List<Joiner> list = Collections.emptyList();
-            SplitPage splitPage = new SplitPage();
-            int totalRows = pageService.getTotalRows();
-            splitPage.setTotalRows(totalRows);
-            if(current != null){
-                int currentPage = Integer.parseInt(current);
-                splitPage.setCurrentPage(currentPage);
-            }
-            pageService.toNewPage(flag,splitPage);
-            list = pageService.queryByPage(splitPage);
-            model.addAttribute("managerStatus",currentManager.getCurrentStatus());
-            model.addAttribute("splitPage",splitPage);
+            list = joinerService.listAllJoiner();
+//            model.addAttribute("managerStatus",currentManager.getCurrentStatus());
             model.addAttribute("list", list);
             return "joiner/listAll";
         } catch (SSException e) {
@@ -126,7 +119,7 @@ public class JoinerController extends AbstractController {
             }
         }
         String message = "提交成功";
-        return "redirect:/member/join2";
+        return "index_join";
     }
 
     /**
@@ -140,10 +133,9 @@ public class JoinerController extends AbstractController {
     @RequestMapping(value = "/show/{id}", method = RequestMethod.GET)
     public String showJoiner(@PathVariable("id") int id, Model model, RedirectAttributes redirectAttributes) {
         try {
-
             Joiner joiner = joinerService.queryJoinerById(id);
             model.addAttribute("joiner", joiner);
-            return "joiner/show";  //jsp
+            return "joiner/show";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -176,7 +168,7 @@ public class JoinerController extends AbstractController {
         try {
             joinerService.delJoiner(id);
             model.addAttribute("Message", "删除成功");
-            return "redirect:/joiner/list/first/1";
+            return "redirect:/joiner/list";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -191,11 +183,11 @@ public class JoinerController extends AbstractController {
      * @param state
      * @return
      */
-    @RequestMapping(value = "/check/{id}", method = RequestMethod.POST)
-    public String check(@PathVariable("id") int id, @RequestParam("joinerState") int state) {
+    @RequestMapping(value = "/check/{id}/{state}", method = RequestMethod.GET)
+    public String check(@PathVariable("id") int id,@PathVariable("state") int state) {
         try {
             joinerService.updateState(state, id);
-            return "redirect:/joiner/list/first/1";
+            return "redirect:/joiner/list";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

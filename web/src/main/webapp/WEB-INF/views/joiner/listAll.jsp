@@ -8,324 +8,241 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>卓音工作室 | 后台管理页面</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  width - viewport的宽度 height - viewport的高度
-          initial-scale - 初始的缩放比例
-          minimum-scale - 允许用户缩放到的最小比例
-          maximum-scale - 允许用户缩放到的最大比例
-          user-scalable - 用户是否可以手动缩放 -->
-    <meta name="description" content="Admin panel developed with the Bootstrap from Twitter.">
-    <!-- 从Twitter，内容管理员面板开发与引导。 -->
-    <meta name="author" content="travis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
 
-    <link href="../../../css/admin/bootstrap.css" rel="stylesheet">
-    <link href="../../../css/admin/site.css" rel="stylesheet">
-    <link href="../../../css/admin/bootstrap-responsive.css" rel="stylesheet">
+    <title>Editable Table</title>
+
+    <!--data table-->
+    <link rel="stylesheet" href="../../../js/joiner/data-tables/DT_bootstrap.css" />
+
+    <link href="../../../css/joiner/style.css" rel="stylesheet">
+    <link href="../../../css/joiner/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../../js/joiner/html5shiv.js"></script>
+    <script src="../../../js/joiner/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<!-- 导航栏 -->
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="brand" href="#">卓音后台管理</a>
-            <div class="btn-group pull-right">
-                <a class="btn" href="#">
-                    <i class="icon-user"></i> 设置
-                    <!-- 放在最右的小图标 -->
-                </a>
-                <!-- 下拉小图标 -->
-                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="height:18px">
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="${website}man/single">修改个人资料</a></li>
-                    <li class="divider"></li>
-                    <li><a href="${website}man/logout">退出账号</a></li>
-                </ul>
-            </div>
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
 
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="divider"></li>
-                            <li><a href="${website}man/all">管理员</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">内容<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="${website}activity/listAll">活动</a></li>
-                            <li class="divider"></li>
-                            <li class="level1_1"><a class="big-li-of-a">图片</a>
-                                <ul class="level2_1">
-                                    <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
-                                    <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
-                                </ul>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="level1_1"><a class="big-li-of-a">部门成员</a>
-                                <ul class="level2_1">
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${3}">后端</a></li>
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">报名<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="${website}joiner/list/first/1">报名者</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
-    </div>
-</div>
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span3">
-            <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                    <li class="nav-header"><i class="icon-wrench"></i>人员</li>
-                    <li class=""><a href="${website}man/all">管理员</a></li>
-                    <li class="nav-header"><i class="icon-signal"></i> 内容</li>
-                    <li><a href="${website}activity/listAll">活动</a></li>
-                    <li><a href="${website}project/listAllProject">项目</a></li>
-                    <li class="level1_1"><a class="big-li-of-a">图片</a>
-                        <ul class="level2_1">
-                            <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
-                            <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
-                        </ul>
-                    </li>
-                    <li class="level1_1"><a class="big-li-of-a">部门成员</a>
-                        <ul class="level2_1">
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${3}">后端</a></li>
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-header"><i class="icon-signal"></i> 报名</li>
-                    <li><a href="${website}joiner/list/first/1">报名者</a></li>
-                </ul>
-            </div>
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
         </div>
-        <div class="span9">
-            <div class="row-fluid">
-                <div class="page-header">
-                    <h1>报名者 <small>所有报名者</small></h1>
-                </div>
-                <p style="text-align: center;">卓音工作室2018学生报名信息</p>
-                <form action="${website}/joiner/search" method="post">
-                    <div>
-                        <select name="type" style="margin-left: 30%;width: 70px">
-                            <option value="name" selected = "selected"/>姓名</option>
-                            <option value="sex"/>性别</option>
-                            <option value="grade"/>年级</option>
-                            <option value="dep"/>意向部门</option>
-                            <option value="major"/>专业</option>
-                            <option value="state"/>状态</option>
-                        </select>
-                        <input type="text" name="keyWord" style="height: 28px">
-                <input class="submit" type="submit" name="submit" value="搜索" />
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
                     </div>
-                </form>
-                <table class="table table-striped table-bordered table-condensed">
-                    <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>姓名</th>
-                        <th>性别</th>
-                        <th>学院</th>
-                        <th>专业</th>
-                        <th>年级</th>
-                        <th>年级排名</th>
-                        <th>意向部门</th>
-                        <c:if test="${managerStatus != '0'}">
-                        <th>操作</th>
-                        </c:if>
-                        <th>状态</th>
-                        <c:if test="${managerStatus != '0'}">
-                        <th>审核</th>
-                        </c:if>
-                    </tr>
-                    </thead>
-                    <c:forEach items="${list}"  var="joiner" varStatus="status">
-                    <tbody>
-                    <tr class="list-users">
-                        <td>${(splitPage.currentPage-1)*8+(status.index+1)}</td>
-                        <td><a href="${website}joiner/show/${joiner.id}">${joiner.joinerName}</a></td>
-                        <td>${joiner.joinerSex}</td>
-                        <td>${joiner.joinerCollege}</td>
-                        <td>${joiner.joinerMajor}</td>
-                        <td>${joiner.joinerGrade}</td>
-                        <td>${joiner.joinerRanking}</td>
-                        <td>${joiner.joinerDep}</td>
-                        <c:if test="${managerStatus != '0'}">
-                        <td><a href="${website}joiner/del/${joiner.id}">删除</a></td>
-                        </c:if>
-                        <td>
-                            <c:if test="${joiner.joinerState == '1'}">
-                            <span class="label label-success">
-                               审核通过
-                            </span>
-                            </c:if>
-                            <c:if test="${joiner.joinerState == '0'}">
-                            <span class="label label-warning">
-                                待审核
-                            </span>
-                            </c:if>
+                </div>
 
-                            <c:if test="${joiner.joinerState == '2'}">
-                                <span class="label label-important">
-                              审核未通过
-                                </span>
-                            </c:if>
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>
 
-                        </td>
-                        <form action="${website}joiner/check/${joiner.id}" method="post">
-                            <c:if test="${managerStatus != '0'}">
-                            <td>
-                                <select name="joinerState" style="width: 70px">
-                                    <option value="0" selected="selected">请选择</option>
-                                    <option value="0">待审核</option>
-                                    <option value="1">通过</option>
-                                    <option value="2"/>不通过</option>
-                                </select>
-                            </td>
-                            <td><input type="submit" value="确定"></td>
-                            </c:if>
-                        </form>
-                    </tr>
-                    </tbody>
-                    </c:forEach>
-                </table>
-                <%--分页--%>
-            <div id="page">
-                <span style="font-size: 13px;">共<span class="all">${splitPage.totalRows}</span>人</span>
-                <span class="now">${splitPage.currentPage}/</span><span class="total">${splitPage.totalPage}</span>&nbsp;
-                <c:if test="${splitPage.currentPage != '1'}">
-                    <a href="${website}joiner/list/first/${splitPage.currentPage}">首页</a>
-                    <a href="${website}joiner/list/previous/${splitPage.currentPage}">上一页</a>&nbsp;&nbsp;
-                </c:if>
-                <c:forEach begin="${splitPage.firstPage}" end="${splitPage.totalPage}" var="page">
-                    <a href="${website}joiner/list/${page}/${splitPage.currentPage}">${page}</a>
-                </c:forEach>
-                &nbsp;&nbsp;<a href="${website}joiner/list/next/${splitPage.currentPage}">下一页</a>
-                <a href="${website}joiner/list/last/${splitPage.currentPage}">尾页</a>
-            </div>
-            </div>
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li ><a href="administratorManage.html"><i class="fa fa-user"></i> <span>管理员管理</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>页面管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="index.html"> 首页管理</a></li>
+                        <li><a href="activity.html"> 活动</a></li>
+                        <li><a href="item.html"> 项目</a></li>
+                        <li><a href="mumber.html"> 团队成员</a></li>
+
+                    </ul>
+                </li>
+                <li class="active"><a href="${website}joiner/list"><i class="fa fa-bullhorn"></i> <span>审核报名</span></a></li>
+            </ul>
+            <!--sidebar nav end-->
+
         </div>
     </div>
-</div>
-<script src="../../../js/joiner/signIn.js"></script>
-<script src="../../../js/admin/jquery.js"></script>
-<script src="../../../js/admin/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.dropdown-menu li a').hover(
-                function() {
-                    $(this).children('i').addClass('icon-white');
-                },
-                function() {
-                    $(this).children('i').removeClass('icon-white');
-                });
-    });
-    $(function(){
-        $("a.big-li-of-a").next().hide();
-        $(".level1_1 > a").click(function(){
-            // 如果执行第一个level的下一个level
-            if($(".level2_1").css("display")=="none"){
-                $(this).addClass("current")
-                //给当前元素添加“current”元素
-                $(".level2_1").show();//显示内容
-                return false;//避免<a>标签跳转
-            }
+    <!-- left side end-->
 
-            else{//否则将内容隐藏（或者说是重新点击时隐藏）
-                $(".level2_1").hide();
-            }
-        });
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <%--<form action="${website}/joiner/search" method="post">--%>
+                <%--<div>--%>
+                    <%--<select name="type" style="margin-left: 30%;width: 70px">--%>
+                        <%--<option value="name" selected = "selected"/>姓名</option>--%>
+                        <%--<option value="sex"/>性别</option>--%>
+                        <%--<option value="grade"/>年级</option>--%>
+                        <%--<option value="dep"/>意向部门</option>--%>
+                        <%--<option value="major"/>专业</option>--%>
+                        <%--<option value="state"/>状态</option>--%>
+                    <%--</select>--%>
+                    <%--<input type="text" name="keyWord" style="height: 28px">--%>
+                    <%--<input class="submit" type="submit" name="submit" value="搜索" />--%>
+                <%--</div>--%>
+            <%--</form>--%>
+            <!--search end-->
+
+
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                报名表
+            </h3>
+            <p>请根据需要进行报名表审核及管理</p>
+        </div>
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Entry Form
+                            <span class="tools pull-right">
+                        <a href="javascript:;" class="fa fa-chevron-down"></a>
+                     </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="adv-table editable-table ">
+                            </div>
+                            <div class="space15"></div>
+                            <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                                <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>排名</th>
+                                    <th>专业</th>
+                                    <th>年级</th>
+                                    <th>意向部门</th>
+                                    <th>操作</th>
+                                    <th>查看详情</th>
+                                    <th>审核状态</th>
+                                </tr>
+                                </thead>
+                                <c:forEach items="${list}"  var="joiner" varStatus="status">
+                                <tbody>
+                                <tr class="">
+                                    <td>${joiner.joinerName}</td>
+                                    <td>${joiner.joinerSex}</td>
+                                    <td>${joiner.joinerRanking}</td>
+                                    <td class="center">${joiner.joinerCollege}--${joiner.joinerMajor}</td>
+                                    <td>${joiner.joinerGrade}</td>
+                                    <td>${joiner.joinerDep}</td>
+                                    <td><a href="${website}joiner/del/${joiner.id}">删除</a></td>
+                                    <%--<td><a href="${website}joiner/show/${joiner.id}" class="btnshow">查看</a></td>--%>
+                                    <td><a href="javascript:;" class="btnshow">查看</a></td>
+                                    <td>
+                                        <c:if test="${joiner.joinerState == '1'}">
+                                            <span>审核通过</span>
+                                        </c:if>
+                                        <c:if test="${joiner.joinerState == '0'}">
+                                            <span>待审核</span>
+                                        </c:if>
+                                        <c:if test="${joiner.joinerState == '2'}">
+                                            <span>审核未通过</span>
+                                        </c:if>
+                                        <a href="${website}joiner/check/${joiner.id}/1">
+                                            <input type="button" name="joinerState" value="通过"/>
+                                        </a>
+                                        <a href="${website}joiner/check/${joiner.id}/2">
+                                            <input type="button" name="joinerState" value="不通过"/>
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+</section>
+</div>
+</div>
+</div>
+<!--body wrapper end-->
+
+<!--footer section start-->
+<!--footer section end-->
+<div id="bg"></div>
+<div id="show">
+    <input id="btnclose" type="button" value="Close"/>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</div>
+<!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="../../../js/joiner/jquery-1.10.2.min.js"></script>
+<script src="../../../js/joiner/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="../../../js/joiner/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../../js/joiner/bootstrap.min.js"></script>
+<script src="../../../js/joiner/modernizr.min.js"></script>
+<script src="../../../js/joiner/jquery.nicescroll.js"></script>
+
+<!--data table-->
+<script type="text/javascript" src="../../../js/joiner/data-tables/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../../../js/joiner/data-tables/DT_bootstrap.js"></script>
+
+<!--common scripts for all pages-->
+<script src="../../../js/joiner/scripts.js"></script>
+
+<!--script for editable table-->
+<script src="../../../js/joiner/editable-table.js"></script>
+
+<!-- END JAVASCRIPTS -->
+<script>
+    jQuery(document).ready(function() {
+        EditableTable.init();
     });
+    // function getImg(){
+    //     var box = document.getElementById('pic');
+    //     var file = document.getElementById('photo').files[0];
+    //     var reader = new FileReader();
+    //     reader.addEventListener("load",function(){
+    //         box.src = reader.result;
+    //     },false);
+    //     if(file){
+    //         reader.readAsDataURL(file);
+    //     }
+    // }
 </script>
 </body>
 </html>
-
-
-
-
-<%--//测试代码--%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
-<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--<title>列出报名学生</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<div>--%>
-<%--<center style="margin-top: 50px">--%>
-<%--<tn>${message}</tn>--%>
-<%--<th>卓音工作室2018报名学生信息</th>--%>
-<%--<form action="${website}/joiner/search" method="post">--%>
-<%--<div>--%>
-<%--<select name="type">--%>
-<%--<option value="name" selected = "selected"/>姓名</option>--%>
-<%--<option value="sex"/>性别</option>--%>
-<%--<option value="grade"/>年级</option>--%>
-<%--<option value="dep"/>意向部门</option>--%>
-<%--<option value="major"/>专业</option>--%>
-<%--<option value="state"/>状态</option>--%>
-<%--</select>--%>
-<%--<input type="text" name="keyWord">--%>
-<%--<input type="submit" name="submit" value="搜索">--%>
-<%--</div>--%>
-<%--</form>--%>
-<%--<table border="1">--%>
-<%--<tr bgcolor="#e6e6fa">--%>
-<%--<th>序号</th><th>姓名</th><th>性别</th><th>学院</th><th>专业</th><th>年级</th><th>年级排名</th><th>意向部门</th><th>操作</th><th>状态</th><th colspan="2">审核</th>--%>
-<%--</tr>--%>
-<%--<c:forEach items="${list}"  var="joiner" varStatus="status">--%>
-<%--<tr bgcolor="#e0ffff">--%>
-<%--<td>${status.index+1}</td>--%>
-<%--<td><a href="${website}joiner/show/${joiner.id}">${joiner.joinerName}</a></td>--%>
-<%--<td>${joiner.joinerSex}</td>--%>
-<%--<td>${joiner.joinerCollege}</td>--%>
-<%--<td>${joiner.joinerMajor}</td>--%>
-<%--<td>${joiner.joinerGrade}</td>--%>
-<%--<td>${joiner.joinerRanking}</td>--%>
-<%--<td>${joiner.joinerDep}</td>--%>
-<%--<td><a href="${website}joiner/del/${joiner.id}">删除</a></td>--%>
-<%--<td>--%>
-<%--<c:if test="${joiner.joinerState == '0'}">待审核</c:if>--%>
-<%--<c:if test="${joiner.joinerState == '1'}">审核通过</c:if>--%>
-<%--<c:if test="${joiner.joinerState == '2'}">审核未通过</c:if>--%>
-<%--</td>--%>
-<%--<form action="${website}joiner/check/${joiner.id}" method="post">--%>
-<%--<td>--%>
-<%--<select name="joinerState">--%>
-<%--<option value="0" selected="selected"></option>--%>
-<%--<option value="0">待审核</option>--%>
-<%--<option value="1">通过</option>--%>
-<%--<option value="2"/>不通过</option>--%>
-<%--</select>--%>
-<%--</td>--%>
-<%--<td><input type="submit" value="确定"></td>--%>
-<%--</form>--%>
-<%--</tr>--%>
-<%--</c:forEach>--%>
-<%--</table>--%>
-<%--</center>--%>
-<%--</div>--%>
-<%--</body>--%>
-<%--</html>--%>
