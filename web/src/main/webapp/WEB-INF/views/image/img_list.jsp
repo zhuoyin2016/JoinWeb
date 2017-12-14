@@ -169,6 +169,7 @@
                         <form action="${website}image/add_image" method="post" enctype="multipart/form-data">
                             <td><input type="file" name="file" id="imageField" ></td>
                             <td colspan="4"><input type="submit" name="submit" value="添加" style="margin-left: 45%;border-radius: 6px;font-size: 16px;padding: 10px 26px;"></td>
+
                         </form>
                     </c:if>
                     <br>

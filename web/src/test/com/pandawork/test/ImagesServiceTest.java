@@ -23,7 +23,8 @@ public class ImagesServiceTest extends AbstractTestCase {
     public void testAddImage() throws SSException {
         Image image = new Image();
         image.setImgName("哇");
-        image.setSelect(0);
+        image.setSelect(1);
+        image.setSmaName("img01");
         imageService.addImage(image);
         System.out.println("添加成功");
     }
@@ -31,7 +32,7 @@ public class ImagesServiceTest extends AbstractTestCase {
     //测试删除图片
     @Test
     public void testDelById() throws SSException{
-        imageService.delImageById(2);
+        imageService.delImageById(82);
         System.out.println("删除成功");
 
     }
@@ -39,8 +40,9 @@ public class ImagesServiceTest extends AbstractTestCase {
     //测试更新图片
     @Test
     public void testUpdate() throws SSException{
-        Image image = imageService.queryImageById(3);
+        Image image = imageService.queryImageById(83);
         image.setSelect(0);
+        image.setSmaName("img002.jpg");
         imageService.updateImage(image);
         System.out.println("更新成功");
 
@@ -49,9 +51,14 @@ public class ImagesServiceTest extends AbstractTestCase {
     //测试根据ID查询图片
     @Test
     public void testQueryById() throws SSException {
-        Image image = imageService.queryImageById(3);
+        Image image = imageService.queryImageById(83);
         System.out.println(image.getImgName());
         System.out.println(image.getUploadImgTime());
+
+        System.out.println(image.getSelect());
+
+        System.out.println(image.getSmaName());
+
     }
 
     //测试查询被轮播图片
@@ -59,6 +66,7 @@ public class ImagesServiceTest extends AbstractTestCase {
     public void testListSlImageAll() throws SSException{
         System.out.println(imageService.listSlImageAll());
     }
+
 
     //测试查询图片列表
     @Test

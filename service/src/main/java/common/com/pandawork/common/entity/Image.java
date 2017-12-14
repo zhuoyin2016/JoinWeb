@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * images实体
- * Created by houst,liuz on 2017/10/19.
+ * Created by houst on 2017/10/19.
  *
  */
 @Table(name = "t_images")
@@ -28,9 +28,15 @@ public class Image extends AbstractEntity {
     @Column(name = "upload_img_time")
     private String uploadImgTime;
 
-    //图片是否被选中
+    //图片是否被选为轮播图片
     @Column(name = "select")
     private Integer select;
+
+
+    //图片名
+    @Column(name = "sma_name")
+    private String smaName;
+
 
     public Integer getId() {
         return id;
@@ -65,6 +71,15 @@ public class Image extends AbstractEntity {
         this.select = select;
     }
 
+
+    public String getSmaName() {
+        return smaName;
+    }
+
+    public void setSmaName(String smaName) {
+        this.smaName = smaName;
+    }
+
     @Override
     public String toString() {
         return "Image{" +
@@ -72,6 +87,7 @@ public class Image extends AbstractEntity {
                 ", imgName='" + imgName + '\'' +
                 ", uploadImgTime='" + uploadImgTime + '\'' +
                 ", select=" + select +
+                ", smaName='" + smaName + '\'' +
                 '}';
     }
 }

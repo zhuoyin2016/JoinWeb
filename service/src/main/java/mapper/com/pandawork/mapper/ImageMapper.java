@@ -7,9 +7,9 @@ import java.util.List;
 
 /**
  * 轮播图片管理mapper层
- * Created by houst,liuz on 2017/10/19.
- *增加图片，删除图片，修改图片，根据id查询图片，查询被轮播的图片，查询图片列表
- *
+ * Created by houst on 2017/10/19.
+ *增加图片，删除图片，修改图片信息，根据id查询图片，查询被轮播的图片，查询图片列表
+ *删除选择的图片
  */
 public interface ImageMapper {
 
@@ -55,5 +55,7 @@ public interface ImageMapper {
      * @throws Exception 异常
      */
     public List<Image> listImageAll() throws Exception;
+
+
 }
 

@@ -7,9 +7,11 @@
     <!--增加图片-->
     <insert id="addImage">
         INSERT INTO `t_images`
-        (`id`, `img_name`, `upload_img_time`, `select`)
+        (`id`, `img_name`, `upload_img_time`,`select`,`sma_name`)
         VALUES (#{image.id}, #{image.imgName},
-        #{image.uploadImgTime}, #{image.select})
+        #{image.uploadImgTime}, #{image.select},
+        #{image.smaName}
+        )
     </insert>
 
     <!--根据id删除图片-->
@@ -21,7 +23,8 @@
     <!--修改图片-->
     <update id="updateImage">
         UPDATE `t_images`
-        SET `select` = #{image.select}
+        SET `select` = #{image.select},
+        `sma_name` = #{image.smaName}
         WHERE `id` = #{image.id}
     </update>
 

@@ -40,7 +40,7 @@
             <input type="password" class="form-control" placeholder="Password">
 
             <button class="btn btn-lg btn-login btn-block" type="submit">
-                <a href="index.jsp"><i class="fa fa-check"></i></a>
+                <a href="index.jsp"><i class="fa fa-check"></i></a><!--这里的index.jsp待改，改成管理员的管理页面-->
             </button>
         </div>
     </form>

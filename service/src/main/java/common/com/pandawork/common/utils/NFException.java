@@ -41,7 +41,8 @@ public enum  NFException implements IBizExceptionMes {
     UpdateImageFailed("更新图片失败",90003),
     queryImageByIdFailed("据id查询图片失败",90004),
     ListSlImageAllFailed("查询被轮播图片列表失败",90005),
-    ListImageAllFailed("查询图片列表失败",90005),
+    ListSlSomeImageFailed("查询被选择图片列表失败",90006),
+    ListImageAllFailed("查询图片列表失败",90007),
 
     AddJoinerFailed("报名失败",30001),
     DeleteJoinerFailed("删除报名学生失败",30002),

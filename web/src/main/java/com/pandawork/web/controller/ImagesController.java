@@ -23,31 +23,53 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by houst,liuz on 2017/10/20.
+ * Created by houst on 2017/10/20.
  * 上传图片处理，上传图片，根据id删除图片，列出全部图片，
  * 跳转到选择轮播图片的页面，选择图片的页面，选择轮播图片成功并放到卓音主页
  */
 
 @Controller
 @RequestMapping("/image")
-@SessionAttributes({"num","number"})
+//@SessionAttributes({"num","number"})
 public class ImagesController extends AbstractController{
 
+
     /**
-     * 上传图片前的处理
-     * @param num num
-     * @param number number
-     * @param modelMap modelMap
+     *
+     * 图片管理页面
      * @param model model
-     * @return return
-     * @throws SSException 异常
+     * @return 返回
      */
-    @RequestMapping(value ="/to_add_image/{num}/{number}", method = RequestMethod.GET)
-    public String toAddImage(@PathVariable("num") int num, @PathVariable("number") int number,ModelMap modelMap,Model model) throws SSException {
-       modelMap.addAttribute("num",num);
-        modelMap.addAttribute("number",number);
-        return "redirect:/image/list2";
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String listImageAll(Model model) {
+        try {
+            List<Image> imageList = Collections.emptyList();
+            List<Image> slImageList = Collections.emptyList();
+            imageList = imageService.listImageAll();
+            slImageList = imageService.listSlImageAll();
+            model.addAttribute("imageList", imageList);
+            model.addAttribute("slImageList",slImageList);
+            return "content";
+        } catch (SSException e) {
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
     }
+
+//    /**
+//     * 上传图片前的处理
+//     * @param modelMap modelMap
+//     * @param model model
+//     * @return return
+//     * @throws SSException 异常
+//     */
+//    @RequestMapping(value ="/to_add_image/{num}/{number}", method = RequestMethod.GET)
+//    public String toAddImage(ModelMap modelMap,Model model,@ModelAttribute("num") int num,@ModelAttribute("number") int number) throws SSException {
+//        model.addAttribute("num",num);
+//        model.addAttribute("number",number);
+//        return "redirect:/image/list2";
+//    }
 
 
     /**
@@ -65,6 +87,8 @@ public class ImagesController extends AbstractController{
         //获取原文件名，并在后台输出
         String filename = file.getOriginalFilename();
 //        System.out.println(filename);
+        //获取文件后缀名
+        String prefix = filename.substring(filename.lastIndexOf(".") + 1);
 
         //UUID.randomUUID()局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的
         String newFileName = UUID.randomUUID() + filename;
@@ -104,9 +128,10 @@ public class ImagesController extends AbstractController{
         String name = "../../image/upload_image/" + newFileName;
         image.setImgName(name);
         image.setSelect(0);
+        image.setSmaName(newFileName);
         imageService.addImage(image);
 
-        return "redirect:/image/list2";
+        return "redirect:/image/list";
     }
 
     /**
@@ -134,7 +159,7 @@ public class ImagesController extends AbstractController{
             imageService.delImageById(id);
             System.out.println("数据库删除成功");
 
-            return "redirect:/image/list2";
+            return "redirect:/image/list";
         } catch (SSException e) {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -142,53 +167,30 @@ public class ImagesController extends AbstractController{
         }
     }
 
-    /**
-     * 第一次，初始化
-     * 列出全部图片
-     * @param model model
-     * @return 返回
-     */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String listImageAll(Model model) {
-        try {
-            List<Image> imageList = Collections.emptyList();
-            imageList = imageService.listImageAll();
-            int number = 0;//number 控制显示"添加图片按钮"
-            int num = 0;//num 控制添加文件的显示
-            model.addAttribute("imageList", imageList);
-            model.addAttribute("number", number);
-            model.addAttribute("num", num);
-            return "/image/img_list";
-        } catch (SSException e) {
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
-    }
 
-    /**
-     * 后继
-     * 列出全部图片
-     * @param model model
-     * @param num num
-     * @param number number
-     * @return return
-     */
-    @RequestMapping(value = "/list2", method = RequestMethod.GET)
-    public String listImageAll2(Model model,@ModelAttribute("num") int num,@ModelAttribute("number") int number) {
-        try {
-            List<Image> imageList = Collections.emptyList();
-            imageList = imageService.listImageAll();
-            model.addAttribute("imageList", imageList);
-            model.addAttribute("num",num);
-            model.addAttribute("number",number);
-            return "/image/img_list";
-        } catch (SSException e) {
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
-    }
+
+//    /**
+//     * 后继
+//     * 列出全部图片
+//     * @param model model
+//     * @return return
+//     */
+//    @RequestMapping(value = "/list2", method = RequestMethod.GET)
+//    public String listImageAll2(Model model) {
+//        try {
+//            List<Image> imageList = Collections.emptyList();
+//            List<Image> slImageList = Collections.emptyList();
+//            imageList = imageService.listImageAll();
+//            slImageList = imageService.listSlImageAll();
+//            model.addAttribute("imageList", imageList);
+//            model.addAttribute("slImageList",slImageList);
+//            return "content";
+//        } catch (SSException e) {
+//            LogClerk.errLog.error(e);
+//            sendErrMsg(e.getMessage());
+//            return ADMIN_SYS_ERR_PAGE;
+//        }
+//    }
 
 
     /**
@@ -226,7 +228,7 @@ public class ImagesController extends AbstractController{
             }
             imageService.updateImage(image);
             System.out.println("选择成功！");
-            return "redirect:/image/select_image";
+            return "redirect:/image/list";
 
         }catch (SSException e){
             LogClerk.errLog.error(e);

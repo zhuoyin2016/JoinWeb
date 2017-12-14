@@ -48,6 +48,7 @@ public interface ImageService {
      */
     public List<Image> listSlImageAll() throws SSException;
 
+
     /**
      *查询图片列表
      * @return 返回
