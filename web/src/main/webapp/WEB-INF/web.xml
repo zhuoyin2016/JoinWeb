@@ -115,6 +115,12 @@
         <url-pattern>*.css</url-pattern>
     </servlet-mapping>
 
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.gif</url-pattern>
@@ -124,7 +130,7 @@
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping><!--不过滤以它为结尾的文件-->
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
