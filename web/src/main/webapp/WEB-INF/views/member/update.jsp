@@ -34,8 +34,10 @@
 
     <title>更改成员信息</title>
 
-    <link href="../../../css/member/style.css" rel="stylesheet">
-    <link href="../../../css/member/style-responsive.css" rel="stylesheet">
+        <%--<link href="../../../css/member/style.css" rel="stylesheet">--%>
+        <%--<link href="../../../css/member/style-responsive.css" rel="stylesheet">--%>
+    <link href="../../../css/admin/style.css" rel="stylesheet">
+    <link href="../../../css/admin/style-responsive.css" rel="stylesheet">
 
 </head>
 
@@ -118,7 +120,7 @@
                         <li><a  href="${website}member/queryByDepartment/${4}">产品部</a></li>
                     </ul>
                 </li>
-                <li><a href="${website}joiner/list/first/1"><i class="fa fa-bullhorn"></i> <span>报名者</span></a></li>
+                <li><a href="${website}joiner/list"><i class="fa fa-bullhorn"></i> <span>报名者</span></a></li>
             </ul>
             <!--sidebar nav end-->
 
@@ -346,16 +348,30 @@
     <!-- main content end-->
 </section>
 
+<!--你原本的-->
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="../../../js/member/jquery-1.10.2.min.js"></script>
-<script src="../../../js/member/jquery-ui-1.9.2.custom.min.js"></script>
-<script src="../../../js/member/jquery-migrate-1.2.1.min.js"></script>
-<script src="../../../js/member/bootstrap.min.js"></script>
-<script src="../../../js/member/modernizr.min.js"></script>
-<script src="../../../js/member/jquery.nicescroll.js"></script>
+
+<%--<script src="../../../js/member/jquery-1.10.2.min.js"></script>--%>
+<%--<script src="../../../js/member/jquery-ui-1.9.2.custom.min.js"></script>--%>
+<%--<script src="../../../js/member/jquery-migrate-1.2.1.min.js"></script>--%>
+<%--<script src="../../../js/member/bootstrap.min.js"></script>--%>
+<%--<script src="../../../js/member/modernizr.min.js"></script>--%>
+<%--<script src="../../../js/member/jquery.nicescroll.js"></script>--%>
+
+<%--<!--common scripts for all pages-->--%>
+<%--<script src="../../../js/member/scripts.js"></script>--%>
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="../../../js/jquery-1.10.2.min.js"></script>
+<script src="../../../js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="../../../js/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../../js/bootstrap.min.js"></script>
+<script src="../../../js/modernizr.min.js"></script>
+<script src="../../../js/jquery.nicescroll.js"></script>
 
 <!--common scripts for all pages-->
-<script src="../../../js/member/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 
 </body>
 </html>
