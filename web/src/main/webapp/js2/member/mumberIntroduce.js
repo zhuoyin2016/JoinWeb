@@ -1,9 +1,0 @@
-$(function(){
-	$(".part").hover(function(){
-			$(this).addClass("on")
-			.child(".box2").child("h2").addClass("large")
-			.siblings("p").addClass("large-");
-		},function(){
-			$(this).removeClass("on");
-		})
-});

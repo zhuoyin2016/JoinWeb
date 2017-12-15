@@ -22,8 +22,8 @@ public class ActivityServiceTest extends AbstractTestCase {
     @Test
     public void testAddActivity() throws SSException {
         Activity activity = new Activity();
-        activity.setActivityTime("2018/3/24");
-        activity.setActivityTitle("吃栗子jjjj");
+        activity.setActivityTime("2017-3-24");
+        activity.setActivityTitle("吃栗子");
         activity.setActivityContent("软的");
         activity.setActivityImg1("kkk");
         activity.setActivityImg2("kkk");
@@ -35,7 +35,7 @@ public class ActivityServiceTest extends AbstractTestCase {
     //测试删除活动
     @Test
     public void testDelActivityById() throws SSException{
-        activityService.delActivityById(2);
+        activityService.delActivityById(4);
         System.out.println("删除成功");
 
     }
@@ -44,7 +44,7 @@ public class ActivityServiceTest extends AbstractTestCase {
     @Test
     public void testUpdateActivity() throws SSException{
         Activity activity = activityService.queryActivityById(5);
-        activity.setActivityTime("2019年5月30日");
+        activity.setActivityTime("2017-12-10");
         activity.setActivityTitle("吃李子");
         activity.setActivityContent("酸的");
         activity.setActivityImg1("kkk");

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: dell
-  Date: 2017/11/4
-  Time: 18:08
+  User: houxd
+  Date: 2017/12/11
+  Time: 21:29
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,192 +12,229 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>卓音工作室 | 后台管理页面</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  width - viewport的宽度 height - viewport的高度
-          initial-scale - 初始的缩放比例vvv
-          minimum-scale - 允许用户缩放到的最小比例
-          maximum-scale - 允许用户缩放到的最大比例
-          user-scalable - 用户是否可以手动缩放 -->
-    <meta name="description" content="Admin panel developed with the Bootstrap from Twitter.">
-    <!-- 从Twitter，内容管理员面板开发与引导。 -->
-    <meta name="author" content="travis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/adminImage/png">
 
-    <link href="../../../css/admin/bootstrap.css" rel="stylesheet">
-    <link href="../../../css/admin/site.css" rel="stylesheet">
-    <link href="../../../css/admin/bootstrap-responsive.css" rel="stylesheet">
+    <title>活动信息</title>
+
+    <link href="../../../css/admin/style.css" rel="stylesheet">
+    <link href="../../../css/admin/activity.css" rel="stylesheet">
+
 </head>
-<body>
-<!-- 导航栏 -->
-<!-- 导航栏 -->
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="brand" href="#">卓音后台管理</a>
-            <div class="btn-group pull-right">
-                <a class="btn" href="#">
-                    <i class="icon-user"></i> 设置
-                    <!-- 放在最右的小图标 -->
-                </a>
-                <!-- 下拉小图标 -->
-                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="${website}man/single">修改个人资料</a></li>
-                    <li class="divider"></li>
-                    <li><a href="${website}man/logout">退出账号</a></li>
-                </ul>
-            </div>
 
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">人员<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="divider"></li>
-                            <li><a href="${website}man/all">管理员</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">内容<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="${website}activity/listAll">活动</a></li>
-                            <li class="divider"></li>
-                            <li class="level1_1"><a class="big-li-of-a">图片</a>
-                                <ul class="level2_1">
-                                    <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
-                                    <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
-                                </ul>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="level1_1"><a class="big-li-of-a">部门成员</a>
-                                <ul class="level2_1">
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${3}">后端</a></li>
-                                    <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">报名<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="${website}joiner/list/first/1">报名者</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="${website}/image/list"><img src="../../../image/adminImage/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="${website}/image/list"><img src="../../../image/adminImage/logo_icon.png" alt=""></a>
+        </div>
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="${website}man/all"><i class="fa fa-user"></i> <span>管理员管理</span></a></li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-laptop"></i> <span>页面管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="${website}/image/list"> 首页管理</a></li>
+                        <li class="active"><a href="${website}/activity/listAll"> 活动</a></li>
+                        <li><a href="${website}/project/listAllProject"> 项目</a></li>
+                        <li><a href="${website}/member/queryByDepartment/${1}${2}${3}${4}"> 团队成员</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="${website}/joiner/list/first/1"><i class="fa fa-bullhorn"></i> <span>审核报名</span></a></li>
+            </ul>
+            <!--sidebar nav end-->
+
+
         </div>
     </div>
-</div>
+    <!-- left side end-->
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span3">
-            <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                    <li class="nav-header"><i class="icon-wrench"></i>人员</li>
-                    <li class=""><a href="${website}man/all">管理员</a></li>
-                    <li class="nav-header"><i class="icon-signal"></i> 内容</li>
-                    <li><a href="${website}activity/listAll">活动</a></li>
-                    <li><a href="${website}project/listAllProject">项目</a></li>
-                    <li class="level1_1"><a class="big-li-of-a">图片</a>
-                        <ul class="level2_1">
-                            <li><a class="small-li-of-a" href="${website}image/list">全部图片</a></li>
-                            <li><a class="small-li-of-a" href="${website}image/select_ok">轮播图片</a></li>
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="/image/list" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="../../../image/photos/user-avatar.png" alt="" />
+                            李XX
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="${website}/man/logout"><i class="fa fa-sign-out"></i>注销</a></li>
+                        </ul>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="${website}/man/logout"><i class="fa fa-sign-out"></i>退出</a></li>
                         </ul>
                     </li>
-                    <li class="level1_1"><a class="big-li-of-a">部门成员</a>
-                        <ul class="level2_1">
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${1}">研究生团队</a></li>
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${2}">前端</a></li>
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${3}">后端</a></li>
-                            <li><a class="small-li-of-a" href="${website}member/queryByDepartment/${4}">产品部</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-header"><i class="icon-signal"></i> 报名</li>
-                    <li><a href="${website}joiner/list/first/1">报名者</a></li>
+
                 </ul>
             </div>
-        </div>
+            <!--notification menu end -->
 
-        <div class="span9">
-            <div class="row-fluid">
-                <div class="page-header">
-                    <h1>
-                        内容
-                        <small>活动</small>
-                    </h1>
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                活动信息管理
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="${website}/image/list">页面管理</a>
+                </li>
+                <li class="active"> 活动信息管理 </li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row blog">
+                <div class="col-md-4">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <input type="text" placeholder="搜索活动" class="form-control blog-search">
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-body">
+                        <div class="blog-post">
+                        <h3>最新活动信息</h3>
+                        <div class="media">
+                        <a href="javascript:;" class="pull-left">
+                        <img alt="" src="../../../image/blog/blog-thumb-1.jpg" class=" ">
+                        </a>
+                        <div class="media-body">
+                        <h5 class="media-heading"><a href="javascript:;">第一次卓音沙龙举办</a></h5>
+                        <p>
+                        第一次卓音的技术沙龙圆满举办。
+                        </p>
+                        </div>
+                        </div>
+                        <div class="media">
+                        <a href="javascript:;" class="pull-left">
+                        <img alt="" src="../../../image/blog/blog-thumb-2.jpg" class=" ">
+                        </a>
+                        <div class="media-body">
+                        <h5 class="media-heading"><a href="javascript:;">活动题目</a></h5>
+                        <p>
+                        活动小简介
+                        </p>
+                        </div>
+                        </div>
+                        <div class="media">
+                        <a href="javascript:;" class="pull-left">
+                        <img alt="" src="../../../image/blog/blog-thumb-3.jpg" class=" ">
+                        </a>
+                        <div class="media-body">
+                        <h5 class="media-heading"><a href="javascript:;">活动题目</a></h5>
+                        <p>
+                        活动小简介。
+                        </p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="col-lg-offset-4 col-lg-10">
+                            <a href="${website}activity/toadd"><input class="but" type="submit" value="添加活动"></input></a>
+                        </div>
+                    </div>
+
+
+
                 </div>
-                <p style="text-align: center;font-size: 25px">活动管理</p>
-              <c:forEach items="${activityList}" var="activity" varStatus="status">
-                <div>
-                    <table class="table table-striped table-bordered table-condensed">
-                        <tr>
-                            <th width="7%">title</th>
-                            <td>${activity.activityTitle}</td>
-                            <th width="7%">time</th>
-                            <td>${activity.activityTime}</td>
-                        </tr>
-                        <tr>
-                            <th colspan="4">内容</th>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
+
+                <div class="col-md-8">
+                    <div class="panel">
+                        <c:forEach items="${activityList}" var="activity" varStatus="status">
+                        <div class="panel-body">
+                            <h1 class="text-center mtop35"><a href="#">${activity.activityTitle}</a></h1>
+                            <p class="text-center auth-row">
+                                举办时间：${activity.activityTime}
+                            </p>
+                            <div class="blog-img-wide">
+                                <img src="../../../image/activity_img/&{activityImg1}" alt="">
+                            </div>
+                            <p>
                                     ${activity.activityContent}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <img src="../../../image/activity_img/${activity.activityImg1}" width="80px" height="60px">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="text-align: center;">
+                            </p>
+                            <div class="col-lg-offset-5 col-lg-10">
                                 <button><a href="${website}activity/delete/${activity.id}">删除</a></button>
                                 <button><a href="${website}activity/toUpdate/${activity.id}">修改</a></button>
-                            </td>
-                        </tr>
-                    </table>
+                            </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center">
+                        <ul class="pagination blog-pagination">
+                            <li><a href="#">PREV</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">NEXT</a></li>
+                        </ul>
+
+                    </div>
                 </div>
-              </c:forEach>
-                <div style="padding: 40px;text-align: center;">
-                    <a class="btn" href="${website}activity/toadd">添加活动</a>
-                </div>
+
             </div>
         </div>
-    </div>
-</div>
-<script src="../../../js/admin/jquery.js"></script>
-<script src="../../../js/admin/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.dropdown-menu li a').hover(
-            function() {
-                $(this).children('i').addClass('icon-white');
-            },
-            function() {
-                $(this).children('i').removeClass('icon-white');
-            });
-    });
-    $(function(){
-        $("a.big-li-of-a").next().hide();
-        $(".level1_1 > a").click(function(){
-            // 如果执行第一个level的下一个level
-            if($(".level2_1").css("display")=="none"){
-                $(this).addClass("current")
-                //给当前元素添加“current”元素
-                $(".level2_1").show();//显示内容
-                return false;//避免<a>标签跳转
-            }
+        <!--body wrapper end-->
 
-            else{//否则将内容隐藏（或者说是重新点击时隐藏）
-                $(".level2_1").hide();
-            }
-        });
-    });
-</script>
+
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="../../../js/jquery-1.10.2.min.js"></script>
+<script src="../../../js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="../../../js/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../../js/bootstrap.min.js"></script>
+<script src="../../../js/modernizr.min.js"></script>
+<script src="../../../js/jquery.nicescroll.js"></script>
+
+
+<!--common scripts for all pages-->
+<script src="../../../js/scripts.js"></script>
+
 </body>
 </html>
